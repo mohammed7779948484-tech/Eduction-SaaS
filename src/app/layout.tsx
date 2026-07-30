@@ -1,38 +1,46 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Tajawal } from "next/font/google";
 import "./globals.css";
-import { Toaster } from "@/components/ui/toaster";
+import { Toaster } from "@/components/ui/sonner";
+import { LanguageProvider } from "@/components/layout/language-provider";
+import { SiteHeader } from "@/components/layout/site-header";
+import { SiteFooter } from "@/components/layout/site-footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const tajawal = Tajawal({
+  variable: "--font-tajawal",
+  subsets: ["arabic", "latin"],
+  weight: ["400", "500", "700", "800"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Z.ai Code Scaffold - AI-Powered Development",
-  description: "Modern Next.js scaffold optimized for AI-powered development with Z.ai. Built with TypeScript, Tailwind CSS, and shadcn/ui.",
-  keywords: ["Z.ai", "Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "AI development", "React"],
-  authors: [{ name: "Z.ai Team" }],
+  title: {
+    default: "برنامج الحساب الذهني | Mental Arithmetic Program",
+    template: "%s | برنامج الحساب الذهني",
+  },
+  description:
+    "برنامج الحساب الذهني (السوروبان) — منهج تعليمي حديث ينمّي مهارات الحساب الذهني لدى الأطفال من 7 إلى 12 عاماً. احجز حصة تجريبية مجانية.",
+  keywords: [
+    "الحساب الذهني",
+    "السوروبان",
+    "برنامج الحساب الذهني",
+    "تعليم الأطفال",
+    "اليمن",
+    "Mental Arithmetic",
+    "Soroban",
+  ],
+  authors: [{ name: "برنامج الحساب الذهني" }],
   icons: {
-    icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
+    icon: "/brand/favicon.svg",
   },
   openGraph: {
-    title: "Z.ai Code Scaffold",
-    description: "AI-powered development with modern React stack",
-    url: "https://chat.z.ai",
-    siteName: "Z.ai",
+    title: "برنامج الحساب الذهني | Mental Arithmetic Program",
+    description:
+      "منهج تعليمي حديث يعتمد على السوروبان لتنمية مهارات الحساب الذهني لدى الأطفال.",
     type: "website",
+    locale: "ar_YE",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Z.ai Code Scaffold",
-    description: "AI-powered development with modern React stack",
-  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
@@ -41,12 +49,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
+        className={`${tajawal.variable} font-sans antialiased bg-background text-foreground min-h-screen flex flex-col`}
       >
-        {children}
-        <Toaster />
+        <LanguageProvider>
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:start-3 focus:z-toast focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground focus:shadow-lg"
+          >
+            تخطَّ إلى المحتوى
+          </a>
+          <SiteHeader />
+          <main id="main" className="flex-1">{children}</main>
+          <SiteFooter />
+          <Toaster />
+        </LanguageProvider>
       </body>
     </html>
   );

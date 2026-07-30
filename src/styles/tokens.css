@@ -1,0 +1,134 @@
+/*
+ * Design Tokens — the SINGLE source of truth for raw brand values.
+ * Raw client hex values live ONLY in this file (per master task §15/§16).
+ * Everywhere else uses semantic tokens exposed via @theme inline in globals.css.
+ *
+ * Source: DOCX image1 (authoritative brand color plate) — see docs/SOURCE_OF_TRUTH.md §4.1.
+ */
+
+:root {
+  /* ===== Raw brand palette (exact, from client DOCX image1) ===== */
+  --brand-orange: #f2a23c;      /* CTA / conversion accent */
+  --brand-navy-dark: #06335c;   /* deepest navy — hero/footer depth */
+  --brand-blue: #2c8fc0;        /* medium blue — secondary surfaces */
+  --brand-teal: #37b0c3;        /* primary turquoise — brand accent, icons */
+  --brand-navy: #0a4c82;        /* primary navy — structure, headings */
+  --brand-grey-light: #d2dce2;  /* borders, dividers */
+  --brand-grey-text: #56636e;   /* secondary text (darkened → WCAG AA on white ≈ 5.0:1) */
+  --brand-ink: #2a3a47;         /* primary text / headings */
+  --brand-bg: #f4f9fa;          /* page background (icy off-white) */
+  --brand-teal-pale: #e1f0f3;   /* soft surface tint + teal text on navy (≈ 13:1) */
+  --brand-teal-strong: #1f7d8c; /* teal for TEXT on light surfaces (≈ 4.6:1 on white) */
+  --brand-white: #ffffff;
+
+  /* ===== Semantic: surfaces ===== */
+  --background: var(--brand-bg);
+  --foreground: var(--brand-ink);
+  --card: var(--brand-white);
+  --card-foreground: var(--brand-ink);
+  --popover: var(--brand-white);
+  --popover-foreground: var(--brand-ink);
+
+  /* ===== Semantic: primary (navy — structure/trust) ===== */
+  --primary: var(--brand-navy);
+  --primary-foreground: var(--brand-white);
+
+  /* ===== Semantic: secondary (soft teal surface) ===== */
+  --secondary: var(--brand-teal-pale);
+  --secondary-foreground: var(--brand-navy);
+
+  /* ===== Semantic: muted ===== */
+  --muted: var(--brand-teal-pale);
+  --muted-foreground: var(--brand-grey-text);
+
+  /* ===== Semantic: accent (teal — brand identity) ===== */
+  --accent: var(--brand-teal);
+  --accent-foreground: var(--brand-white);
+
+  /* ===== Semantic: CTA (orange — conversion only) ===== */
+  --cta: var(--brand-orange);
+  --cta-foreground: var(--brand-navy-dark);
+
+  /* ===== Semantic: states ===== */
+  --destructive: #d64545;
+  --destructive-foreground: var(--brand-white);
+  --success: #2f9e6f;
+  --success-foreground: var(--brand-white);
+  --warning: #d97706;
+  --warning-foreground: var(--brand-white);
+
+  /* ===== Semantic: structure ===== */
+  --border: var(--brand-grey-light);
+  --input: var(--brand-grey-light);
+  --ring: var(--brand-teal);
+
+  /* ===== Chart tokens (derived from brand) ===== */
+  --chart-1: var(--brand-navy);
+  --chart-2: var(--brand-teal);
+  --chart-3: var(--brand-orange);
+  --chart-4: var(--brand-blue);
+  --chart-5: var(--brand-navy-dark);
+
+  /* ===== Radius scale ===== */
+  --radius: 0.75rem;            /* 12px — matches reference ~12-16px */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-pill: 9999px;
+
+  /* ===== Shadows ===== */
+  --shadow-xs: 0 1px 2px 0 rgb(6 51 92 / 0.05);
+  --shadow-sm: 0 1px 3px 0 rgb(6 51 92 / 0.08), 0 1px 2px -1px rgb(6 51 92 / 0.06);
+  --shadow-md: 0 4px 12px -2px rgb(6 51 92 / 0.10), 0 2px 6px -2px rgb(6 51 92 / 0.06);
+  --shadow-lg: 0 12px 32px -8px rgb(6 51 92 / 0.16), 0 4px 12px -4px rgb(6 51 92 / 0.08);
+  --shadow-focus: 0 0 0 3px rgb(55 176 195 / 0.35);
+
+  /* ===== Spacing scale (4px base) ===== */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* ===== Container widths ===== */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1200px;
+  --container-2xl: 1320px;
+
+  /* ===== Z-index scale ===== */
+  --z-base: 0;
+  --z-dropdown: 1000;
+  --z-sticky: 1100;
+  --z-header: 1050;
+  --z-overlay: 1200;
+  --z-modal: 1300;
+  --z-toast: 1400;
+
+  /* ===== Motion duration scale (seconds) ===== */
+  --motion-instant: 0.08s;
+  --motion-fast: 0.18s;
+  --motion-normal: 0.32s;
+  --motion-slow: 0.5s;
+  --motion-slower: 0.8s;
+
+  /* ===== Motion easing ===== */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --ease-decelerated: cubic-bezier(0, 0, 0.2, 1);
+  --ease-accelerated: cubic-bezier(0.4, 0, 1, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ===== Stagger ===== */
+  --stagger-fast: 0.06s;
+  --stagger-normal: 0.1s;
+  --stagger-slow: 0.14s;
+}

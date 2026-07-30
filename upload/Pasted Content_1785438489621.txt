@@ -1,0 +1,2033 @@
+Master Task: Prepare the AI-Native Frontend System, Build the Design System, and Implement the Homepage Only
+
+You are acting as the primary senior frontend architect, design-systems lead, AI coding workflow engineer, implementation owner, and final decision-maker.
+
+You are working inside an EXISTING Next.js project.
+
+Do not create a new project.
+
+Do not replace the repository with another scaffold.
+
+You must personally perform the analysis, planning, architecture decisions, documentation, coding, integration, fixes, and final verification.
+
+After installing the required agent skills and understanding the repository, you must create a carefully structured team of specialist subagents.
+
+The subagents are reviewers and specialist auditors.
+
+They must assist you by inspecting your work, challenging decisions, identifying omissions, comparing the implementation against the client sources, and verifying quality.
+
+They must not replace you as the primary implementer.
+
+You remain responsible for:
+
+* Thinking.
+* Planning.
+* Writing documentation.
+* Making architecture decisions.
+* Editing the repository.
+* Implementing the design system.
+* Implementing the homepage.
+* Resolving disagreements.
+* Applying fixes.
+* Making the final quality decision.
+
+The subagents primarily review and report.
+
+Do not allow multiple agents to make uncontrolled overlapping edits.
+
+⸻
+
+1. Task Boundary
+
+This task covers only:
+
+1. Full source-file inspection.
+2. Existing repository inspection.
+3. Agent skill discovery and installation.
+4. Specialist subagent-team creation.
+5. Repository and dependency cleanup.
+6. Project documentation and AI operating rules.
+7. Design-system extraction and implementation.
+8. The internal /design-system reference page.
+9. Shared layout components.
+10. The complete homepage.
+11. Responsive, visual, accessibility, architectural, and documentation verification.
+12. Iterative review and correction loops.
+
+Do NOT implement the remaining website pages during this task.
+
+Stop only after the homepage, design system, repository structure, documentation, and quality verification are complete.
+
+⸻
+
+2. Project Purpose
+
+This repository is being used to create a high-fidelity interactive frontend prototype for a client presentation.
+
+The purpose of the prototype is to help the client:
+
+* Understand the proposed website.
+* Review the visual identity.
+* Experience the homepage direction.
+* Approve the visual approach.
+* Gain confidence in the project.
+* Approve the commercial contract.
+
+This is NOT the final production website.
+
+The production project will be created separately after client approval.
+
+This prototype must therefore be:
+
+* Arabic-first.
+* Fully RTL.
+* Visually premium and distinctive.
+* Responsive across mobile, tablet, laptop, and large desktop screens.
+* Static and frontend-only.
+* Built with realistic demonstration content.
+* Easy for future AI coding sessions to continue consistently.
+* Architected professionally despite being a prototype.
+
+The prototype must not contain:
+
+* A database.
+* Prisma.
+* Authentication.
+* A real backend.
+* A CMS.
+* Real API integrations.
+* Payment processing.
+* Real registration.
+* Real platform functionality.
+* Real AI-assistant functionality.
+* Production user accounts.
+* Production data workflows.
+
+Do not introduce production backend architecture into this prototype.
+
+⸻
+
+3. Authoritative Source Files
+
+You will receive three authoritative inputs:
+
+1. The comprehensive Phase 1 proposal PDF.
+2. The client identity and website execution-concept DOCX.
+3. The client-provided homepage reference image.
+
+Read and inspect ALL pages, embedded images, diagrams, colors, text, and visual references.
+
+Do not rely only on:
+
+* Filenames.
+* Existing summaries.
+* OCR output.
+* The first extracted text block.
+* Previous repository assumptions.
+
+You must:
+
+* Inspect the embedded media inside the DOCX where possible.
+* Inspect the PDF completely.
+* Inspect the homepage image visually.
+* Catalog reusable client-provided images and logos.
+* Preserve the Arabic terminology used by the client.
+* Extract the complete page scope.
+* Extract the homepage sections.
+* Extract the audience and conversion goals.
+* Extract the colors and identity direction.
+* Extract the visual hierarchy.
+* Extract the design expectations.
+* Extract the future platform concepts without implementing them.
+
+Use this source-of-truth hierarchy:
+
+1. The client identity DOCX and homepage reference image are authoritative for visual identity and homepage direction.
+2. The comprehensive Phase 1 proposal is authoritative for business goals, audiences, content, sections, and future page scope.
+3. Existing scaffold defaults are not authoritative.
+4. Missing details may be resolved through documented prototype assumptions.
+5. Demonstration content does not need to represent verified production data.
+6. Never present illustrative statistics or testimonials as verified client facts.
+
+Create:
+
+docs/SOURCE_OF_TRUTH.md
+
+It must document:
+
+* Every source.
+* What each source controls.
+* Requirements extracted from each source.
+* Visual rules extracted from each source.
+* Conflicts discovered.
+* The selected resolution for every conflict.
+* Missing information.
+* Prototype assumptions.
+* Unverified numbers and claims.
+* Assets extracted from the client files.
+
+⸻
+
+4. Inspect the Existing Repository Before Changing Anything
+
+Before editing or deleting files, inspect:
+
+* package.json
+* bun.lock
+* All scripts.
+* Actual dependency imports.
+* src/app
+* src/components
+* src/components/ui
+* src/hooks
+* src/lib
+* prisma
+* db
+* examples
+* mini-services
+* tests
+* public
+* next.config.ts
+* tailwind.config.ts
+* components.json
+* postcss.config.mjs
+* eslint.config.mjs
+* tsconfig.json
+* Caddyfile
+* Git status.
+* Existing user-created changes.
+* Existing generated files.
+* Existing environment-specific files.
+
+Do not destroy unrelated user work.
+
+Do not assume the supplied repository description is perfectly current.
+
+Verify everything against the actual repository.
+
+Create:
+
+docs/REPOSITORY_AUDIT.md
+
+Include:
+
+* Current architecture.
+* Framework and versions.
+* Current runtime.
+* Current package manager.
+* Existing scripts.
+* Existing UI components.
+* Existing architecture patterns.
+* Current infrastructure dependencies.
+* Current API or backend remnants.
+* Scaffold-only files.
+* Existing user work that must be preserved.
+* Risks.
+* Potential cleanup candidates.
+* Files that must not be deleted before verifying their environment role.
+
+Do not perform destructive cleanup until the audit has been completed.
+
+⸻
+
+5. Discover and Install Agent Skills
+
+First verify whether the official find-skills skill is already available to the active coding agent.
+
+If it is not installed, install it using the Skills CLI in the project-local scope supported by the active agent.
+
+Use the active environment’s supported package runner.
+
+The project currently uses Bun, so avoid generating a conflicting lockfile.
+
+Do not manually copy skills into undocumented system-internal directories.
+
+Do not modify global agent installations unless project-local installation is impossible and the active environment explicitly requires another supported location.
+
+After installation:
+
+* Verify that the skill is discoverable.
+* Read its complete instructions.
+* Use it to search for the skills needed for this project.
+
+Search for skills covering:
+
+* Structured project planning.
+* Task decomposition.
+* Frontend design.
+* Design-system creation.
+* DESIGN.md authoring.
+* Next.js App Router.
+* React architecture.
+* React performance.
+* Tailwind CSS v4.
+* shadcn/ui.
+* Arabic RTL interfaces.
+* Accessibility.
+* Framer Motion.
+* GSAP.
+* Motion design.
+* Browser automation.
+* Responsive visual testing.
+* Screenshot comparison.
+* Frontend quality review.
+* Documentation quality.
+* AGENTS.md authoring.
+
+At minimum, evaluate:
+
+* A reputable frontend-design skill.
+* The official shadcn skill.
+* A current React or Next.js best-practices skill.
+* A planning or task-decomposition skill.
+* A browser or visual-verification skill.
+* An accessibility skill.
+* A suitable design-system or DESIGN.md skill.
+
+Do not blindly install a DESIGN.md skill that requires:
+
+* Figma.
+* Stitch.
+* A missing MCP.
+* Proprietary design input unavailable in this environment.
+* A workflow incompatible with PDF, DOCX, image, and source-code inputs.
+
+Inspect every candidate’s full SKILL.md.
+
+Evaluate:
+
+* Repository owner.
+* Source reputation.
+* Maintenance activity.
+* Compatibility with the project stack.
+* Installation count or adoption.
+* Security audit status.
+* Shell commands contained in the skill.
+* External dependencies.
+* Overlap with other skills.
+* Whether it adds real value.
+* Whether the active agent can actually use it.
+
+Install the smallest high-value skill set.
+
+Prefer approximately five to eight focused skills rather than installing many overlapping skills.
+
+Create:
+
+docs/SKILLS.md
+
+For every evaluated skill, record:
+
+* Skill name.
+* Source.
+* Purpose.
+* Installed or rejected.
+* Reason.
+* Security observations.
+* Prerequisites.
+* Exact installed location.
+* Which project phase uses it.
+* Which agent or subagent is assigned to it.
+
+Do not create specialist subagents before this skill-selection stage is complete.
+
+⸻
+
+6. Create the Specialist Subagent Review Team
+
+After the skills have been installed and their instructions have been read, create a specialist review team.
+
+The primary agent must first:
+
+1. Understand the source files.
+2. Understand the repository.
+3. Complete the initial repository audit.
+4. Complete the skill-discovery process.
+5. Create an initial implementation plan.
+
+Only then create the subagents.
+
+Create only as many subagents as the environment can manage reliably.
+
+A recommended team is six or seven subagents.
+
+Each subagent must receive:
+
+* A clear role.
+* A narrow scope.
+* The exact files it should inspect.
+* The exact skills it should use.
+* The required report format.
+* Clear instruction that it is reviewing the primary agent’s work.
+* Clear instruction not to redesign the project independently.
+* Clear instruction not to make broad repository changes.
+* Clear instruction to identify evidence using file paths, components, screenshots, routes, or source-document references.
+
+Recommended subagent roles:
+
+Subagent 1: Client Source and Requirements Auditor
+
+Primary responsibilities:
+
+* Re-read the Phase 1 PDF.
+* Re-read the client DOCX.
+* Re-inspect the homepage reference image.
+* Compare the implementation and documentation against the sources.
+* Detect missing sections, terminology errors, invented claims, incorrect colors, or altered hierarchy.
+* Verify that documented assumptions are clearly marked.
+
+Suggested skills:
+
+* Document analysis.
+* Planning.
+* Requirements analysis.
+* Frontend-design review where relevant.
+
+This subagent must not create new requirements.
+
+It must distinguish:
+
+* Client requirement.
+* Phase 1 requirement.
+* Prototype assumption.
+* Primary-agent design decision.
+
+Subagent 2: Frontend Architecture and Dependency Reviewer
+
+Primary responsibilities:
+
+* Review repository cleanup.
+* Review dependency decisions.
+* Review server/client component boundaries.
+* Review component architecture.
+* Review reuse.
+* Detect unnecessary abstractions.
+* Detect unused dependencies.
+* Detect deleted dependencies still referenced.
+* Confirm no database, authentication, API, or backend remains.
+
+Suggested skills:
+
+* Next.js.
+* React best practices.
+* shadcn.
+* Dependency analysis.
+
+Subagent 3: Design-System and Brand Reviewer
+
+Primary responsibilities:
+
+* Review DESIGN.md.
+* Review tokens.
+* Review semantic naming.
+* Review typography.
+* Review spacing, radius, shadow, and color usage.
+* Review the /design-system page.
+* Verify consistency with client identity.
+* Detect raw brand values outside centralized files.
+* Detect duplicated primitives.
+
+Suggested skills:
+
+* Frontend design.
+* Design systems.
+* shadcn.
+* Tailwind CSS v4.
+* DESIGN.md authoring.
+
+Subagent 4: Arabic RTL and Accessibility Reviewer
+
+Primary responsibilities:
+
+* Review RTL flow.
+* Review logical CSS directions.
+* Review Arabic typography and wrapping.
+* Review navigation direction.
+* Review keyboard navigation.
+* Review focus states.
+* Review semantic HTML.
+* Review contrast.
+* Review touch targets.
+* Review alt text.
+* Review reduced-motion support.
+
+Suggested skills:
+
+* Accessibility.
+* RTL frontend.
+* React frontend quality.
+* Browser verification.
+
+Subagent 5: Motion and Interaction Reviewer
+
+Primary responsibilities:
+
+* Review Framer Motion architecture.
+* Review GSAP usage.
+* Verify centralized motion tokens.
+* Detect arbitrary page-local motion values.
+* Detect excessive animation.
+* Verify reduced-motion behavior.
+* Verify Arabic text is not broken by character-level animation.
+* Review performance and cleanup.
+* Verify GSAP is limited to signature animations.
+
+Suggested skills:
+
+* Framer Motion.
+* GSAP.
+* React performance.
+* Accessibility.
+
+Subagent 6: Responsive Visual QA Reviewer
+
+Primary responsibilities:
+
+* Run the site.
+* Review actual rendered pages.
+* Test required viewport sizes.
+* Capture screenshots.
+* Inspect console errors.
+* Detect overflow.
+* Detect visual imbalance.
+* Compare homepage structure with the reference image.
+* Inspect mobile navigation.
+* Inspect image cropping.
+* Inspect spacing rhythm and hierarchy.
+
+Suggested skills:
+
+* Browser automation.
+* Visual verification.
+* Frontend design.
+* Responsive design.
+
+Subagent 7: Documentation and Consistency Reviewer
+
+Primary responsibilities:
+
+* Review all project documents.
+* Detect contradictions.
+* Detect duplicated documentation.
+* Verify commands are correct.
+* Verify AGENTS.md matches the repository.
+* Verify DESIGN.md matches the implemented tokens.
+* Verify PAGE_SPECS.md matches the source files.
+* Verify PROGRESS.md reflects actual progress.
+
+Suggested skills:
+
+* Documentation.
+* AGENTS.md.
+* Planning.
+* Repository review.
+
+The primary agent may merge two roles when the environment cannot support the full team.
+
+Do not create multiple agents with overlapping responsibilities and no clear ownership.
+
+⸻
+
+7. Main-Agent and Subagent Working Rules
+
+The primary agent owns all implementation.
+
+The primary agent must:
+
+* Write the initial plan.
+* Make decisions.
+* Edit files.
+* Implement code.
+* Integrate the design.
+* Apply review feedback.
+* Resolve conflicts.
+* Perform final verification.
+
+Subagents must primarily:
+
+* Inspect.
+* Compare.
+* Test.
+* Challenge.
+* Report.
+* Recommend.
+
+Subagents must not:
+
+* Rewrite the whole project.
+* Change the visual direction without evidence.
+* install unapproved dependencies.
+* delete files.
+* overwrite each other’s work.
+* independently implement alternative homepages.
+* treat preferences as requirements.
+* claim completion without evidence.
+
+When a subagent recommends a change, it must include:
+
+* Severity.
+* Evidence.
+* Affected file or component.
+* The violated requirement or rule.
+* Recommended correction.
+* Whether the issue blocks completion.
+
+Use these severity levels:
+
+* BLOCKER
+* CRITICAL
+* MAJOR
+* MINOR
+* SUGGESTION
+
+The primary agent must evaluate every finding.
+
+It may reject a finding only when it records a clear reason.
+
+Create:
+
+docs/REVIEW_LOG.md
+
+For every review cycle, record:
+
+* Milestone.
+* Reviewer.
+* Skills used.
+* Findings.
+* Severity.
+* Accepted or rejected.
+* Resolution.
+* Files changed.
+* Verification performed.
+* Remaining issues.
+
+Create:
+
+docs/DECISION_LOG.md
+
+Record significant decisions involving:
+
+* Source conflicts.
+* Dependency changes.
+* Architecture.
+* Typography.
+* Color interpretation.
+* Animation.
+* Images.
+* Content assumptions.
+* Rejected review recommendations.
+
+⸻
+
+8. Professional Iterative Review Loop
+
+Do not perform the task as a single implementation pass.
+
+Use a structured quality loop for every major milestone.
+
+Each milestone must follow this process:
+
+Step A: Source Alignment
+
+Before implementing the milestone:
+
+* Re-read the relevant client-source sections.
+* Re-read relevant Phase 1 sections.
+* Re-inspect the relevant reference image area.
+* Re-read the applicable project documentation.
+* Record the milestone requirements.
+
+Step B: Primary Implementation
+
+The primary agent performs the implementation.
+
+Subagents do not lead the initial implementation.
+
+Step C: Primary Self-Review
+
+The primary agent must review its own work before involving subagents.
+
+Check:
+
+* Source alignment.
+* Technical correctness.
+* Reuse.
+* RTL.
+* Responsive behavior.
+* Accessibility.
+* Visual quality.
+* Documentation alignment.
+* Missing states.
+* Broken assumptions.
+
+Fix obvious issues before requesting specialist reviews.
+
+Step D: Specialist Reviews
+
+Assign the milestone to the relevant subagents.
+
+Each reviewer must inspect the actual implementation and provide evidence-based findings.
+
+Do not ask every subagent to review every milestone.
+
+Use only the relevant specialists.
+
+Step E: Findings Consolidation
+
+The primary agent consolidates findings into one ordered correction list.
+
+Resolve duplicated or conflicting findings.
+
+Prioritize in this order:
+
+1. Blockers.
+2. Critical issues.
+3. Major issues.
+4. Minor issues.
+5. Suggestions.
+
+Step F: Correction
+
+The primary agent applies the accepted corrections.
+
+Do not allow uncontrolled parallel edits.
+
+Step G: Reverification
+
+After corrections:
+
+* Rerun technical checks.
+* Rerun relevant visual checks.
+* Reopen the affected source files.
+* Confirm the correction did not introduce regressions.
+* Update documentation.
+
+Step H: Repeat
+
+Repeat the review cycle until the milestone satisfies its completion gate.
+
+A milestone is not complete while it contains:
+
+* Any BLOCKER.
+* Any CRITICAL.
+* Any unresolved MAJOR.
+* A conflict between implementation and authoritative source files.
+* Broken lint, type, build, or runtime checks.
+* A serious RTL or accessibility defect.
+* A major visual defect at a required viewport.
+* Documentation that contradicts the implementation.
+
+Perform at least two meaningful review passes for:
+
+* Source extraction and requirements.
+* Dependency cleanup.
+* DESIGN.md and tokens.
+* /design-system.
+* Homepage implementation.
+* Final repository consistency.
+
+Do not loop indefinitely over subjective preferences.
+
+After the required quality gate is met:
+
+* Document accepted minor issues.
+* Document deferred suggestions.
+* Proceed to the next milestone.
+
+⸻
+
+9. Milestone Quality Gates
+
+Use these formal gates.
+
+Gate 1: Source Understanding
+
+Complete only when:
+
+* All source files were inspected.
+* The homepage image was visually inspected.
+* Requirements were categorized.
+* Conflicts were resolved or documented.
+* Unverified claims were marked.
+* A source auditor approved the extraction.
+* No critical source omission remains.
+
+Gate 2: Repository and Dependency Audit
+
+Complete only when:
+
+* Existing imports were inspected.
+* Existing environment needs were understood.
+* Cleanup decisions were documented.
+* No destructive cleanup happened without justification.
+* The architecture reviewer found no critical dependency problem.
+* The development environment still starts.
+
+Gate 3: Documentation Foundation
+
+Complete only when:
+
+* AGENTS.md is concise and operational.
+* Documentation files have distinct purposes.
+* No major contradiction exists.
+* Commands are accurate.
+* Documentation reviewer approved the structure.
+
+Gate 4: Design Constitution
+
+Complete only when:
+
+* DESIGN.md reflects the client identity.
+* Tokens are semantic.
+* Typography is justified.
+* RTL rules are complete.
+* Motion rules are complete.
+* Anti-patterns are documented.
+* Design-system reviewer found no unresolved major issue.
+
+Gate 5: Design-System Implementation
+
+Complete only when:
+
+* Tokens are implemented centrally.
+* shadcn components use the tokens.
+* The /design-system route demonstrates required states.
+* No raw brand colors appear outside approved token files.
+* Component duplication is controlled.
+* Responsive examples work.
+* Accessibility and RTL review passes.
+
+Gate 6: Homepage
+
+Complete only when:
+
+* All required homepage sections exist.
+* The layout is recognizably derived from the client reference.
+* The visual execution is improved rather than copied as a flat image.
+* The content is appropriate for the prototype.
+* Responsive behavior passes.
+* Motion works and respects reduced-motion.
+* No critical console or hydration issues exist.
+* Client source auditor and visual reviewer approve it.
+
+Gate 7: Final Consistency
+
+Complete only when:
+
+* Documentation matches code.
+* Code matches the sources.
+* Progress documentation is accurate.
+* No backend architecture remains.
+* No remaining page has been implemented accidentally.
+* No unresolved blocker, critical, or major issue exists.
+* Final build and verification pass.
+
+⸻
+
+10. Create a Dependency Audit Before Removing Packages
+
+Inspect actual imports and component dependencies.
+
+Create:
+
+docs/DEPENDENCY_AUDIT.md
+
+Classify every important dependency as:
+
+* Keep.
+* Remove.
+* Replace.
+* Conditional.
+* Add.
+
+For each dependency include:
+
+* Why it exists.
+* Whether it is currently imported.
+* Whether it is required for the prototype.
+* Whether a retained shadcn component depends on it.
+* Proposed action.
+* Risk of removal.
+* Final action taken.
+
+Expected direction, subject to repository verification:
+
+Keep
+
+* next
+* react
+* react-dom
+* typescript
+* Bun-related types required by the project.
+* tailwindcss
+* @tailwindcss/postcss
+* class-variance-authority
+* clsx
+* tailwind-merge
+* lucide-react
+* tw-animate-css
+* framer-motion
+* react-hook-form
+* zod
+* @hookform/resolvers
+* sonner
+* embla-carousel-react when used.
+* Radix packages required by retained shadcn components.
+* sharp only when justified by the image strategy.
+
+Important Framer Motion Decision
+
+The project already has framer-motion installed.
+
+Keep and use the installed framer-motion package.
+
+Do not migrate it to the motion package during this prototype task.
+
+Use:
+
+import { motion, AnimatePresence } from "framer-motion"
+
+Reasons:
+
+* The active coding agent is more familiar with it.
+* It is already installed.
+* It is sufficient for the prototype.
+* Replacing it adds unnecessary migration risk.
+* The objective is implementation quality and speed, not package renaming.
+
+Do not install both motion and framer-motion.
+
+Use only framer-motion for normal React animation.
+
+Remove when verified unused
+
+* prisma
+* @prisma/client
+* SQLite database files.
+* Database utilities.
+* next-auth
+* @tanstack/react-query
+* recharts
+* @tanstack/react-table
+* @mdxeditor/editor
+* react-markdown
+* react-syntax-highlighter
+* next-intl
+* next-themes
+* AI backend SDK packages.
+* Socket.IO example files.
+* Unused WebSocket dependencies.
+* uuid
+* OTP packages.
+* Date-picker packages.
+* Drag-and-drop packages.
+* Resizable-panel packages.
+* Command-palette dependencies.
+* Generic utility-hook packages that are unnecessary.
+* Scaffold-only API routes.
+* Scaffold logos and placeholder branding.
+
+Conditional
+
+* zustand: retain only if a genuine shared global-state requirement exists.
+* vaul: retain only if the Drawer component is used.
+* date-fns: retain only if a real date interaction exists.
+* Caddyfile: do not remove until its role in the preview environment is verified.
+* Test and infrastructure files: preserve or adapt if required by the active environment.
+
+Animation Packages
+
+Retain:
+
+* framer-motion
+* tw-animate-css
+
+Evaluate and add only:
+
+* gsap
+* @gsap/react
+
+Remove tailwindcss-animate only after verifying that:
+
+* It is not imported.
+* Retained shadcn components do not require it.
+* tw-animate-css provides the required Tailwind animation utilities.
+
+Do not add another general animation library.
+
+After dependency changes:
+
+* Preserve bun.lock.
+* Do not generate package-lock.json.
+* Do not generate another conflicting lockfile.
+* Reinstall dependencies.
+* Run lint.
+* Run TypeScript checks.
+* Run the production build.
+* Confirm the development server starts.
+
+⸻
+
+11. Animation Responsibility
+
+Use this hierarchy:
+
+CSS and Tailwind
+
+Use for:
+
+* Simple hover transitions.
+* Color changes.
+* Shadow transitions.
+* Focus transitions.
+* Small transforms.
+* Basic decorative loops.
+
+Framer Motion
+
+Use for:
+
+* Shared reveal patterns.
+* Component entrances.
+* Staggered sections.
+* Layout animation.
+* Accordion and modal transitions where appropriate.
+* Carousel content transitions.
+* Responsive interaction feedback.
+* Common viewport-triggered animations.
+
+GSAP
+
+Use only for signature interactions requiring timeline-level control, such as:
+
+* The homepage hero sequence.
+* A carefully designed abacus animation.
+* Controlled SVG sequences.
+* Complex coordinated scroll scenes.
+* Advanced numerical choreography.
+
+Do not use GSAP:
+
+* For every button.
+* For every card.
+* For ordinary fade-in animations.
+* Directly in unrelated page components.
+* Without cleanup.
+* Without reduced-motion fallback.
+
+⸻
+
+12. Curate the Existing shadcn/ui Components
+
+The repository contains many shadcn components.
+
+Do not automatically retain all of them.
+
+Inspect actual project requirements and curate a deliberate component set.
+
+Likely retained components:
+
+* Button.
+* Card.
+* Badge.
+* Input.
+* Textarea.
+* Label.
+* Select.
+* Checkbox.
+* Radio Group.
+* Form.
+* Accordion.
+* Tabs.
+* Sheet.
+* Dialog.
+* Navigation Menu.
+* Dropdown Menu.
+* Tooltip.
+* Carousel.
+* Avatar.
+* Separator.
+* Progress.
+* Skeleton.
+* Sonner.
+* Aspect Ratio.
+
+Likely removable or deferrable components:
+
+* Calendar.
+* Input OTP.
+* Data Table.
+* Chart.
+* Sidebar.
+* Resizable.
+* Command.
+* Context Menu.
+* Menubar.
+* Pagination.
+* Slider.
+* Toggle Group.
+* Drawer.
+* Hover Card.
+
+Do not remove a component when:
+
+* Another retained component depends on it.
+* The homepage needs it.
+* The future page specifications demonstrate a clear need.
+* Removal adds unnecessary package churn.
+
+Use shadcn primitives as the foundation.
+
+Do not recreate accessible primitives from scratch.
+
+Customize centralized components rather than creating local page alternatives.
+
+⸻
+
+13. Create the Repository Operating Manual
+
+Research the current AGENTS.md standard and inspect strong examples before authoring it.
+
+Create a concise root file:
+
+AGENTS.md
+
+It must be an operational manual for coding agents.
+
+It must not become:
+
+* A copy of the proposal.
+* A copy of DESIGN.md.
+* A huge narrative document.
+* A list of generic frontend advice.
+
+Include:
+
+* Project purpose.
+* Prototype-only scope.
+* Source-of-truth hierarchy.
+* Technology stack.
+* Important repository map.
+* Setup commands.
+* Development commands.
+* Lint commands.
+* Type-check commands.
+* Build commands.
+* Verification commands.
+* Coding conventions.
+* Component architecture.
+* Styling rules.
+* RTL rules.
+* Animation rules.
+* Accessibility requirements.
+* Asset rules.
+* Dependency policy.
+* Skill-usage rules.
+* Subagent-review rules.
+* Forbidden implementation patterns.
+* Definition of done.
+
+Mandatory instructions:
+
+* Read DESIGN.md before any visual implementation.
+* Read relevant source documentation before implementing a page.
+* Use installed skills when their trigger applies.
+* The primary agent owns implementation.
+* Subagents review implementation.
+* Record review outcomes in docs/REVIEW_LOG.md.
+
+Mandatory prohibitions:
+
+* No hardcoded brand hex colors inside pages or feature components.
+* No arbitrary new button implementations.
+* No duplicated card primitives.
+* No page-local design tokens.
+* No page-local animation constants.
+* No direct GSAP usage outside the centralized motion layer.
+* No unreviewed heavy dependencies.
+* No invented production functionality.
+* No fake backend endpoints.
+* No database.
+* No authentication.
+* No CMS.
+* No real AI assistant.
+* No English-first layout.
+* No forced left-to-right assumptions.
+* No excessive client components.
+* No animation ignoring reduced-motion preferences.
+* No flat-image recreation of the homepage.
+* No automatic implementation of remaining pages.
+
+Use nested AGENTS.md files only when a directory genuinely requires additional localized rules.
+
+⸻
+
+14. Create the Documentation Set
+
+Create:
+
+* README.md
+* AGENTS.md
+* DESIGN.md
+* docs/SOURCE_OF_TRUTH.md
+* docs/REPOSITORY_AUDIT.md
+* docs/DEPENDENCY_AUDIT.md
+* docs/SKILLS.md
+* docs/PROJECT_CONTEXT.md
+* docs/INFORMATION_ARCHITECTURE.md
+* docs/PAGE_SPECS.md
+* docs/MOTION_GUIDELINES.md
+* docs/ASSET_GUIDELINES.md
+* docs/IMPLEMENTATION_PLAN.md
+* docs/QA_CHECKLIST.md
+* docs/PROGRESS.md
+* docs/REVIEW_LOG.md
+* docs/DECISION_LOG.md
+
+Keep each file focused.
+
+Do not repeat the same complete information across multiple documents.
+
+PAGE_SPECS.md must describe all future pages derived from the Phase 1 proposal.
+
+This task must implement only the homepage.
+
+PROGRESS.md must accurately show:
+
+* Completed.
+* In progress.
+* Deferred.
+* Remaining pages.
+* Assumptions.
+* Known gaps.
+* Review status.
+* Remaining minor issues.
+
+⸻
+
+15. Create DESIGN.md as the Design Constitution
+
+DESIGN.md is the visual source of truth for both humans and AI agents.
+
+It must be derived from:
+
+* The client DOCX.
+* The homepage reference image.
+* The comprehensive Phase 1 proposal.
+
+Use two layers.
+
+Layer A: Machine-Readable Tokens
+
+Use structured front matter or another clearly parseable format containing:
+
+* Brand colors.
+* Semantic colors.
+* Surface colors.
+* Text colors.
+* Border colors.
+* State colors.
+* Typography families.
+* Typography scale.
+* Font weights.
+* Line heights.
+* Letter spacing.
+* Spacing scale.
+* Container widths.
+* Grid rules.
+* Breakpoints.
+* Border radii.
+* Shadows.
+* Z-index scale.
+* Animation duration scale.
+* Framer Motion easing values.
+* GSAP easing values where used.
+* Stagger values.
+* Icon sizes.
+* Image aspect ratios.
+
+Layer B: Human-Readable Design Rationale
+
+Explain:
+
+* Brand personality.
+* Audience.
+* Desired emotional response.
+* Arabic typography direction.
+* Visual hierarchy.
+* Color roles.
+* When to use each color.
+* When to use the orange CTA color.
+* Section-background alternation.
+* Card language.
+* Button hierarchy.
+* Photography direction.
+* Illustration direction.
+* Abacus-inspired graphic language.
+* Icon rules.
+* Spacing rhythm.
+* Responsive behavior.
+* RTL behavior.
+* Framer Motion philosophy.
+* GSAP limitations.
+* Accessibility.
+* Reduced-motion behavior.
+* Anti-patterns.
+* Correct examples.
+* Incorrect examples.
+
+Use semantic naming.
+
+Do not expose names such as:
+
+* blue1
+* blue2
+* orange3
+
+as the primary design API.
+
+Prefer:
+
+* primary
+* primary-strong
+* secondary
+* accent
+* cta
+* background
+* surface
+* surface-muted
+* foreground
+* muted-foreground
+* border
+* ring
+* success
+* warning
+* destructive
+
+Raw client hex values may exist only in centralized token definitions.
+
+⸻
+
+16. Implement the Design Tokens in Tailwind CSS v4
+
+Use Tailwind CSS v4’s CSS-first theme system.
+
+Create one clean, centralized token system using CSS variables and @theme or @theme inline where appropriate.
+
+The same token system must power:
+
+* Tailwind utilities.
+* shadcn variables.
+* Framer Motion presets.
+* GSAP sequences.
+* SVG graphics.
+* Focus states.
+* Shadows.
+* Borders.
+* Typography.
+
+Do not maintain conflicting token systems.
+
+Inspect the current tailwind.config.ts.
+
+Remove or simplify it only after confirming it is unnecessary.
+
+Set the document correctly:
+
+<html lang="ar" dir="rtl">
+
+Select an Arabic font carefully.
+
+Do not choose a font randomly.
+
+Compare a small number of strong candidates.
+
+Document:
+
+* Candidates.
+* Advantages.
+* Disadvantages.
+* Source compatibility.
+* Final selection.
+* Why it matches the client direction.
+
+Use next/font or another reliable self-hosted method when appropriate.
+
+⸻
+
+17. Establish the Component Architecture
+
+Use this approximate structure, adapting it only when repository evidence supports a better structure:
+
+src/
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── design-system/
+│       └── page.tsx
+│
+├── components/
+│   ├── ui/
+│   ├── brand/
+│   ├── layout/
+│   ├── sections/
+│   └── motion/
+│
+├── content/
+│   ├── site.ts
+│   ├── navigation.ts
+│   ├── home.ts
+│   ├── testimonials.ts
+│   └── faq.ts
+│
+├── lib/
+│   ├── motion/
+│   ├── gsap/
+│   ├── routes.ts
+│   └── utils.ts
+│
+└── styles/
+    ├── tokens.css
+    ├── typography.css
+    └── globals.css
+
+Avoid:
+
+* Giant component files.
+* One-off page primitives.
+* Excessive abstraction.
+* Premature generalization.
+* Duplicate component variants.
+* Unnecessary client components.
+
+Separate:
+
+* Primitive UI.
+* Brand components.
+* Layout components.
+* Page sections.
+* Animation wrappers.
+* Static content.
+* Configuration.
+
+Likely reusable brand components:
+
+* BrandButton
+* SectionHeading
+* PageContainer
+* SectionShell
+* StatCard
+* StepCard
+* ChannelCard
+* TestimonialCard
+* CTASection
+* SiteHeader
+* SiteFooter
+
+Use shadcn primitives as the foundation.
+
+⸻
+
+18. Centralize the Framer Motion and GSAP Systems
+
+Create a centralized animation layer.
+
+Suggested structure:
+
+src/lib/motion/
+├── tokens.ts
+├── variants.ts
+├── reduced-motion.ts
+└── presets/
+    ├── reveal.ts
+    ├── stagger.ts
+    ├── hover-lift.ts
+    └── count-up.ts
+src/lib/gsap/
+├── register.ts
+├── hero-timeline.ts
+└── scroll-scenes.ts
+src/components/motion/
+├── animated-reveal.tsx
+├── animated-stagger.tsx
+├── animated-counter.tsx
+└── parallax-media.tsx
+
+Rules:
+
+* Use CSS transitions for basic visual transitions.
+* Use Framer Motion for normal React UI motion.
+* Use GSAP only for signature sequences.
+* Do not use GSAP for ordinary reveal effects.
+* Do not place random durations or easings in pages.
+* Use centralized motion tokens.
+* Support prefers-reduced-motion.
+* Ensure the site remains attractive when motion is disabled.
+* Do not animate Arabic text character-by-character.
+* Prefer line, word-group, or block animation.
+* Avoid excessive parallax.
+* Avoid scroll hijacking.
+* Avoid animations that delay access to content.
+* Avoid animation purely for decoration when it harms clarity.
+* Verify GSAP timelines are cleaned up properly.
+* Verify Framer Motion components do not cause unnecessary client-side boundaries.
+
+⸻
+
+19. Build the Internal /design-system Page
+
+Create:
+
+/design-system
+
+Do not include this route in public navigation.
+
+It must demonstrate:
+
+* Brand palette.
+* Semantic palette.
+* Typography.
+* Arabic headings.
+* Body copy.
+* Captions.
+* Arabic numerals.
+* Spacing scale.
+* Containers.
+* Grids.
+* Radius.
+* Shadows.
+* Button variants.
+* Button states.
+* Cards.
+* Badges.
+* Form fields.
+* Selects.
+* Checkboxes.
+* Radio groups.
+* Accordions.
+* Tabs.
+* Dialog or Sheet.
+* Navigation patterns.
+* Icons.
+* Images.
+* Statistics.
+* Testimonials.
+* CTA sections.
+* Framer Motion presets.
+* GSAP signature-motion example if justified.
+* Reduced-motion behavior.
+* Mobile examples.
+* Desktop examples.
+
+This route is an implementation contract for future pages.
+
+Future pages must reuse what is demonstrated there.
+
+Run the full review loop for this milestone.
+
+Required reviewers:
+
+* Design-system reviewer.
+* RTL/accessibility reviewer.
+* Motion reviewer.
+* Documentation reviewer.
+* Visual QA reviewer.
+
+⸻
+
+20. Build Shared Layout Components
+
+Implement:
+
+* SiteHeader
+* Desktop navigation.
+* Mobile RTL navigation.
+* Logo treatment.
+* Primary CTA.
+* SiteFooter
+* Main page container.
+* Section container.
+* Shared section heading.
+* Shared CTA section.
+
+Future navigation items may appear, but they must not create broken behavior.
+
+Use one of these prototype-safe approaches:
+
+* Disabled future links with clear treatment.
+* Links to a non-destructive coming-soon state.
+* A documented placeholder interaction.
+
+Do not implement the remaining pages.
+
+⸻
+
+21. Implement the Homepage Only
+
+Use the client homepage reference image as the visual and structural foundation.
+
+Do not reproduce it as a flat image.
+
+Transform it into a polished, modern, responsive, accessible frontend while preserving:
+
+* Its identity.
+* Its hierarchy.
+* Its recognizable section order.
+* Its brand colors.
+* Its educational character.
+* Its primary conversion goal.
+
+The homepage must include:
+
+1. Header.
+2. Hero.
+3. Trust or statistics strip.
+4. “How the program works” section.
+5. Learning channels section.
+6. Testimonials section.
+7. Final conversion CTA.
+8. Footer.
+
+Hero
+
+The hero must:
+
+* Communicate mental arithmetic and the abacus immediately.
+* Use Arabic messaging derived from the client sources.
+* Contain one clear primary CTA.
+* Contain one secondary action.
+* Include a memorable visual idea connected to the abacus, calculation, confidence, or educational progress.
+* Avoid generic SaaS gradients.
+* Avoid random floating glass cards.
+* Avoid excessive decorative effects.
+* Remain strong without animation.
+* Use GSAP only when a coordinated hero timeline clearly improves the result.
+* Provide a reduced-motion fallback.
+
+Statistics
+
+Use centralized prototype data.
+
+Statistics may be illustrative.
+
+Do not embed data directly throughout JSX.
+
+Do not present prototype statistics as verified client facts.
+
+How It Works
+
+Use the source-defined sequence.
+
+Use a clear visual progression appropriate for RTL.
+
+Learning Channels
+
+Represent the three learning paths described in the source files.
+
+Use one shared component with controlled visual variation.
+
+Testimonials
+
+Use clearly representative demo testimonials.
+
+Do not claim they are verified production testimonials.
+
+Final CTA
+
+Return the visitor to the main conversion goal:
+
+* Trial lesson.
+* Registration interest.
+* Contact.
+* School partnership where appropriate.
+
+Use the orange color selectively for conversion.
+
+Do not spread it across unrelated decoration.
+
+Run the complete review loop for the homepage.
+
+Required reviewers:
+
+* Client source auditor.
+* Design-system reviewer.
+* Architecture reviewer.
+* RTL/accessibility reviewer.
+* Motion reviewer.
+* Responsive visual QA reviewer.
+
+⸻
+
+22. Images and Assets
+
+Create an asset inventory.
+
+Use clear folders such as:
+
+public/
+├── brand/
+├── images/
+├── illustrations/
+└── icons/
+
+Do not use the scaffold logo.
+
+Do not invent a replacement company logo.
+
+When the client logo exists inside the DOCX:
+
+* Extract the highest-quality embedded asset.
+* Preserve its aspect ratio.
+* Record its source.
+* Do not claim a small raster logo is a final vector logo.
+
+When an exact high-quality logo is unavailable:
+
+* Use the best client-provided asset for the prototype.
+* Document the limitation.
+* Keep the logo easy to replace later.
+
+For additional imagery:
+
+* Prefer client-provided assets.
+* Use appropriate legal placeholders where required.
+* Use CSS, SVG, or abstract abacus-inspired graphics when beneficial.
+* Keep imagery centralized and replaceable.
+* Add meaningful Arabic alt text.
+* Avoid generic educational stock-photo clichés when a custom graphic provides a better result.
+
+⸻
+
+23. Prototype Behavior
+
+The website is frontend-only.
+
+Forms may:
+
+* Validate locally.
+* Simulate loading briefly.
+* Display a success toast.
+* Reset after submission.
+
+Forms must not:
+
+* Send data to a server.
+* Create an API route.
+* Write to a database.
+* Call an external service.
+* Claim successful production registration.
+
+Future login and platform links must lead only to:
+
+* A clear prototype state.
+* A coming-soon message.
+* A non-destructive placeholder.
+
+Do not build real authentication.
+
+⸻
+
+24. Visual Verification
+
+Use the installed browser or visual-verification skill.
+
+Start the development server.
+
+Inspect the actual rendered site.
+
+Compilation alone is not visual verification.
+
+Test at representative viewport sizes:
+
+* Small mobile.
+* Large mobile.
+* Tablet portrait.
+* Tablet landscape.
+* Laptop.
+* Large desktop.
+
+Verify:
+
+* RTL flow.
+* Arabic typography.
+* Header.
+* Mobile navigation.
+* Section rhythm.
+* Hero composition.
+* Text wrapping.
+* Image cropping.
+* No horizontal overflow.
+* CTA visibility.
+* Touch targets.
+* Contrast.
+* Focus states.
+* Keyboard navigation.
+* Reduced-motion behavior.
+* Layout stability.
+* Console warnings.
+* Console errors.
+* Hydration errors.
+* Missing assets.
+* Broken links required by this task.
+* Unwanted scaffold branding.
+
+Capture screenshots or other visual evidence supported by the environment.
+
+Compare the homepage against:
+
+1. The client homepage reference.
+2. The client identity document.
+3. The Phase 1 proposal.
+4. DESIGN.md.
+5. The /design-system route.
+6. Responsive requirements.
+7. Accessibility requirements.
+
+Do not approve the homepage based only on code quality.
+
+⸻
+
+25. Automated Quality Checks
+
+At minimum verify:
+
+* TypeScript.
+* ESLint.
+* Production build.
+* Development runtime.
+* No console errors.
+* No hydration errors.
+* No broken required routes.
+* No database imports.
+* No Prisma imports.
+* No NextAuth imports.
+* No backend SDK imports.
+* No raw brand hex values outside centralized token files.
+* No direct GSAP imports outside approved centralized files.
+* No duplicate button primitives.
+* No page-local motion constants.
+* No accidental LTR-only assumptions.
+* No unused scaffold logo.
+* No conflicting lockfiles.
+* No unused dependencies left after cleanup.
+* No remaining page implemented accidentally.
+
+Do not add a large test framework solely for this prototype unless there is a clear justification.
+
+⸻
+
+26. Final Cross-Review Loop
+
+Before declaring completion, perform a final repository-wide review.
+
+Round 1: Primary-Agent Review
+
+The primary agent must inspect:
+
+* Every created document.
+* Every modified configuration file.
+* Every retained dependency.
+* Every shared component.
+* /design-system.
+* The homepage.
+* Mobile behavior.
+* Desktop behavior.
+* Motion behavior.
+* Final source alignment.
+
+Round 2: Specialist Review
+
+Ask each relevant subagent to perform a final review of its specialty.
+
+The subagents must review the completed state, not stale earlier files.
+
+Round 3: Consolidation and Repair
+
+Create one final issue list.
+
+Resolve:
+
+* All blockers.
+* All critical issues.
+* All major issues.
+
+Review minor issues and either:
+
+* Fix them.
+* Document why they are acceptable.
+* Defer them with a clear reason.
+
+Round 4: Regression Verification
+
+Rerun:
+
+* Lint.
+* Type check.
+* Build.
+* Runtime.
+* Browser verification.
+* Screenshots.
+* Console checks.
+* RTL checks.
+* Reduced-motion checks.
+
+Round 5: Source Reconciliation
+
+Reopen:
+
+* The Phase 1 proposal.
+* The client identity DOCX.
+* The homepage reference image.
+
+Confirm that:
+
+* Important client requirements were not lost.
+* The visual identity remains recognizable.
+* No unsupported production claim was introduced.
+* Documentation reflects the final implementation.
+* The homepage section structure matches the agreed direction.
+* The prototype scope remains respected.
+
+Do not finish when the implementation merely “looks acceptable.”
+
+Finish only when the implementation is coherent, reusable, source-aligned, technically clean, and suitable for presentation to the client.
+
+⸻
+
+27. Final Deliverables
+
+Provide a concise but complete final report.
+
+Skills
+
+* Skills evaluated.
+* Skills installed.
+* Skills rejected.
+* Reasons.
+* Installation locations.
+* Skills assigned to each subagent.
+* Where each skill was used.
+
+Subagents
+
+* Subagents created.
+* Role of each.
+* Skills assigned.
+* Milestones reviewed.
+* Important findings.
+* Resolutions.
+
+Repository
+
+* Initial architecture.
+* Final architecture.
+* Removed files.
+* Preserved environment files.
+* Dependency changes.
+* Conditional decisions.
+* Lockfile status.
+
+Documentation
+
+List every created or updated documentation file.
+
+Design System
+
+* Visual direction.
+* Token architecture.
+* Typography.
+* Component architecture.
+* Framer Motion architecture.
+* GSAP architecture.
+* /design-system route.
+
+Homepage
+
+* Implemented sections.
+* Source-to-section mapping.
+* Responsive behavior.
+* Framer Motion usage.
+* GSAP usage.
+* Demo-content assumptions.
+* Assets used.
+
+Review Loops
+
+* Review rounds performed.
+* Blockers found and resolved.
+* Major issues found and resolved.
+* Remaining minor issues.
+* Rejected recommendations and reasons.
+
+Verification
+
+* Commands run.
+* Viewports tested.
+* Screenshots captured.
+* Console status.
+* Build status.
+* Accessibility checks.
+* RTL checks.
+* Reduced-motion checks.
+
+Next Phase
+
+List the remaining pages in the recommended implementation order.
+
+Do not implement them.
+
+⸻
+
+28. Hard Stop Condition
+
+Stop only after all of the following are complete:
+
+* Source files fully inspected.
+* Skills discovered and installed.
+* Skills documented.
+* Specialist subagents created.
+* Subagent roles and skills documented.
+* Repository audited.
+* Dependencies cleaned.
+* Documentation completed.
+* AGENTS.md completed.
+* DESIGN.md completed.
+* Design tokens implemented.
+* shadcn components curated.
+* Framer Motion system centralized.
+* GSAP system centralized.
+* /design-system completed.
+* Header completed.
+* Footer completed.
+* Homepage completed.
+* Required review loops completed.
+* Responsive QA completed.
+* Accessibility and RTL review completed.
+* Final source reconciliation completed.
+* No unresolved blocker exists.
+* No unresolved critical issue exists.
+* No unresolved major issue exists.
+* Final report completed.
+
+Do not begin:
+
+* About page.
+* Program page.
+* Learning channels page.
+* Virtual platform page.
+* Registration page.
+* Contact page.
+* Schools page.
+* Trainer page.
+* FAQ page.
+* Privacy page.
+* Backend.
+* Authentication.
+* Database.
+* CMS.
+* APIs.
+* Payments.
+* A real AI assistant.
+* Real form submission.
+
+The remaining pages will be assigned in separate tasks after the design system and homepage have been reviewed.

@@ -1,0 +1,233 @@
+     1→# Shared Worklog — Mental Arithmetic Program Homepage Prototype
+     2→
+     3→This file is the single shared worklog for all agents (primary + subagents).
+     4→Each agent MUST append (never overwrite) a new section starting with `---`.
+     5→
+     6→---
+     7→Task ID: 1
+     8→Agent: Primary (Z.ai Code)
+     9→Task: Read all uploaded source files and create docs/SOURCE_OF_TRUTH.md
+    10→
+    11→Work Log:
+    12→- Read master task (upload/Pasted Content_1785439153722.txt, 2033 lines) fully.
+    13→- Extracted DOCX text (upload/extracted/docx_text.txt) and 4 embedded images.
+    14→- Extracted PDF text (upload/extracted/pdf_text.txt, 31 pages). Arabic body jumbled by layout extraction; TOC + executive summary + project-understanding sections readable; full 12-section structure mapped.
+    15→- Analyzed homepage reference JPG via VLM (z-ai vision CLI) → /tmp/vlm_homepage.json.
+    16→- Analyzed DOCX image1 (color palette), image2 (info architecture), image3 (homepage mockup), image4 (design-system library) via VLM.
+    17→- Inspected existing repository: package.json, layout.tsx, globals.css, tailwind.config.ts, components.json, next.config.ts, lib/db.ts, prisma/schema.prisma, app/page.tsx, lib/utils.ts.
+    18→- Created project directory structure (docs, content, lib/motion, lib/gsap, components/motion|brand|layout|sections, styles, public/brand|images|illustrations|icons).
+    19→
+    20→Stage Summary:
+    21→- All 4 source files read + visually inspected. Gate 1 (Source Understanding) requirements gathered.
+    22→- Authoritative brand palette extracted (exact hex) from DOCX image1.
+    23→- Key conflict identified: homepage reference JPG shows "درس الخبرة" branding; DOCX/PDF use "برنامج الحساب الذهني" → DOCX authoritative for identity.
+    24→- Repo is standard Next.js 16 + Tailwind v4 + shadcn new-york scaffold; needs heavy cleanup (remove prisma, next-auth, tanstack, recharts, etc.), RTL/Arabic-font setup, token replacement.
+    25→- Next: write docs/SOURCE_OF_TRUTH.md, docs/REPOSITORY_AUDIT.md.
+    26→
+    27→---
+    28→Task ID: 3
+    29→Agent: Primary (Z.ai Code)
+    30→Task: Discover & install agent skills; create docs/SKILLS.md
+    31→
+    32→Work Log:
+    33→- Used loaded find-skills skill; ran `npx skills find` for frontend-design, shadcn, nextjs-react, accessibility, planning, browser-automation, design-system, tailwind.
+    34→- Selected 6 approved skills (anthropics/frontend-design, shadcn/ui, addyosmani/accessibility, addyosmani/planning, wshobson/tailwind-design-system, lombiq/tailwind-4-docs).
+    35→- `npx skills add` repeatedly timed out (GitHub-backed fetch; context deadline exceeded) in sandbox — recorded as documented decision.
+    36→- Built-in agent-browser skill used for visual verification instead.
+    37→- Wrote docs/SKILLS.md with full evaluation table (installed/rejected + reasons + security + phase/agent assignment).
+    38→
+    39→Stage Summary:
+    40→- Skill discovery + evaluation + documentation complete (satisfies master task §5 documentation requirement).
+    41→- Persistent install blocked by sandbox network; guidance applied directly by primary agent; agent-browser available for visual QA.
+    42→---
+    43→Task ID: 4
+    44→Agent: Primary (Z.ai Code)
+    45→Task: Dependency audit + repository cleanup
+    46→
+    47→Work Log:
+    48→- Wrote docs/DEPENDENCY_AUDIT.md (classify keep/remove/add/conditional for every dep + shadcn curation).
+    49→- Deleted scaffold backend/db: src/app/api/, src/lib/db.ts, prisma/, db/, public/logo.svg, src/hooks/use-toast.ts.
+    50→- Deleted 24 non-retained shadcn components (alert, calendar, chart, command, drawer, sidebar, slider, table, toast/toaster, toggle*, etc.); kept 24 retained.
+    51→- Removed tailwind.config.ts (legacy, used tailwindcss-animate).
+    52→- Rewrote package.json: removed 33 deps (prisma, next-auth, @tanstack/*, recharts, mdx, next-intl, next-themes, uuid, date-fns, dnd, cmdk, vaul, zustand, etc.); added gsap + @gsap/react; kept framer-motion (NOT motion), sharp, z-ai-web-dev-sdk.
+    53→- Fixed sonner.tsx (removed next-themes dependency, light-only).
+    54→- `bun install`: 36 packages removed, gsap@3.15 + @gsap/react@2.1.2 installed. Lockfile preserved.
+    55→- Grep verified no broken imports of removed components/packages.
+    56→- Created src/styles/tokens.css (raw brand hex — single source), typography.css, rewrote globals.css (Tailwind v4 @theme inline mapping all semantic+brand tokens), layout.tsx (Tajawal font, lang=ar dir=rtl, sonner Toaster, program metadata).
+    57→- Created public/brand/favicon.svg (abacus glyph), placeholder page.tsx.
+    58→- `bun run lint` → exit 0 (clean). Dev server boots in 647ms, Ready, no errors.
+    59→
+    60→Stage Summary:
+    61→- Repository cleaned of all backend/DB/auth/data deps; curated 24 shadcn components; Tailwind v4 CSS-first brand token system live; Arabic-first RTL with Tajawal.
+    62→- Gate 2 (Repository & Dependency Audit) + Gate 3 foundation met.
+    63→- Next: documentation foundation (AGENTS.md + docs/*.md), DESIGN.md, motion layer, /design-system, layout, homepage.
+    64→
+    65→---
+    66→Task ID: 5-7
+    67→Agent: Primary (Z.ai Code)
+    68→Task: Documentation foundation + DESIGN.md + motion layer + /design-system page + shared layout + homepage
+    69→
+    70→Work Log:
+    71→- Wrote AGENTS.md (operational manual), README.md, DESIGN.md (Layer A tokens + Layer B rationale).
+    72→- Wrote docs: PROJECT_CONTEXT, INFORMATION_ARCHITECTURE, PAGE_SPECS, MOTION_GUIDELINES, ASSET_GUIDELINES, IMPLEMENTATION_PLAN, QA_CHECKLIST, PROGRESS, REVIEW_LOG, DECISION_LOG (15 decisions).
+    73→- Built centralized motion layer: src/lib/motion/{tokens,reduced-motion,presets/{reveal,stagger,hover-lift,count-up}}; src/lib/gsap/{register,hero-timeline,scroll-scenes}; src/components/motion/{animated-reveal,animated-stagger,animated-counter,parallax-media}.
+    74→- Built content layer: src/content/{site,navigation(via routes),home,testimonials,faq}; src/lib/routes.ts.
+    75→- Extended shadcn Button with `cta` variant + `xl` size + brand radius (centralized, no duplicate primitive).
+    76→- Built brand components: logo (abacus glyph + wordmark), section-heading, stat-card, step-card, channel-card, testimonial-card.
+    77→- Built layout: language-provider (useSyncExternalStore, true RTL/LTR flip), language-toggle, site-header (desktop + mobile Sheet RTL nav, scroll state, disabled future links), site-footer (branches, child-protection, lang toggle), page-container, section-shell, cta-section.
+    78→- Wired layout.tsx: LanguageProvider > SiteHeader > main(flex-1) > SiteFooter + sonner Toaster; sticky-footer flex shell; Tajawal font; lang=ar dir=rtl.
+    79→- Built homepage sections: hero (GSAP fromTo timeline + abacus SVG with data-bead, single orange CTA + ghost secondary), stats-strip (AnimatedCounter count-up), how-it-works (4 staggered StepCards), learning-channels (3 ChannelCards), testimonials (embla Carousel RTL), final CTA (orange banner).
+    80→- Built /design-system reference page: brand palette, semantic palette, typography scale, spacing/radius/shadow, buttons (all variants/sizes/states), badges, cards, form fields (Input/Textarea/Select/Checkbox/RadioGroup), accordion, tabs, icons, avatar, progress, tooltip, stats (AnimatedCounter), Framer Motion presets (reveal/stagger), states, reduced-motion note.
+    81→- Fixed 2 React-19 lint issues (set-state-in-effect) via useSyncExternalStore + callback-only setState.
+    82→- Lint clean (exit 0). Both / and /design-system return 200.
+    83→
+    84→Stage Summary:
+    85→- M3 (docs), M4 (DESIGN.md+tokens), M5 (/design-system), M6 (layout), M7 (homepage) complete.
+    86→- Gates 3,4 satisfied; Gate 5,6 pending visual verification.
+    87→- Next: agent-browser visual verification at multiple viewports + specialist subagent reviews.
+    88→
+    89→---
+    90→Task ID: 8-b
+    91→Agent: Subagent 2 (Architecture)
+    92→Task: READ-ONLY Frontend Architecture & Dependency Review
+    93→
+    94→Work Log:
+    95→- Read worklog.md (Tasks 1, 3, 4, 5-7) for full context.
+    96→- Read package.json, docs/DEPENDENCY_AUDIT.md, docs/REPOSITORY_AUDIT.md, AGENTS.md.
+    97→- Read all app routes: src/app/layout.tsx, src/app/page.tsx, src/app/design-system/page.tsx, src/app/globals.css.
+    98→- Listed and counted src/components/ui/ (24 files — matches DEPENDENCY_AUDIT §5 retained set exactly).
+    99→- Read all brand components (logo, section-heading, stat-card, channel-card, step-card, testimonial-card).
+   100→- Read all layout components (language-provider, language-toggle, site-header, site-footer, page-container, section-shell, cta-section).
+   101→- Read all section components (hero, stats-strip, how-it-works, learning-channels, testimonials, design-system-showcase).
+   102→- Read all motion components + lib/motion/{tokens,reduced-motion,presets/*} + lib/gsap/{register,hero-timeline,scroll-scenes}.
+   103→- Read src/lib/{routes,utils}.ts and src/content/{site,home,testimonials,faq}.ts.
+   104→- Grep-verified forbidden imports (prisma, next-auth, @tanstack, recharts, mdx, next-intl, next-themes, dnd, cmdk, vaul, zustand, date-fns, uuid, z-ai-web-dev-sdk, tailwindcss-animate, react-resizable-panels, input-otp, @reactuses, react-markdown, react-syntax-highlighter) — zero matches under src/.
+   105→- Grep-verified: no imports of removed shadcn components (alert, calendar, chart, command, drawer, sidebar, slider, table, toast/toaster, toggle*, etc.).
+   106→- Glob-verified: no src/app/api/, no prisma/, no src/lib/db.*.
+   107→- Grep-verified: gsap imported only from src/lib/gsap/register.ts; framer-motion used everywhere; `motion` package NOT imported anywhere.
+   108→- Grep-verified: tailwindcss-animate not imported; no tailwind.config.ts file (Glob empty).
+   109→- Caddyfile present and unchanged (gateway on :81, XTransformPort query branch, default → :3000).
+   110→- Counted 'use client' directives (37 sites); cross-checked server/client boundary discipline.
+   111→
+   112→Findings (severity, evidence, rule, fix, blocks):
+   113→1. [MINOR] Raw brand hex present in src/components/sections/design-system-showcase.tsx:31-40 (10 hex strings: #F2A23C, #06335C, #2C8FC0, #37B0C3, #0A4C82, #D2DCE2, #6B7A86, #2A3A47, #F4F9FA, #E1F0F3). Rule: AGENTS.md §8/§16 — "No raw brand hex outside src/styles/tokens.css." Note: these are DOCUMENTATION labels (displayed as text via {c.hex}); the actual swatch styling uses Tailwind token classes (bg-brand-orange, etc.). Fix: move the brand-colors reference array to src/lib/brand-palette.ts (or tokens.ts) OR drop the hex label column. Blocks: NO.
+   114→2. [MINOR] Inline motion constants in src/lib/gsap/hero-timeline.ts:25-54 (durations 0.5/0.7/0.8/0.45/0.4; staggers 0.12/0.1/0.05; easings "power3.out"/"back.out(2)"). Rule: AGENTS.md §10 — "No page-local motion constants — use src/lib/motion/tokens.ts." The tokens.ts file's own header claims "Framer Motion and GSAP share one scale" but the hero timeline does not import durations/stagger. Caveat: GSAP string-easings don't map 1:1 to Framer Motion cubic-bezier arrays; durations DO map (0.5 → slow, 0.8 → slower, 0.1 → stagger.normal, 0.06 → stagger.fast). Fix: import {durations, stagger} from "@/lib/motion/tokens" and replace literal durations/staggers; document GSAP-only easings as a named constant block at top of hero-timeline.ts. Blocks: NO.
+   115→3. [MINOR] Orphan file src/hooks/use-mobile.ts (lines 1-19) is not imported anywhere under src/ (grep returned only the definition site). Rule: AGENTS.md §16 — no dead code; useToast.ts was deleted in Task 4 but use-mobile.ts survived. The hook also lacks a "use client" directive despite using useState/useEffect (works only because no caller exists). Fix: delete src/hooks/use-mobile.ts (re-introduce when a real consumer appears). Blocks: NO.
+   116→4. [MINOR] AGENTS.md §5 doc drift: (a) lists "BrandButton" under src/components/brand/ — no such file exists (button was extended via cva variant in src/components/ui/button.tsx per Task 5-7 worklog); (b) lists "SectionHeading" under src/components/layout/ — it lives in src/components/brand/; (c) lists "variants.ts" under src/lib/motion/ — file does not exist (functionality is in reduced-motion.ts as buildVariants()). Rule: AGENTS.md §1 — "documentation matches code." Fix: update AGENTS.md §5 repository map to match actual file tree. Blocks: NO.
+   117→5. [SUGGESTION] src/components/sections/design-system-showcase.tsx:1 — `DesignSystemShowcase` is a single large client component (~379 lines) containing 9 separate demo Blocks. Rule: AGENTS.md §7 — "prefer Server Components; 'use client' only where interactivity/motion requires it." Only the form fields, accordion, tabs, carousel and AnimatedReveal/stagger blocks actually need client. Fix (optional, future): split static Blocks (palette, typography, spacing, buttons-as-static, badges, cards-as-static) into a server component, leaving only interactive bits as client. Blocks: NO.
+   118→
+   119→Verification matrix (10 rules):
+   120→1. No DB/Prisma/NextAuth/backend-SDK imports under src/ — PASS (grep: zero matches).
+   121→2. No src/app/api/ route — PASS (Glob empty).
+   122→3. framer-motion used (NOT `motion`); GSAP only from src/lib/gsap/ — PASS (single `from "gsap"` in src/lib/gsap/register.ts; no `from "motion"` or `from "motion/react"`).
+   123→4. No raw brand hex in src/ OUTSIDE tokens.css — PARTIAL (see finding #1; only the design-system reference page, used as documentation labels not styling).
+   124→5. No page-local motion constants — PARTIAL (see finding #2; GSAP hero timeline literals).
+   125→6. No duplicate button primitives — PASS (only src/components/ui/button.tsx; no BrandButton file or symbol anywhere in src/).
+   126→7. Server/client boundaries sensible — PASS (pages are server; layout-level providers/hooks/motion components are client; cta-section, page-container, section-shell, logo, section-heading, channel-card, step-card, testimonial-card are server; sections that consume useLanguage or motion are client). One optional optimization noted (finding #5).
+   127→8. shadcn count = 24, no removed-component imports remain — PASS (exactly 24 files; grep for 22 removed component paths returned zero matches).
+   128→9. No tailwindcss-animate import, no tailwind.config.ts — PASS (Glob empty for tailwind.config.*; globals.css imports tw-animate-css instead).
+   129→10. Caddyfile preserved — PASS (23 lines, :81 listener, XTransformPort branch + default :3000 reverse proxy intact).
+   130→
+   131→Stage Summary:
+   132→- Architecture, dependency decisions, server/client boundaries, and component composition are SOUND. All 10 verification rules pass except two PARTIALs, both MINOR and localized to (a) the /design-system reference page's brand-palette documentation labels and (b) the GSAP hero timeline's bespoke durations.
+   133→- NO backend/DB/auth/data-layer code remains anywhere under src/. Repository cleanup is complete and consistent with docs/REPOSITORY_AUDIT.md and docs/DEPENDENCY_AUDIT.md.
+   134→- No BLOCKER or CRITICAL findings. Findings #1 and #2 should be addressed before final client delivery for token-discipline purity; #3 and #4 are housekeeping; #5 is optional.
+   135→- Verdict: APPROVED with minor cleanup recommended. Does not block Gate 5/6 visual verification or proceeding to specialist subagent reviews.
+   136→
+   137→---
+   138→Task ID: 8-c
+   139→Agent: Subagent 3 (Design-System)
+   140→Task: READ-ONLY review of DESIGN.md, design tokens, semantic naming, typography, spacing/radius/shadow/color usage, /design-system page, brand components, and brand consistency vs SOURCE_OF_TRUTH.md §4.
+   141→
+   142→Work Log:
+   143→- Read DESIGN.md (219 lines), src/styles/tokens.css, src/styles/typography.css, src/app/globals.css.
+   144→- Read src/app/design-system/page.tsx + src/components/sections/design-system-showcase.tsx (379 lines).
+   145→- Read src/components/brand/{logo,section-heading,stat-card,channel-card,step-card,testimonial-card}.tsx.
+   146→- Read src/components/ui/button.tsx (verifying centralized cta variant + xl size).
+   147→- Read src/components/layout/{site-header,site-footer,language-toggle,cta-section,section-shell,page-container}.tsx.
+   148→- Read src/components/sections/{hero,stats-strip,how-it-works,learning-channels,testimonials}.tsx.
+   149→- Read docs/SOURCE_OF_TRUTH.md §4 (brand palette) — cross-checked hex values against tokens.css and DESIGN.md Layer A.
+   150→- Read docs/QA_CHECKLIST.md + DECISION_LOG.md D13 (orange reserved for conversion).
+   151→- Grep-verified: raw hex presence (only in tokens.css + display labels in design-system page), var(--brand-*) SVG usage, bg-cta/variant="cta" usage, text-brand-teal vs text-accent usage.
+   152→- Computed WCAG contrast for the three key pairs DESIGN.md L189 claims: navy/white, grey-text/white, navy-dark/orange. All three DESIGN.md figures are inaccurate; grey-text/white actually fails AA normal text.
+   153→
+   154→Stage Summary:
+   155→- DESIGN.md Layer A + Layer B structure ✓; client identity (برنامج الحساب الذهني / abacus metaphor / Yemeni kids' education) reflected ✓.
+   156→- Semantic token layer is correct: primary/cta/accent/secondary/muted/background/foreground/border/ring all defined and wired through globals.css @theme inline. Brand-prefixed utilities (bg-brand-*) also exposed as escape hatch — consistent with DESIGN.md anti-pattern example L199.
+   157→- Raw brand hex confined to tokens.css ✓. (Hex strings in design-system-showcase.tsx L31-40 are palette-swatch labels, not styling.)
+   158→- Tajawal loaded via next/font/google with arabic+latin subsets, weights 400/500/700/800 ✓. Type scale defined in typography.css ✓.
+   159→- /design-system page demonstrates brand palette, semantic palette, typography, spacing, radius, shadows, buttons, badges, cards, form fields, accordion, tabs, icons, stats, motion presets, reduced-motion note, responsive grids ✓.
+   160→- Centralized Button with cta variant + xl size ✓; no duplicated primitives.
+   161→- Section background alternation correct: navy hero → tint stats → white how → icy channels → tint testimonials → orange CTA → navy footer.
+   162→- 3 HIGH-severity blockers found: (1) language-toggle uses bg-cta for non-conversion active state; (2) header trial button + hero CTA produce 2 orange CTAs in same viewport (≥sm); (3) --brand-grey-text on white ≈ 4.42:1 fails WCAG AA for normal text, and DESIGN.md L189 incorrectly claims 4.7:1.
+   163→- 3 MEDIUM issues: DESIGN.md contrast figures all inaccurate; --warning aliases --brand-orange (non-conversion reuse of CTA color); font-serif used on testimonial quote mark inconsistent with Tajawal-only direction.
+   164→- 4 LOW issues: --space-* tokens defined but not exposed via @theme inline; design-system page lacks explicit button-state demos (only disabled); no dedicated responsive demo block; typography block doesn't separately label headings/body/captions/numerals.
+   165→- Verdict: design-system foundation is strong and structurally correct, but 3 HIGH issues (2 brand-rule violations + 1 real AA contrast failure) block Gate 5 sign-off until fixed.
+   166→
+   167→---
+   168→Task ID: 8-a
+   169→Agent: Subagent 1 (Source Auditor)
+   170→Task: READ-ONLY audit comparing implemented homepage + design system against client sources (DOCX text, SOURCE_OF_TRUTH.md, reference JPG analysis). Verify: section order, brand name, brand colors, orange-CTA-only-for-conversion, three channels, illustrative stats, Arabic terminology, no invented production claims, age 7-12.
+   171→
+   172→Work Log:
+   173→- Read /home/z/my-project/worklog.md (prior task history).
+   174→- Read /home/z/my-project/upload/extracted/docx_text.txt (client DOCX identity + execution concept).
+   175→- Read /home/z/my-project/docs/SOURCE_OF_TRUTH.md (full — 10 sections incl. palette, conflicts C1–C6, §7 assumptions, §8 unverified claims).
+   176→- Read implementation: src/app/page.tsx, src/app/layout.tsx, src/components/sections/{hero,stats-strip,how-it-works,learning-channels,testimonials}.tsx, src/components/layout/{cta-section,site-header,site-footer,language-toggle,section-shell}.tsx, src/components/brand/{logo,section-heading,stat-card,step-card,channel-card,testimonial-card}.tsx, src/content/{home,testimonials,site}.ts, src/styles/tokens.css, DESIGN.md.
+   177→- Cross-checked: grep for `brand-orange|bg-cta|variant="cta"` (orange usage map), `درس الخبرة` (conflict C1 — zero matches, good), `payment|backend|api|prisma|payload|مساعد ذكي` (production claims — only embla-carousel internal `api` type matches, no real backend), `/register` link target, `id` forwarding in SectionShell.
+   178→
+   179→Stage Summary (key findings):
+   180→
+   181→VERIFIED COMPLIANT (no action needed):
+   182→1. Section ORDER matches DOCX-authoritative order — layout.tsx wraps Header → main(Hero → StatsStrip → HowItWorks → LearningChannels → Testimonials → CTASection) → Footer. ✓
+   183→2. Brand name = "برنامج الحساب الذهني" used everywhere (logo.tsx:31, site.ts:7, layout.tsx metadata). Zero occurrences of the JPG wordmark "درس الخبرة". Conflict C1 correctly resolved per DOCX authority. ✓
+   184→3. All 10 brand colors in tokens.css match DOCX image1 exact hex (case-insensitive): #F2A23C, #06335C, #2C8FC0, #37B0C3, #0A4C82, #D2DCE2, #6B7A86, #2A3A47, #F4F9FA, #E1F0F3. Conflict C2 correctly resolved. ✓
+   185→4. Three learning channels present (in-center / partner-schools / online). Online correctly marked "قريباً"/"Coming soon" per Phase-1 scope. ✓
+   186→5. Stats illustrative — home.ts and testimonials.ts both have explicit header comments marking them as demo/illustrative and referencing SOURCE_OF_TRUTH §8. Stats values (95 / 3 / +780 / 10) match the reference-image numbers cited in §7. ✓
+   187→6. Arabic terminology preserved — السوروبان, المستويات العشرة, حصة تجريبية all present across hero, steps, channels, metadata, faq. ✓
+   188→7. No invented production claims — no backend, no payments, no AI assistant, no real APIs in source (carousel `api` matches are Embla internal type only). ✓
+   189→8. Age range 7-12 reflected in site.ts ageRange and hero subtitle ("من 7 إلى 12 عاماً"). ✓
+   190→
+   191→ISSUES FOUND:
+   192→
+   193→[MAJOR] Orange CTA used decoratively in LanguageToggle — src/components/layout/language-toggle.tsx:28,43 — `bg-cta text-cta-foreground` applied to the active AR/EN button. Rule violated: SOURCE_OF_TRUTH §4.2 + DESIGN.md "Orange CTA: conversion CTAs only, never decorative." The language toggle is a UI control, not a conversion action. Fix: use `bg-primary` (navy) or `bg-accent` (teal) for the active state. Classification: Primary-agent design decision (orange=conversion rule) violated. Blocks completion? No (visual/brand-polish, not a client-source violation), but should be fixed before final QA.
+   194→
+   195→[MAJOR] Two orange CTAs visible simultaneously in the hero viewport — src/components/layout/site-header.tsx:67 (header desktop CTA, `variant="cta"`) + src/components/sections/hero.tsx:64 (hero CTA, `variant="cta"`). Both render as orange buttons visible together on the hero viewport. Rule violated: DESIGN.md "Never more than one orange CTA per visible viewport." Fix: change the header CTA to `variant="default"` (navy) OR change the hero secondary to ghost and keep only the hero CTA as orange (preferred — the hero is the page's primary conversion surface, not the header). Classification: Primary-agent design decision. Blocks completion? No, but should be fixed.
+   196→
+   197→[MAJOR] Broken conversion funnel — three orange CTAs (hero, header desktop, mobile-sheet) all link to `/register`, which is NOT a registered route (only `/` and `/design-system` exist; src/lib/routes.ts:25 declares `ctaHref = "/register"` with comment "future — rendered as coming-soon" but no coming-soon treatment exists). Clicking causes a 404. Rule violated: master task §20 "never broken links; future pages rendered as coming-soon states." Fix: either (a) create a lightweight `/register` coming-soon page, or (b) intercept the click and show a sonner toast "التسجيل سيفتح قريباً", or (c) wire the ctaHref to a non-navigating Button with onClick toast. Classification: Phase-1 requirement. Blocks completion? Yes — the conversion path is the entire point of the homepage and currently dead-ends.
+   198→
+   199→[MAJOR] Final CTA button has no action — src/components/layout/cta-section.tsx:21 renders `<Button variant="default" size="xl">` without `asChild`/`href`/`onClick`. Clicking does nothing. The "conversion crescendo" (DESIGN.md §Section-background alternation) is broken. Fix: make it a link/toast consistent with the chosen /register treatment above. Classification: Phase-1 requirement. Blocks completion? Yes.
+   200→
+   201→[MINOR] Bilingual toggle not wired through brand cards — channel-card.tsx:35-40, step-card.tsx:26-29, testimonial-card.tsx:23-32, stat-card.tsx:31 all hardcode `.ar` (e.g. `channel.title.ar`, `step.title.ar`, `testimonial.quote.ar`, `stat.label.ar`) instead of indexing by `lang`. Section headings DO switch via `lang` (e.g. how-it-works.tsx:18 uses `howItWorks[lang]`), so the inconsistency is visible. EN translations authored in home.ts/testimonials.ts are silently dropped. SOURCE_OF_TRUTH §7 acknowledges full EN content as a documented gap, but the existing EN strings are simply unused. Fix: pass `lang` (or the resolved object) into the brand cards and use `[lang]` indexing. Classification: Prototype assumption vs. Phase-1 requirement (toggle is functional UI per §7). Blocks completion? No, but is a visible polish gap.
+   202→
+   203→[MINOR] Final CTA section hardcodes `.ar` strings — src/components/layout/cta-section.tsx:14,17,22 uses `finalCta.title.ar`, `finalCta.subtitle.ar`, `finalCta.cta.ar`. Same bilingual gap as above (no useLanguage hook). Fix: wire `useLanguage` and index by `lang`. Classification: Prototype assumption. Blocks completion? No.
+   204→
+   205→[MINOR] Hero secondary CTA anchor `#how-it-works` likely does not resolve — src/components/sections/hero.tsx:73 links to `#how-it-works`, and HowItWorks passes `id="how-it-works"` to SectionShell (how-it-works.tsx:14). However, SectionShell's Props interface (section-shell.tsx:3-11) does not include `id`, and the component does not forward unknown props to the rendered Tag — so the `id` is silently dropped at runtime and the anchor has no target. Fix: add `id?: string` to SectionShellProps and spread it onto the Tag (or add it to the className/forwarding). Classification: Phase-1 requirement (functional secondary CTA). Blocks completion? No (non-critical secondary action).
+   206→
+   207→[SUGGESTION] ctaHref export in routes.ts:25 is dead code — never imported anywhere (grep verified). The comment "future — rendered as coming-soon" describes intent not implemented. Fix: either consume ctaHref in the three CTAs (single source of truth for the funnel target) or remove the dead export. Classification: Primary-agent design decision. Blocks completion? No.
+   208→
+   209→[SUGGESTION] DecorativeBeads in cta-section.tsx:36-43 use `var(--brand-navy)` (navy beads on orange banner) — this is acceptable per DESIGN.md (navy-on-orange contrast) and does NOT constitute decorative orange use. No action needed.
+   210→
+   211→Overall verdict: The implementation faithfully implements the client source requirements at the brand/identity/content level — section order, brand name, brand palette, three channels, Arabic terminology, age range, illustrative-stat labeling, and no-backend scope are all correctly observed. Conflict C1 (brand name) and C2 (exact colors) are correctly resolved in favor of the DOCX. However, four MAJOR issues — (1) decorative orange use in the language toggle, (2) dual orange CTAs in the hero viewport, (3) the /register broken-link funnel, and (4) the dead final-CTA button — must be addressed before the prototype can be considered complete. The funnel issues (3) and (4) are blockers; the orange-usage issues (1) and (2) are brand-rule violations that should be fixed before final QA. Bilingual wiring (MINOR) and the `#how-it-works` anchor (MINOR) are polish items.
+   212→
+   213→---
+   214→Task ID: 8-d
+   215→Agent: Subagent 4 (RTL/A11y)
+   216→Task: READ-ONLY Arabic RTL & accessibility review of layout, sections, brand components, globals.css, DESIGN.md
+   217→
+   218→Work Log:
+   219→- Read worklog.md (context), DESIGN.md (§Accessibility lines 188–208), layout.tsx, language-provider.tsx, language-toggle.tsx, site-header.tsx, site-footer.tsx, all section components, all brand components, globals.css, tokens.css, typography.css, carousel.tsx, sheet.tsx, button.tsx, routes.ts, content/home.ts.
+   220→- Ran `bunx tsc --noEmit` to surface type errors that signal real bugs.
+   221→- Fetched SSR HTML from http://localhost:3000 and grepped for landmarks, ARIA attrs, section ids, opacity-modified colors.
+   222→- Verified rendered `<html lang="ar" dir="rtl">`, semantic landmarks, focus-visible rule, reduced-motion rule, GSAP/Framer reduced-motion guards.
+   223→- Computed WCAG contrast ratios for the four flagged color pairings (teal-on-navy, teal-on-white, navy-on-orange, white-on-navy at opacity modifiers).
+   224→- Did NOT edit any files (read-only review per task spec).
+   225→
+   226→Stage Summary:
+   227→- 2 CRITICAL TypeScript-confirmed bugs blocking mobile nav + in-page anchor.
+   228→- 5 HIGH WCAG AA contrast failures (teal-on-navy, teal-on-white, navy-on-orange).
+   229→- 6 MEDIUM issues: no skip-link, touch-target <44px (hamburger/lang-toggle/desktop CTA), carousel RTL physical positioning + keymap, SectionShell drops aria-label/id, partial-EN content (cards hardcoded to `.ar`).
+   230→- 6 LOW issues: carousel not re-init on lang toggle, ARIA labels not localized, language-toggle buttons missing aria-label, sheet close-button physical right, lang/dir useEffect flash, no-JS hero invisible.
+   231→- Verdict: NOT APPROVED — fix 2 critical + 5 high before visual QA sign-off; medium/low can be batched.
+   232→- See full findings in this agent's final message.
+   233→

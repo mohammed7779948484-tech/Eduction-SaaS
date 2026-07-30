@@ -1,0 +1,98 @@
+/*
+ * Typography — Arabic-first.
+ * Font selection documented in DESIGN.md §Typography.
+ * Primary: Tajawal (loaded via next/font in layout.tsx as --font-sans).
+ */
+
+:root {
+  --font-sans: var(--font-tajawal), "Tajawal", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  --font-display: var(--font-tajawal), "Tajawal", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "Menlo", monospace;
+
+  /* Type scale (rem) */
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.25rem;     /* 20px */
+  --text-2xl: 1.5rem;     /* 24px */
+  --text-3xl: 1.875rem;   /* 30px */
+  --text-4xl: 2.25rem;    /* 36px */
+  --text-5xl: 3rem;       /* 48px */
+  --text-6xl: 3.75rem;    /* 60px */
+
+  /* Line heights */
+  --leading-tight: 1.15;
+  --leading-snug: 1.3;
+  --leading-normal: 1.55;
+  --leading-relaxed: 1.7;
+
+  /* Font weights */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+
+  /* Letter spacing */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.02em;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    font-weight: var(--weight-regular);
+    color: var(--foreground);
+    background-color: var(--background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern", "liga";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: var(--weight-extrabold);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+    color: var(--primary);
+    text-wrap: balance;
+  }
+
+  p {
+    line-height: var(--leading-relaxed);
+    text-wrap: pretty;
+  }
+
+  /* Arabic numerals: keep Latin digits for stats clarity in prototype
+     (decision documented in DESIGN.md). Enable tabular figures for stats. */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: var(--brand-teal);
+    color: var(--brand-white);
+  }
+}
+
+/* Display utilities */
+@utility text-display {
+  font-family: var(--font-display);
+  font-weight: var(--weight-extrabold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}

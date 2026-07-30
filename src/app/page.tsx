@@ -1,31 +1,19 @@
-'use client'
+import { Hero } from "@/components/sections/hero";
+import { StatsStrip } from "@/components/sections/stats-strip";
+import { HowItWorks } from "@/components/sections/how-it-works";
+import { LearningChannels } from "@/components/sections/learning-channels";
+import { Testimonials } from "@/components/sections/testimonials";
+import { CTASection } from "@/components/layout/cta-section";
 
 export default function Home() {
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      minHeight: '100vh',
-      gap: '2rem',
-      padding: '1rem'
-    }}>
-      <div style={{
-        position: 'relative',
-        width: '6rem',
-        height: '6rem'
-      }}>
-        <img
-          src="/logo.svg"
-          alt="Z.ai Logo"
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'contain'
-          }}
-        />
-      </div>
-    </div>
-  )
+    <>
+      <Hero />
+      <StatsStrip />
+      <HowItWorks />
+      <LearningChannels />
+      <Testimonials />
+      <CTASection />
+    </>
+  );
 }

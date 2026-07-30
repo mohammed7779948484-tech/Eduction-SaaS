@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#0A4C82"/>
+  <!-- abacus frame -->
+  <rect x="12" y="14" width="40" height="36" rx="4" fill="none" stroke="#37B0C3" stroke-width="2.5"/>
+  <!-- rods -->
+  <line x1="20" y1="14" x2="20" y2="50" stroke="#E1F0F3" stroke-width="1.5"/>
+  <line x1="32" y1="14" x2="32" y2="50" stroke="#E1F0F3" stroke-width="1.5"/>
+  <line x1="44" y1="14" x2="44" y2="50" stroke="#E1F0F3" stroke-width="1.5"/>
+  <!-- beads -->
+  <circle cx="20" cy="22" r="3.2" fill="#F2A23C"/>
+  <circle cx="20" cy="42" r="3.2" fill="#37B0C3"/>
+  <circle cx="32" cy="24" r="3.2" fill="#37B0C3"/>
+  <circle cx="32" cy="40" r="3.2" fill="#F2A23C"/>
+  <circle cx="44" cy="22" r="3.2" fill="#F2A23C"/>
+  <circle cx="44" cy="42" r="3.2" fill="#37B0C3"/>
+  <!-- divider -->
+  <line x1="12" y1="32" x2="52" y2="32" stroke="#E1F0F3" stroke-width="1"/>
+</svg>
