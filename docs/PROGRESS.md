@@ -1,6 +1,26 @@
 # Progress
 
-## Status: In Progress — M1–M7 complete; M8 (review + verification) in progress
+## Status: Phase 1.5 complete — homepage refined + design-locked
+
+## Phase 1 (complete)
+- M1–M7 done (source understanding, repo audit, skills, dependency cleanup, docs, design constitution, design-system page, shared layout, homepage). See git history.
+
+## Phase 1.5 (complete — this phase)
+- **Git checkpoint** — commit `426008d` (Phase 1.5 baseline).
+- **Skills recovery** — `frontend-design` verified installed (recovered from P1 partial); 10 built-in skills verified covering all 7 required categories. `npx skills add` network timeouts documented honestly (3 retries, increasing timeouts). See `docs/SKILLS.md`.
+- **Homepage refinement audit** — `docs/HOMEPAGE_DESIGN_LOCK_AUDIT.md` (14 areas).
+- **Refinements implemented:**
+  - Hero abacus enriched (rail lines, numerical ticks, bead trails, controlled glow, background grid motif, ringed corner badges, double-stroke frame).
+  - New reusable patterns: `BeadBadge` (bead-shaped number badge), `RailDivider` (abacus-rod section divider), `ChannelIllustration` (3 branded SVGs: center/school/screen) — all token-driven, demonstrated in `/design-system`.
+  - Step cards: BeadBadge + connecting rail + hover-lift.
+  - Channel cards: branded illustrations, hover-lift.
+  - Testimonials: refined quote, solid navy avatar (aria-hidden), pagination dots (44px touch targets, role=tablist).
+  - Stats: bead accents.
+  - CTA + Footer: abacus rail motifs.
+  - RailDividers between sections (visual unity).
+- **Specialist review (3 reviewers)** — design, visual QA, RTL/a11y/motion. All MAJOR/HIGH fixed (BeadBadge contrast, pagination touch targets, orange-dot violations, avatar gradient, language-toggle 44px, 360px overflow).
+- **Production verification** — `bun run lint` ✓, `bun run build` ✓ (4 routes static), `bun run start` ✓. No N indicator, no console errors. 9 production screenshots captured.
+- **Design lock** — homepage approved as final visual benchmark for remaining pages.
 
 ## Completed
 - **M1 Source understanding** — all 4 sources read + visually inspected; `docs/SOURCE_OF_TRUTH.md` written. (Gate 1 ✓)

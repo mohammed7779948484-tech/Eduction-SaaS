@@ -20,3 +20,19 @@
 | D13 | Orange `--cta` reserved for conversion only | DESIGN.md | ≤1 orange CTA per viewport; never decorative | M4 |
 | D14 | Skills documented but not persistently installed | `npx skills add` timed out in sandbox (network) | Discovery+evaluation+documentation complete; agent-browser used for visual QA; documented per master task §5 | M1 |
 | D15 | Logo is typographic + abacus-glyph placeholder | Client vector not provided | Built from tokens; easy to replace; documented limitation | M4 |
+
+## Phase 1.5 Decisions
+
+| # | Decision | Context | Rationale | Phase |
+|---|----------|---------|-----------|-------|
+| D16 | Extend abacus visual language with BeadBadge + RailDivider + ChannelIllustration | Master task §18 (extend abacus language subtly) | Reusable, token-driven, documented patterns create visual unity without repetition | P1.5 |
+| D17 | Enrich hero abacus (rail lines, numerical ticks, bead trails, glow, grid motif) | Master task §11 (hero refinement); frontend-design skill ("signature") | Abacus is the signature — spend boldness here; keep everything else disciplined | P1.5 |
+| D18 | BeadBadge teal tone uses `bg-brand-teal-strong` (not `bg-brand-teal`) | WCAG AA contrast (white on #37B0C3 = 2.57:1 fails; white on #1F7D8C = 4.81:1 passes) | Accessibility gate | P1.5 |
+| D19 | Testimonial avatar: solid `bg-brand-navy` (not gradient) | WCAG AA + "no new gradients" anti-pattern | Solid navy = 8.86:1; resolves both contrast + gradient rule | P1.5 |
+| D20 | Pagination dots: 44×44 touch target wrapper + role=tablist | WCAG 2.5.8 AA (24px) + project 44px standard | Accessibility gate | P1.5 |
+| D21 | Language toggle: `min-h-11` (44px) | WCAG 2.5.5 AAA touch target | Project standard | P1.5 |
+| D22 | `overflow-x: hidden` on html+body | 360px decorative-blur overflow (7px, sub-perceptible) | Guarantee no horizontal scroll at any viewport | P1.5 |
+| D23 | Orange strictly conversion-only (step-card dot → teal; testimonial dot → navy) | DESIGN.md §Color roles; subagent finding | Brand-rule discipline | P1.5 |
+| D24 | Hero padding tighter than DESIGN.md spec (py-8/12/16 vs 16/24) | Intentional focal emphasis on navy hero panel | Documented exception | P1.5 |
+| D25 | Skills: `frontend-design` verified installed; 5 others cannot install (network) but 10 built-in skills cover all 7 required categories | Master task §6.6 honest failure + equivalent built-in capability | Verified capability over false install count | P1.5 |
+| D26 | Production-build screenshots (not dev) for final client review | Master task §24 (no Next.js N indicator) | Client-presentation quality | P1.5 |

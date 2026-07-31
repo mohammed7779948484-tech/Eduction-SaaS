@@ -22,13 +22,20 @@ export function HowItWorks() {
               : "The student's journey from discovery to mastery through a graded methodology."
           }
         />
-        <AnimatedStagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4" staggerSpeed="normal">
-          {steps.map((step, i) => (
-            <AnimatedStaggerItem key={i}>
-              <StepCard step={step} />
-            </AnimatedStaggerItem>
-          ))}
-        </AnimatedStagger>
+        <div className="relative">
+          {/* RTL connecting rail (subtle abacus-rod line behind the cards) */}
+          <div
+            className="hidden lg:block absolute top-14 inset-x-12 h-px bg-gradient-to-r from-transparent via-brand-teal/30 to-transparent"
+            aria-hidden
+          />
+          <AnimatedStagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 relative" staggerSpeed="normal">
+            {steps.map((step, i) => (
+              <AnimatedStaggerItem key={i}>
+                <StepCard step={step} />
+              </AnimatedStaggerItem>
+            ))}
+          </AnimatedStagger>
+        </div>
       </PageContainer>
     </SectionShell>
   );

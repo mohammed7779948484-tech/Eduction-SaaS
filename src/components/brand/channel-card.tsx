@@ -5,19 +5,20 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/components/layout/language-provider";
 import { cn } from "@/lib/utils";
 import type { Channel } from "@/content/home";
+import { ChannelIllustration, type ChannelKind } from "./channel-illustration";
 
 interface ChannelCardProps {
   channel: Channel;
   className?: string;
 }
 
-const variantStyles: Record<Channel["variant"], { bg: string; hover: string }> = {
-  navy: { bg: "bg-brand-navy", hover: "hover:bg-brand-navy-dark" },
-  blue: { bg: "bg-brand-blue", hover: "hover:brightness-110" },
-  teal: { bg: "bg-brand-teal", hover: "hover:brightness-105" },
+const variantStyles: Record<Channel["variant"], { bg: string; hover: string; glyph: ChannelKind }> = {
+  navy: { bg: "bg-brand-navy", hover: "hover:bg-brand-navy-dark", glyph: "center" },
+  blue: { bg: "bg-brand-blue", hover: "hover:brightness-110", glyph: "school" },
+  teal: { bg: "bg-brand-teal", hover: "hover:brightness-105", glyph: "screen" },
 };
 
-/** Learning channel card — one shared component, controlled color variation. */
+/** Learning channel card — one shared component, branded SVG illustration per channel. */
 export function ChannelCard({ channel, className }: ChannelCardProps) {
   const { lang } = useLanguage();
   const v = variantStyles[channel.variant];
@@ -25,15 +26,15 @@ export function ChannelCard({ channel, className }: ChannelCardProps) {
   return (
     <Card
       className={cn(
-        "group h-full overflow-hidden border-0 p-0 shadow-md transition-all duration-300",
+        "group h-full overflow-hidden border-0 p-0 shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1",
         v.bg,
         v.hover,
         className
       )}
     >
-      {/* Visual band */}
-      <div className="relative h-32 sm:h-40 flex items-center justify-center">
-        <ChannelGlyph variant={channel.variant} />
+      {/* Visual band with branded illustration */}
+      <div className={cn("relative h-32 sm:h-40 flex items-center justify-center", v.bg)}>
+        <ChannelIllustration kind={v.glyph} />
       </div>
       {/* Content */}
       <div className="bg-card p-6 space-y-3">
@@ -47,21 +48,5 @@ export function ChannelCard({ channel, className }: ChannelCardProps) {
         </span>
       </div>
     </Card>
-  );
-}
-
-function ChannelGlyph({ variant }: { variant: Channel["variant"] }) {
-  const color =
-    variant === "navy" ? "var(--brand-teal)" : variant === "blue" ? "var(--brand-white)" : "var(--brand-navy)";
-  return (
-    <svg width="72" height="72" viewBox="0 0 64 64" fill="none" aria-hidden>
-      <rect x="10" y="12" width="44" height="40" rx="5" fill="none" stroke={color} strokeWidth="2.5" opacity="0.85" />
-      <line x1="20" y1="12" x2="20" y2="52" stroke={color} strokeWidth="1.5" opacity="0.6" />
-      <line x1="32" y1="12" x2="32" y2="52" stroke={color} strokeWidth="1.5" opacity="0.6" />
-      <line x1="44" y1="12" x2="44" y2="52" stroke={color} strokeWidth="1.5" opacity="0.6" />
-      <circle cx="20" cy="22" r="3.4" fill="var(--brand-orange)" />
-      <circle cx="32" cy="40" r="3.4" fill="var(--brand-orange)" />
-      <circle cx="44" cy="24" r="3.4" fill={color} />
-    </svg>
   );
 }

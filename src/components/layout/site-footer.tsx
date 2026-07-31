@@ -13,8 +13,17 @@ export function SiteFooter() {
   const dir = lang === "ar" ? "ar" : "en";
 
   return (
-    <footer className="bg-primary text-primary-foreground mt-auto">
-      <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <footer className="bg-primary text-primary-foreground mt-auto relative overflow-hidden">
+      {/* abacus rail motif at top */}
+      <div className="absolute top-0 inset-x-0 flex justify-center gap-2 pt-3" aria-hidden>
+        {Array.from({ length: 11 }).map((_, i) => (
+          <span
+            key={i}
+            className={i === 5 ? "size-2 rounded-full bg-brand-teal" : "size-1.5 rounded-full bg-brand-teal/30"}
+          />
+        ))}
+      </div>
+      <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8 py-12 sm:py-16 pt-16">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand + child protection */}
           <div className="space-y-4 lg:col-span-2">

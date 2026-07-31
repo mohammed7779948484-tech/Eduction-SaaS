@@ -168,6 +168,13 @@ Geometric, brand-token-colored, abacus-derived (beads, rods, frames). Flat with 
 ### Abacus-inspired graphic language
 The abacus is the brand's core metaphor: beads (circles), rods (vertical lines), frames (rounded rects). Reuse across: favicon, logo glyph, hero visual, step-card icons, section dividers, progress indicators. Built from brand tokens (navy frame, teal/orange beads).
 
+**Reusable abacus-language patterns (Phase 1.5, demonstrated in `/design-system`):**
+- **`BeadBadge`** (`src/components/brand/bead-badge.tsx`) — bead-shaped number/label badge. Tones: teal (`bg-brand-teal-strong` for AA), orange (CTA-only), navy, pale. Sizes sm/md/lg. Used in: step numbers.
+- **`RailDivider`** (`src/components/brand/rail-divider.tsx`) — abacus-rod-inspired section divider (thin rail + evenly-spaced beads, low opacity). Tones: teal, navy, muted. Decorative (aria-hidden). Used in: section transitions.
+- **`ChannelIllustration`** (`src/components/brand/channel-illustration.tsx`) — 3 lightweight branded SVGs (center=building, school=book, screen=monitor-with-beads). Token-driven, aria-hidden. Used in: channel cards.
+
+**Restraint rule:** the abacus appears in the hero (signature) + subtle motifs (bead badges, rail dividers, card accents) — NOT in every section. Visual unity, not repetition.
+
 ### Icon rules
 Lucide icons, brand-teal by default on light surfaces, white on navy. Sizes per context (16/20/24/32). Never recolor to non-brand colors. Icon + label pairs for nav.
 

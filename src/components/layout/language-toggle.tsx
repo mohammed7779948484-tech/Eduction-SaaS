@@ -24,7 +24,7 @@ export function LanguageToggle({ tone = "dark" }: { tone?: "dark" | "light" }) {
         onClick={() => setLang("ar")}
         aria-pressed={lang === "ar"}
         aria-label={lang === "ar" ? "العربية" : "Arabic"}
-        className={cn("min-h-9 rounded-full px-3 py-1.5 transition-colors", lang === "ar" ? active : inactive)}
+        className={cn("min-h-11 rounded-full px-3 py-1.5 transition-colors", lang === "ar" ? active : inactive)}
       >
         ع
       </button>
@@ -33,7 +33,7 @@ export function LanguageToggle({ tone = "dark" }: { tone?: "dark" | "light" }) {
         onClick={() => setLang("en")}
         aria-pressed={lang === "en"}
         aria-label="English"
-        className={cn("min-h-9 rounded-full px-3 py-1.5 transition-colors", lang === "en" ? active : inactive)}
+        className={cn("min-h-11 rounded-full px-3 py-1.5 transition-colors", lang === "en" ? active : inactive)}
       >
         EN
       </button>

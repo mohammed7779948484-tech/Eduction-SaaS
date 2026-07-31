@@ -21,6 +21,9 @@ import { AnimatedCounter } from "@/components/motion/animated-counter";
 import { SectionShell } from "@/components/layout/section-shell";
 import { PageContainer } from "@/components/layout/page-container";
 import { SectionHeading } from "@/components/brand/section-heading";
+import { BeadBadge } from "@/components/brand/bead-badge";
+import { RailDivider } from "@/components/brand/rail-divider";
+import { ChannelIllustration } from "@/components/brand/channel-illustration";
 import { faq } from "@/content/faq";
 import { useLanguage } from "@/components/layout/language-provider";
 import {
@@ -355,6 +358,46 @@ export function DesignSystemShowcase() {
               <CheckCircle2 className="size-4 text-success" />
               {lang === "ar" ? "تفضّل تقليل الحركة: يظهر كل شيء فوراً في حالته النهائية." : "Reduced-motion: everything appears instantly in final state."}
             </p>
+          </div>
+        </Block>
+
+        {/* Abacus visual language (new patterns) */}
+        <Block title={lang === "ar" ? "لغة السوروبان البصرية" : "Abacus visual language"} desc="BeadBadge · RailDivider · channel illustrations — token-driven, reusable">
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <Label className="text-sm">BeadBadge</Label>
+              <div className="flex flex-wrap items-center gap-4">
+                <BeadBadge tone="teal" size="lg">1</BeadBadge>
+                <BeadBadge tone="orange" size="lg">2</BeadBadge>
+                <BeadBadge tone="navy" size="md">3</BeadBadge>
+                <BeadBadge tone="pale" size="sm">4</BeadBadge>
+              </div>
+            </div>
+            <Separator />
+            <div className="space-y-2">
+              <Label className="text-sm">RailDivider</Label>
+              <RailDivider tone="teal" beads={9} />
+              <RailDivider tone="navy" beads={7} />
+              <RailDivider tone="muted" beads={5} />
+            </div>
+            <Separator />
+            <div className="space-y-2">
+              <Label className="text-sm">ChannelIllustration</Label>
+              <div className="grid grid-cols-3 gap-3">
+                <div className="flex flex-col items-center gap-2">
+                  <div className="bg-brand-navy rounded-lg h-24 w-full flex items-center justify-center"><ChannelIllustration kind="center" /></div>
+                  <span className="text-xs text-muted-foreground">center</span>
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <div className="bg-brand-blue rounded-lg h-24 w-full flex items-center justify-center"><ChannelIllustration kind="school" /></div>
+                  <span className="text-xs text-muted-foreground">school</span>
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <div className="bg-brand-teal rounded-lg h-24 w-full flex items-center justify-center"><ChannelIllustration kind="screen" /></div>
+                  <span className="text-xs text-muted-foreground">screen</span>
+                </div>
+              </div>
+            </div>
           </div>
         </Block>
 

@@ -85,9 +85,13 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    overflow-x: hidden;
+  }
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-sans);
+    overflow-x: hidden;
   }
 
   /* Focus visibility — accessible, brand-aligned ring */

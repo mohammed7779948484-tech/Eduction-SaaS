@@ -479,3 +479,315 @@ Stage Summary:
 - All 7 subagent reviews consolidated in docs/REVIEW_LOG.md. Every BLOCKER/CRITICAL/MAJOR resolved. No unresolved blockers.
 - Gate 5 (design-system), Gate 6 (homepage), Gate 7 (final consistency) satisfied.
 - Prototype complete: Arabic-first RTL homepage + /design-system + /register coming-soon + full documentation, verified via agent-browser at multiple viewports.
+
+---
+Task ID: P15-7c
+Agent: Subagent 4+5 (RTL/A11y/Motion)
+Task: READ-ONLY review of Phase 1.5 enriched homepage — Arabic RTL & Accessibility + Motion verification of BeadBadge, RailDivider, channel SVGs, testimonials pagination dots, hero RailGridMotif, CTA/footer rail motifs, GSAP hero timeline. Production server verified via agent-browser at http://localhost:3000.
+
+Work Log:
+- Read worklog.md (Tasks 1, 3, 4, 5-7, 8-a..g, 8-fix+9 — full Phase 1 history). No prior Phase 1.5 entry; current source state = post-Phase 1.5 enriched homepage (BeadBadge, RailDivider, RailGridMotif, channel illustrations, testimonials pagination dots, CTA/footer rail motifs all present in code).
+- Read all 12 target files: hero.tsx, testimonials.tsx, bead-badge.tsx, rail-divider.tsx, step-card.tsx, channel-card.tsx, testimonial-card.tsx, cta-section.tsx, site-footer.tsx, hero-timeline.ts, globals.css, tokens.css. Cross-referenced motion/tokens.ts and reduced-motion.ts.
+- Verified production server responding 200 on / (http://localhost:3000).
+- Used agent-browser (v0.32.3) to drive a headless Chromium session at default desktop viewport (RTL/Arabic default lang).
+- Ran 6 targeted JS evals to inspect runtime state: hero opacity (P1 fix preserved), pagination dot semantics + touch target size + React handlers, hero abacus SVG child elements (data-bead vs static), BeadBadge + avatar contrast (computed style + bg/color), channel arrow a11y + RTL direction, dot focus ring visibility.
+- Computed WCAG contrast ratios for all new colored patterns: white-on-teal (#37b0c3)=2.57:1, white-on-avatar-gradient-midpoint (#218ea2)=3.85:1, white-on-navy=8.86:1, navy-on-orange=6.12:1, navy-dark-on-teal-pale=10.98:1, teal-strong-on-white=4.81:1, grey-text-on-white=6.17:1.
+- Did NOT edit any files (read-only review per task spec).
+
+Findings (severity, evidence, rule, fix, blocks):
+
+1. [HIGH] BeadBadge "teal" tone — white text on brand-teal fails WCAG AA contrast.
+   - Evidence: src/components/brand/bead-badge.tsx:17 `teal: "bg-brand-teal text-white"`. Consumed in src/components/brand/step-card.tsx:25 (`<BeadBadge tone="teal" size="lg">{step.number}</BeadBadge>`) and src/components/sections/design-system-showcase.tsx:369. Runtime-verified via getComputedStyle: bg=rgb(55,176,195)=#37b0c3, color=rgb(255,255,255). Computed contrast = 2.57:1. Step number text rendered at 18px / font-weight 800 — below WCAG "large text" threshold (≥18.66px bold or ≥24px regular), so falls under normal-text requirement of 4.5:1.
+   - Rule: WCAG 1.4.3 Contrast (Minimum) — Level AA.
+   - Fix: Change `teal` tone text color from `text-white` to `text-brand-navy-dark` (navy-dark #06335c on teal = 4.99:1 — passes AA), OR swap the background to `bg-brand-teal-strong` (#1f7d8c — white-on-teal-strong = 4.81:1 — passes AA). Recommend the latter to preserve the white-on-color visual identity.
+   - Blocks? YES for AA sign-off.
+
+2. [HIGH] Testimonials pagination dots touch target below WCAG AA minimum.
+   - Evidence: src/components/sections/testimonials.tsx:67-71 — `<button ... className={cn("rounded-full transition-all duration-300", active === i ? "bg-accent size-2.5" : "bg-border size-2 hover:bg-brand-grey-text")} />`. Runtime-verified bounding box: active dot = 10×10px (size-2.5), inactive dots = 8×8px (size-2). No padding wrapper. WCAG 2.5.8 (AA in WCAG 2.2) requires ≥24×24; WCAG 2.5.5 (AAA) requires ≥44×44.
+   - Rule: WCAG 2.5.8 Target Size (Minimum) — Level AA.
+   - Fix: Wrap the visible dot in a 44×44 button hit area: `<button type="button" role="tab" aria-selected={active===i} aria-label={...} onClick={...} className="size-11 flex items-center justify-center rounded-full focus-visible:ring-2 focus-visible:ring-ring"><span className={cn("rounded-full transition-all duration-300", active===i ? "bg-accent size-2.5" : "bg-border size-2 hover:bg-brand-grey-text")} /></button>`. Keeps visible dot small but expands click/focus target to 44px.
+   - Blocks? YES for AA sign-off.
+
+3. [MEDIUM] Testimonials pagination dots missing full ARIA tablist keyboard pattern.
+   - Evidence: src/components/sections/testimonials.tsx:60-72 — dots are `<button role="tab" aria-selected=... aria-label=... onClick=...>` only. No `onKeyDown` handler. No roving tabindex (all 3 dots have implicit tabindex=0, verified via getAttribute('tabindex')=null). React fiber inspection confirmed `hasOnKeyDown: false` on all 3 dots. Tab key reaches each dot individually (3 tabs to traverse); arrow keys do NOT move between dots; Home/End do NOT jump to ends.
+   - Rule: WAI-ARIA Authoring Practices Guide — Tab Pattern (arrow-key navigation, roving tabindex, Home/End).
+   - Fix: Add `tabIndex={active === i ? 0 : -1}` (roving), and `onKeyDown` handler that intercepts ArrowLeft/ArrowRight (with RTL direction flip via `lang === "ar"`), Home (jump to 0), End (jump to last), calls `api?.scrollTo(targetIndex)` and moves focus to the target dot via `dots[targetIndex].focus()`.
+   - Blocks? NO (dots are operable via Tab + Enter/Space; only the arrow-key ergonomics are missing).
+
+4. [MEDIUM] Testimonial avatar initial contrast borderline fails AA on gradient midpoint.
+   - Evidence: src/components/brand/testimonial-card.tsx:35 — `<span className="flex size-11 items-center justify-center rounded-full bg-gradient-to-br from-brand-teal to-brand-navy text-white font-bold shadow-sm">`. Runtime: 44×44 span, text 16px font-weight 700 single Arabic character. Gradient interpolated in oklab from rgb(55,176,195)=#37b0c3 to rgb(10,76,130)=#0a4c82. White on sRGB midpoint (#218ea2) ≈ 3.85:1 — below 4.5:1 needed for normal text (16px bold < 18.66px bold threshold for large-text exemption). Character sits roughly at center of circle where gradient is mid-blend; the top portion of the character may sit over a lighter-teal area where contrast drops to ~2.6:1.
+   - Rule: WCAG 1.4.3 Contrast (Minimum) — Level AA.
+   - Fix (any one): (a) add `aria-hidden` to the avatar span — the author's full name is rendered in the adjacent span (line 39), making the initial redundant decoration; OR (b) change gradient `from-brand-teal` → `from-brand-teal-strong` (#1f7d8c, white-on-teal-strong=4.81:1 — passes); OR (c) darken entire avatar to `bg-brand-navy` (white-on-navy=8.86:1 — passes). Recommend (a) — simplest, also removes SR redundancy (finding #6).
+   - Blocks? NO (informational redundancy with adjacent name).
+
+5. [LOW] BeadBadge "teal" tone in /design-system showcase inherits finding #1 contrast failure.
+   - Evidence: src/components/sections/design-system-showcase.tsx:369 `<BeadBadge tone="teal" size="lg">1</BeadBadge>`. Same teal/white combination; same 2.57:1 contrast.
+   - Rule: WCAG 1.4.3.
+   - Fix: Same as finding #1 — fixing the tone definition in bead-badge.tsx cascades to both consumers.
+   - Blocks? NO (reference demo page).
+
+6. [LOW] Testimonial avatar initial exposed redundantly to screen readers.
+   - Evidence: src/components/brand/testimonial-card.tsx:35-37 — avatar span renders `{testimonial.name[lang].charAt(0)}` with no aria-hidden. The author's full name is rendered in the adjacent `<span>` at line 39. SR users hear "أ" then "أحمد العلي" — redundant initial. Compounds with finding #4 (avatar contrast).
+   - Rule: WCAG 1.3.1 Info and Relationships (avoid redundant disclosure).
+   - Fix: Add `aria-hidden` to the avatar span (also resolves finding #4 by removing the text from the a11y tree).
+   - Blocks? NO.
+
+7. [INFO] Pagination dots transition uses CSS `duration-300` (300ms) — slight deviation from motion token `--motion-normal` (320ms).
+   - Evidence: src/components/sections/testimonials.tsx:68 — `"rounded-full transition-all duration-300"`. src/styles/tokens.css:119 defines `--motion-normal: 0.32s`. The 20ms discrepancy is within perceptual tolerance and is a CSS transition (not a Framer Motion variant), so it does not strictly violate rule #11 ("No new Framer Motion inline constants"). Same `duration-300` is also used on step-card.tsx:20, channel-card.tsx:28, site-header.tsx:31 — all pre-existing patterns.
+   - Rule: Master task §15/§16 (token centralization) — soft expectation, not a hard rule for CSS transitions.
+   - Fix (optional): expose `duration-normal` utility mapped to `var(--motion-normal)` in tailwind config, or accept the 20ms discrepancy.
+   - Blocks? NO.
+
+Verification matrix (13 required checks):
+
+1. New patterns aria-hidden where decorative; BeadBadge conveys number to SRs — PASS. RailDivider (rail-divider.tsx:28 `aria-hidden`), channel SVGs (channel-card.tsx:58/70/83 `aria-hidden`), CTA DecorativeBeads (cta-section.tsx:46 `aria-hidden`), CTA rail motif (cta-section.tsx:17 `aria-hidden`), footer rail motif (site-footer.tsx:18 `aria-hidden`), hero glow divs + RailGridMotif + abacus glow (hero.tsx:23/24/92/109 `aria-hidden`), step-card accent dot (step-card.tsx:26 `aria-hidden`), testimonial-card corner motif + quote glyph (testimonial-card.tsx:24/28 `aria-hidden`) — all decorative. BeadBadge (bead-badge.tsx:31-41) does NOT have aria-hidden; children (step.number) exposed to SRs — conveys information. Runtime: 39 aria-hidden elements on homepage.
+
+2. Testimonials pagination dots: role=tablist/tab, aria-selected, aria-label, keyboard-operable — PARTIAL. role=tablist (testimonials.tsx:58), role=tab + aria-selected + aria-label per dot (lines 63-65). Tab/Enter/Space operable (native <button>). But missing arrow-key navigation and roving tabindex (finding #3).
+
+3. New SVG illustrations aria-hidden (decorative) or role=img+aria-label (meaningful) — PASS. Channel illustrations: aria-hidden (decorative). Hero abacus SVG: role="img" + aria-label="سوروبان — أداة الحساب الذهني" (hero.tsx:115-116). RailGridMotif: aria-hidden. CTA/footer rail motifs: aria-hidden. DecorativeBeads SVGs: aria-hidden (parent div).
+
+4. Logical CSS utilities (no new physical left/right in project code) — PASS. All Phase 1.5 components use logical utilities: hero.tsx `-end-24`/`-start-16`; cta-section.tsx `-start-8`/`-end-8`; testimonial-card.tsx `end-4`; site-footer.tsx `inset-x-0`/`top-0` (symmetric). No new physical L/R in src/components/ or src/app/. Physical L/R uses confined to vendored shadcn/ui primitives (carousel.tsx, navigation-menu.tsx, dropdown-menu.tsx, dialog.tsx, select.tsx) — out of project scope. (Minor note: testimonial-card.tsx:35 uses `bg-gradient-to-br` — physical corner direction; for a single centered character in a 44px circle this is visually symmetric and acceptable, but if a stricter logical stance is desired, could swap to a radial gradient.)
+
+5. Contrast preserved (new bead accents, gradient avatar, etc. meet AA) — FAIL. BeadBadge teal tone (white on #37b0c3 = 2.57:1) — finding #1. Testimonial avatar gradient midpoint (white on #218ea2 ≈ 3.85:1) — finding #4. All other new patterns pass: navy-dark on teal-pale (10.98:1), navy on orange (6.12:1), teal-strong on white (4.81:1), grey-text on white (6.17:1), white on navy (8.86:1).
+
+6. Touch targets on new interactive elements (pagination dots ≥ 44px) — FAIL. Active dot = 10×10px, inactive = 8×8px (finding #2). All other new interactive elements are non-interactive (BeadBadge/RailDivider/DecorativeBeads are presentational). Hero CTAs (295×48) and desktop CTA (size-xl ≥44px) were already verified passing in Phase 1.
+
+7. Reduced-motion: new patterns static (no animation) — PASS. BeadBadge, RailDivider, channel illustrations, testimonial-card, cta-section DecorativeBeads, footer rail motif — all pure CSS, no animations. The `transition-all duration-300` on step-card hover (line 20), channel-card hover (line 28), and pagination dots (line 68) is zeroed by the global `prefers-reduced-motion` rule in globals.css:118-127 (transition-duration: 0.001ms !important). Verified the global rule is present and well-formed.
+
+8. GSAP hero timeline animates parent elements correctly (P1 fix preserved) — PASS. src/lib/gsap/hero-timeline.ts:31-59 uses `fromTo` on `[data-hero-eyebrow]`, `[data-hero-title]`, `[data-hero-sub]`, `[data-hero-cta]`, `[data-hero-visual]` — all parent elements. Runtime-verified: 5 `[data-hero-anim]` elements all have computed opacity=1. P1 fix intact.
+
+9. New abacus visual elements (rail lines, ticks, trails) static or part of existing bead stagger — PASS. hero.tsx:119-156 — only the 11 `<circle data-bead>` elements (lines 148-158) carry the `data-bead` attribute that GSAP targets. All other abacus children (frame rects, numerical tick `g`s, rod `line`s, bead-trail `circle`s with opacity=0.12, divider beam `line`s, floating corner badges `g`s) have NO data attributes. Runtime DOM eval: hero SVG has 29 children, only 11 with `data-bead` (and `data-svg-origin` injected by GSAP). Rail lines, ticks, trails, glow are STATIC. Bead stagger remains `stagger.fast` (line 63).
+
+10. No new GSAP usage outside src/lib/gsap/ — PASS. Grep for `gsap|useGSAP` returns only: hero.tsx (importing useHeroTimeline hook), hero-timeline.ts, register.ts, scroll-scenes.ts. All GSAP confined to lib/gsap/. hero.tsx imports the hook, not gsap directly.
+
+11. No new Framer Motion inline constants (durations/easings from tokens) — PASS. Grep for `duration:\d|ease:\[` in src/components/ returns no inline motion constants outside the centralized lib/motion/ files. All Framer Motion consumption goes through AnimatedReveal/AnimatedStagger/AnimatedCounter wrappers which use tokens from src/lib/motion/tokens.ts. (Note: Tailwind `duration-300` in CSS transitions is not a Framer Motion constant — see finding #7.)
+
+12. No Arabic text animated character-by-character — PASS. hero.tsx:43-44 — title rendered as two `<span>`s, each wrapping a complete Arabic phrase ("عقلٌ أسرع." / "مستقبلٌ أفضل."); GSAP animates the parent `[data-hero-title]` and the two child spans as units, never splitting characters. No `.split("")` or `Array.from(text)` patterns found in any motion code. All new Phase 1.5 patterns (BeadBadge, RailDivider, channel illustrations, pagination dots) animate non-text or whole-element targets.
+
+13. Pagination dots transition is CSS (duration-300) — PASS (acceptable). testimonials.tsx:68 uses Tailwind `transition-all duration-300` — pure CSS, no JS animation. Acceptable per task spec. (See finding #7 for the 20ms token-discrepancy note.)
+
+Stage Summary:
+- Phase 1.5 enriched homepage is structurally sound on RTL/A11y/Motion axes: aria-hidden discipline is excellent across all new decorative patterns (39 aria-hidden elements verified at runtime); logical CSS utilities used consistently; GSAP hero timeline P1 fix preserved (all 5 parent elements animate, opacity=1 at runtime); new abacus enrichment (rail lines, ticks, trails, glow, badges) is correctly STATIC (only the 11 [data-bead] circles are GSAP-animated, matching the existing bead stagger); reduced-motion respected globally via the existing CSS media query; no new GSAP outside lib/gsap; no new Framer Motion inline constants; no per-character Arabic animation.
+- 2 HIGH findings block AA sign-off and must be fixed before final delivery: (1) BeadBadge "teal" tone white-on-teal contrast (2.57:1) — one-line fix in bead-badge.tsx; (2) testimonials pagination dots touch target (10×10px / 8×8px) — restructure the button to wrap the visible dot in a 44×44 hit area.
+- 2 MEDIUM findings for polish: (3) pagination dots missing ARIA tablist arrow-key navigation + roving tabindex; (4) testimonial avatar gradient midpoint contrast (3.85:1) — best resolved by marking the avatar aria-hidden since the author name is adjacent.
+- 2 LOW/INFO findings: (5) /design-system showcase inherits finding #1; (6) avatar initial redundant for SR users; (7) duration-300 vs --motion-normal 20ms discrepancy.
+- Verdict: APPROVED WITH REQUIRED FIXES — fix findings #1 and #2 (both HIGH, AA failures) before final client sign-off; findings #3–#7 batch into a polish pass. Does not block continued development on other tracks, but does block Gate 5/6 AA sign-off.
+
+---
+Task ID: P15-7a
+Agent: Subagent 2 (Design)
+Task: READ-ONLY Frontend Design & Design-System Review of Phase 1.5 enriched homepage. Verify polish-not-redesign, abacus-as-signature, token-driven patterns, no generic SaaS, orange discipline, section rhythm, typography, /design-system coverage, design-system drift, channel illustrations. Production server verified at http://localhost:3000 (HTTP 200 /, HTTP 200 /design-system).
+
+Work Log:
+- Read worklog.md (full Phase 1 + Phase 1.5 history, including P15-7c RTL/A11y/Motion review) and docs/HOMEPAGE_DESIGN_LOCK_AUDIT.md (the per-section refinement plan).
+- Read DESIGN.md (Layer A tokens + Layer B rationale), src/styles/tokens.css (single source of raw brand hex), src/app/globals.css (Tailwind v4 @theme inline mapping + reduced-motion + scrollbar + hero-anim guards).
+- Read all 5 homepage sections: hero.tsx (enriched abacus: RailGridMotif + numerical ticks + bead trails + double-stroke frame + 11 beads + corner "7"/"+" badges + controlled glow), stats-strip.tsx, how-it-works.tsx (RTL connecting rail), learning-channels.tsx, testimonials.tsx (pagination dots).
+- Read all 6 brand components: bead-badge.tsx (4 tones × 3 sizes), rail-divider.tsx (3 tones, configurable bead count), step-card.tsx (BeadBadge + small accent dot), channel-card.tsx (3 variant backgrounds + 3 distinct branded SVG illustrations — center/school/screen), testimonial-card.tsx (corner bead motif + quote glyph + gradient avatar), stat-card.tsx (teal bead accent).
+- Read layout: cta-section.tsx (orange banner + DecorativeBeads SVG + top rail motif), site-footer.tsx (top rail motif + 4-column grid + child-protection card).
+- Read src/app/page.tsx (RailDivider placement between stats→how-it-works and channels→testimonials — 2 dividers total).
+- Read src/app/design-system/page.tsx + design-system-showcase.tsx (new "Abacus visual language" block at lines 363-383 demonstrating BeadBadge × 4 tones × 3 sizes + RailDivider × 3 tones × 3 bead counts).
+- Verified production server: HTTP 200 on / (63,528 bytes) and /design-system (84,389 bytes).
+- Used z-ai vision CLI to analyze production screenshots: prod-home-1920x1080.png (desktop) and prod-home-375x812.png (mobile).
+- Grep-verified NO raw hex literals in src/components/ or src/app/ — raw hex lives ONLY in tokens.css (single source of truth) + design-system-showcase.tsx (documentation labels for the brand palette swatches, line 33-42 — acceptable).
+- Grep-verified orange usage: `bg-brand-orange` / `text-brand-orange` appears in step-card.tsx:26 (decorative dot), testimonial-card.tsx:26 (decorative dot at 40% opacity), bead-badge.tsx:18 (orange tone variant — only consumed in /design-system showcase), design-system-showcase.tsx:33 (documentation label).
+- Grep-verified gradient usage: testimonial-card.tsx:35 (avatar `bg-gradient-to-br from-brand-teal to-brand-navy`), how-it-works.tsx:28 (connecting rail `bg-gradient-to-r from-transparent via-brand-teal/30 to-transparent`), hero.tsx:114 (`drop-shadow-2xl` on abacus SVG), site-header.tsx:33 (`backdrop-blur-md` on sticky header).
+- Did NOT edit any files (read-only review per task spec).
+
+Findings (severity, evidence, rule, fix, blocks):
+
+1. [MAJOR] Decorative orange dot in step-card violates "Orange stays conversion-only" rule.
+   - Evidence: src/components/brand/step-card.tsx:26 — `<span className="h-1.5 w-1.5 rounded-full bg-brand-orange" aria-hidden />`. Visible at full opacity in the top-end corner of every step card (4 occurrences on homepage). Vision model on mobile screenshot independently confirmed: "small orange dot indicator" on each step card.
+   - Rule: DESIGN.md §Color roles — "Orange `--cta`: warmth + urgency — conversion CTAs only... Never decorative, never on non-conversion elements." Also DESIGN.md §Anti-patterns: "More than one orange CTA per viewport." docs/HOMEPAGE_DESIGN_LOCK_AUDIT.md §Anti-overdesign guardrails: "Orange stays conversion-only."
+   - Fix: Change `bg-brand-orange` → `bg-brand-teal` (matches the BeadBadge tone and the abacus-bead language; preserves the visual accent purpose). Alternative: remove the dot entirely — the BeadBadge already provides the corner accent.
+   - Blocks? YES for design-lock sign-off (clear rule violation, 4 instances on the homepage).
+
+2. [MINOR] Decorative orange dot at 40% opacity in testimonial-card — same rule, fainter.
+   - Evidence: src/components/brand/testimonial-card.tsx:26 — `<span className="size-1.5 rounded-full bg-brand-orange/40" />`. Paired with a `bg-brand-teal/40` dot at line 25 as a "subtle bead accent corner motif" (lines 23-27).
+   - Rule: Same as finding #1.
+   - Fix: Replace `bg-brand-orange/40` → `bg-brand-navy/30` (keeps the two-tone corner motif but stays within non-conversion palette). Alternative: replace with `bg-brand-blue/40` to introduce the medium-blue brand color as a third accent.
+   - Blocks? NO (40% opacity, very faint, 6px dot — barely perceptible). But should be fixed for rule consistency.
+
+3. [MINOR] Channel illustrations NOT demonstrated in /design-system page (audit doc gap).
+   - Evidence: src/components/sections/design-system-showcase.tsx:363-383 — the "Abacus visual language" block demonstrates BeadBadge (4 tones × 3 sizes) and RailDivider (3 tones × 3 bead counts), but the `ChannelIllustration` component (defined privately inside channel-card.tsx:54-97, not exported) is NOT shown. Grep confirmed `ChannelIllustration` is referenced only in channel-card.tsx:36.
+   - Rule: docs/HOMEPAGE_DESIGN_LOCK_AUDIT.md §New reusable patterns (line 31-34): "3. Channel illustrations — 3 lightweight branded SVGs (center/school/screen). Used in: channel cards." + §14 (line 29): "Add BeadBadge + RailDivider + channel illustrations to /design-system." + DESIGN.md §Abacus-inspired graphic language (line 168-169).
+   - Fix: Export `ChannelIllustration` from channel-card.tsx (or move to its own file under src/components/brand/), then add a third sub-section in the "Abacus visual language" block in design-system-showcase.tsx showing all three illustrations side-by-side with labels (center / school / screen) and their variant backgrounds.
+   - Blocks? NO (the patterns exist and are reusable; only the documentation/demonstration is missing). But should be fixed for audit-doc completeness.
+
+4. [MINOR] Testimonial-card avatar uses a brand-color gradient — violates "No new gradients" guardrail.
+   - Evidence: src/components/brand/testimonial-card.tsx:35 — `<span className="flex size-11 items-center justify-center rounded-full bg-gradient-to-br from-brand-teal to-brand-navy text-white font-bold shadow-sm">`. 44px circle with a teal-to-navy diagonal gradient.
+   - Rule: docs/HOMEPAGE_DESIGN_LOCK_AUDIT.md §Anti-overdesign guardrails (line 37): "No new gradients. No glassmorphism." DESIGN.md §Anti-patterns: "Generic SaaS indigo/blue gradients" (this is brand-color, not generic, but still a new gradient).
+   - Fix (any one): (a) Replace with solid `bg-brand-navy text-white` (simplest, strongest contrast 8.86:1, matches DESIGN.md "Card language" discipline); (b) Replace with `bg-brand-teal-strong text-white` (4.81:1, preserves teal identity); (c) keep gradient but accept the deviation as a small intentional accent (NOT recommended — sets a precedent for gradient creep).
+   - Blocks? NO (small 44px element, brand colors, not generic SaaS — borderline acceptable). Note: Subagent 4+5 finding #4 also flagged this same avatar for contrast (white on gradient midpoint ≈ 3.85:1 fails AA) — fixing to solid navy resolves BOTH the gradient violation and the contrast failure in one change.
+   - Recommendation: Replace with `bg-brand-navy text-white` — single change resolves 2 findings (this + Subagent 4+5 #4).
+
+5. [MINOR] First RailDivider (bg-card/white) is functionally invisible between stats-strip (tint) and how-it-works (white).
+   - Evidence: src/app/page.tsx:14 — `<RailDivider tone="teal" beads={9} className="bg-card" />`. The divider sits between StatsStrip (tone="tint" = bg-brand-teal-pale/40) and HowItWorks (tone="white" = bg-card). The divider itself has `bg-card` (white) — same as the HowItWorks section that follows, so the divider's container visually merges into the next section, making the rail motif appear to "float" between two differently-colored zones with no contrast on its leading edge.
+   - Rule: docs/HOMEPAGE_DESIGN_LOCK_AUDIT.md §9 (Transitions): "Subtle abacus-rod-inspired section divider (reusable `RailDivider`)" + acceptance: "Visual unity without repetition." DESIGN.md §Section-background alternation.
+   - Fix: Either (a) remove the `bg-card` className so the divider inherits the body background (icy), creating a clear tint→icy→white transition; or (b) remove the first RailDivider entirely — the natural tint→white section transition already provides separation, and the second RailDivider (between channels→testimonials, no bg) is sufficient to establish the pattern. Recommend (b) for restraint.
+   - Blocks? NO (visual polish issue, not a rule violation).
+
+6. [MINOR] Abacus-rail motif repeats 4× across the page — borderline overuse.
+   - Evidence: Counted 4 distinct abacus-rail motif instances on the homepage: (1) RailDivider between stats↔how-it-works (page.tsx:14); (2) RailDivider between channels↔testimonials (page.tsx:17); (3) CTA section top rail motif (cta-section.tsx:17-24, 9 beads with center emphasized); (4) Footer top rail motif (site-footer.tsx:18-25, 11 beads with center emphasized). Plus the hero abacus itself (hero.tsx:110-171), BeadBadges in step cards (4×), stat-card teal bead accent (4×), and channel illustrations with abacus beads (3×).
+   - Rule: docs/HOMEPAGE_DESIGN_LOCK_AUDIT.md §Anti-overdesign guardrails (line 38): "Abacus appears in hero + subtle motifs, NOT in every section." §6 (Section rhythm): "RailDividers connect without overdoing the abacus motif."
+   - Fix: Reduce rail-motif count from 4 to 2-3. Most impactful: drop the CTA-section top motif (cta-section.tsx:17-24) — the orange banner is already visually strong; the rail motif on top adds noise without adding meaning. Keep the 2 RailDividers (they connect sections) and the footer top motif (bookend callback to hero). Result: hero abacus + 2 RailDividers + footer motif = 4 abacus visual moments, down from 7+.
+   - Blocks? NO (borderline — current state is on the edge of "overdoing" but each instance is individually restrained).
+
+7. [SUGGESTION] Hero abacus "7" badge uses orange fill — adds orange weight in hero viewport.
+   - Evidence: src/components/sections/hero.tsx:162-165 — `<circle cx="352" cy="74" r="24" fill="var(--brand-orange)" />` + `<text ... fill="var(--brand-navy-dark)">7</text>`. A 24px-radius orange circle with navy "7" text at the top-end corner of the abacus frame. Likely represents age 7 (program start age) — meaningful content, not arbitrary. Paired with a teal "+" badge at the bottom-start corner (lines 167-170). Vision model on desktop screenshot registered it as part of the abacus composition (not separately flagged), but it does add a 4th orange element to the hero viewport (alongside the orange CTA + 5 orange abacus beads + the "7" badge).
+   - Rule: DESIGN.md §When to use the orange CTA color: "Only on the single primary conversion action per screen... Never more than one orange CTA per visible viewport." (The "7" is not a CTA, so technically not a violation — but the spirit of the rule is to keep orange visually scarce.)
+   - Fix (optional): Change the "7" badge fill from `var(--brand-orange)` → `var(--brand-teal)` (matches the "+" badge below, keeps the corner badges as a coherent pair, removes orange from the abacus corner). Keeps the orange discipline stricter: orange appears ONLY on CTA + abacus beads (which are part of the brand-language abacus definition per DESIGN.md §Abacus-inspired graphic language: "Built from brand tokens (navy frame, teal/orange beads)").
+   - Blocks? NO (judgment call — current state is defensible since the badge sits on the abacus frame and reads as part of the composition).
+
+8. [SUGGESTION] Hero abacus bead trails at 0.12 opacity may be imperceptible.
+   - Evidence: src/components/sections/hero.tsx:139-141 — three "ghost" circles representing bead movement trails: `<circle cx="120" cy="150" r="14" fill="var(--brand-orange)" opacity="0.12" />` + two more. 12% opacity of orange/teal on a navy-dark background is at the threshold of human visibility (~1.5% contrast). The audit doc intended "bead trails" to convey movement/dynamism, but at 0.12 they read as noise rather than intentional trail.
+   - Rule: docs/HOMEPAGE_DESIGN_LOCK_AUDIT.md §2 (Hero): "Enrich abacus: rail lines, numerical ticks, bead trails, controlled glow."
+   - Fix (optional): Increase opacity to 0.20-0.25 (still subtle, but the trail becomes perceptible as a faint echo of the bead). Alternative: remove the trails if the tick marks + rods + divider beam already provide sufficient enrichment (they do — the abacus has 30+ SVG elements, vision model confirmed it reads as "crafted").
+   - Blocks? NO.
+
+9. [SUGGESTION] Hero outer section padding tighter than DESIGN.md spec — intentional but undocumented deviation.
+   - Evidence: src/components/sections/hero.tsx:16 — `className="py-8 sm:py-12 lg:py-16"` (32/48/64px vertical padding). DESIGN.md §Spacing rhythm (line 175): "Section vertical padding: 64px mobile / 96px desktop." The hero uses HALF the spec padding at mobile (32 vs 64) and 67% at desktop (64 vs 96). Other sections follow spec: StatsStrip compact=48/64, HowItWorks/LearningChannels/Testimonials default=64/96, CTASection 64/80.
+   - Rule: DESIGN.md §Spacing rhythm.
+   - Fix (optional): Either (a) accept the deviation — it's intentional to let the navy hero panel (with its own py-12/16/20 internal padding) be the focal point without excessive outer breathing room; document it in DESIGN.md as "Hero exception: outer section padding is half-spec to emphasize the rounded navy panel as the focal element." Or (b) align to spec `py-16 sm:py-24` for consistency.
+   - Blocks? NO (intentional, defensible).
+
+10. [SUGGESTION] Channel illustrations (96×80 viewBox) feel slightly small inside 128-160px tall visual bands.
+    - Evidence: src/components/brand/channel-card.tsx:35 — `<div className={cn("relative h-32 sm:h-40 flex items-center justify-center", v.bg)}>` (128px mobile / 160px desktop band) + `<ChannelIllustration kind={v.glyph} />` renders SVGs at 96×80px. The illustrations occupy ~50% of the band height, leaving 24-40px of padding above/below. Vision model on desktop confirmed illustrations read as "line icons" rather than "illustrations."
+    - Rule: docs/HOMEPAGE_DESIGN_LOCK_AUDIT.md §5 (Channels): "Lightweight branded SVG per channel (center/school/screen); token-driven" + acceptance: "Channels visually richer, still equal-height." DESIGN.md §Illustration direction: "Geometric, brand-token-colored, abacus-derived."
+    - Fix (optional): Increase SVG render size to 120×100 (or wrap in a `size-24` container) to fill more of the visual band. Alternatively, add a subtle background pattern (e.g., faint abacus-rail grid at 5% opacity) inside the band to give the illustrations more visual weight without increasing their size.
+    - Blocks? NO (visual richness suggestion, not a rule violation).
+
+Verification matrix (10 required checks):
+
+1. Refinements are POLISH not redesign — brand identity preserved — PASS. Navy/teal/orange palette unchanged (tokens.css identical to Phase 1). Tajawal Arabic-first typography unchanged. Abacus metaphor extended (not replaced). RTL flow preserved throughout (logical utilities, RTL-aware components). No new colors, fonts, or structural paradigms introduced.
+
+2. Abacus visual is the signature (enriched, not cluttered); everything else disciplined — PASS. Hero abacus now has 30+ SVG elements (frame double-stroke, numerical ticks, rods, bead trails, divider beam, 11 beads, 2 corner badges) — enriched but each element is small/low-opacity. Vision model: "Moderately Crafted... has custom bead placement representing numbers... functional and clear." Other sections remain disciplined: step cards use BeadBadge (1 element), stat cards use single bead accent, channel cards use small illustrations. No section competes with the hero abacus for visual weight.
+
+3. New patterns (BeadBadge, RailDivider, channel illustrations) are token-driven, reusable, documented, demonstrated in /design-system — PARTIAL. BeadBadge + RailDivider: PASS (token-driven via Tailwind brand utilities, reusable as branded components, demonstrated in /design-system-showcase.tsx:363-383). Channel illustrations: PARTIAL — token-driven (use `var(--brand-*)` CSS variables, no raw hex), reusable (single `ChannelIllustration` component with `kind` prop), but NOT exported and NOT demonstrated in /design-system (finding #3).
+
+4. No generic SaaS patterns (random gradients, glassmorphism clutter, 3D effects, excessive decoration) — PASS with notes. No random gradients (the 2 gradients found are brand-color: testimonial avatar + how-it-works rail fade — finding #4 + functional). No glassmorphism clutter (the only `backdrop-blur` is on the sticky site-header, a standard pattern, not a "floating glass card"). No 3D effects. No excessive decoration (each section has at most 1-2 decorative motifs). The audit's "remove one accessory before leaving the house" principle is mostly observed — the only candidate for removal is the CTA-section top rail motif (finding #6).
+
+5. Orange stays conversion-only (hero CTA + final CTA banner) — FAIL. Two violations: step-card decorative orange dot (finding #1, MAJOR, full opacity, 4 instances) and testimonial-card decorative orange dot (finding #2, MINOR, 40% opacity, 3 instances on carousel). The hero abacus orange beads are part of the abacus visual language (DESIGN.md §Abacus-inspired graphic language: "Built from brand tokens (navy frame, teal/orange beads)") — NOT a violation. The hero "7" badge orange fill is borderline (finding #7, SUGGESTION).
+
+6. Section rhythm: RailDividers connect without overdoing the abacus motif — PARTIAL. 2 RailDividers connect sections cleanly (stats→how-it-works, channels→testimonials). However, the abacus-rail motif appears 4× total (2 RailDividers + CTA top + footer top), which is on the edge of "overdoing" (finding #6). The first RailDivider's `bg-card` background merges into the following white section, reducing its effectiveness as a transition (finding #5).
+
+7. Typography hierarchy strong; spacing tightened where appropriate — PASS. Hierarchy: hero h1 (text-4xl/5xl/6xl extrabold) > section h2 (text-2xl/3xl extrabold) > card h3 (text-lg bold) > stat number (text-4xl/5xl extrabold) > body (text-sm/base) > eyebrow/caption (text-sm/xs). Strong contrast between levels. Spacing: hero outer padding tightened to py-8/12/16 (finding #9, intentional), StatsStrip compact (py-12/16), CTASection py-16/20 — all tightenings are reasonable and intentional. Card padding consistent at p-6. Grid gaps consistent at gap-4/5/6.
+
+8. /design-system page demonstrates the new abacus-language patterns — PARTIAL. BeadBadge: PASS (4 tones × 3 sizes, line 369-372). RailDivider: PASS (3 tones × 3 bead counts, line 378-380). Channel illustrations: FAIL (not demonstrated — finding #3).
+
+9. No design-system drift (DESIGN.md matches implemented tokens) — PASS. Cross-checked DESIGN.md Layer A token table against src/styles/tokens.css: all 11 brand colors match exactly (orange #F2A23C, navy-dark #06335C, blue #2C8FC0, teal #37B0C3, navy #0A4C82, grey-light #D2DCE2, grey-text #56636E, ink #2A3A47, bg #F4F9FA, teal-pale #E1F0F3, teal-strong #1F7D8C). Semantic tokens, typography scale, radius scale, spacing scale, shadow scale, motion scale all match. globals.css @theme inline mapping exposes all tokens as Tailwind utilities. No drift.
+
+10. Channel illustrations use design-system colors, are distinct, equal-height — PASS. Colors: all 3 illustrations use `var(--brand-teal-pale)`, `var(--brand-orange)`, `var(--brand-teal)`, `var(--brand-navy)`, `var(--brand-white)` — token-driven, no raw hex. Distinct: center=building-with-bead-windows, school=open-book-with-bead, screen=monitor-with-abacus-beads — 3 different objects, no overlap. Equal-height: all 3 SVGs use viewBox="0 0 96 80" + width="96" height="80"; rendered inside equal-height card bands (h-32 sm:h-40); cards use `h-full` in a `md:grid-cols-3` grid → equal-height row.
+
+Stage Summary:
+- Phase 1.5 refinement IS a genuine improvement: the hero abacus is enriched (rail lines, numerical ticks, bead trails, double-stroke frame, corner badges, controlled glow, RailGridMotif background) without becoming cluttered; BeadBadge + RailDivider + channel illustrations extend the abacus visual language cohesively and are token-driven; typography hierarchy is strong; spacing is tightened intentionally; no generic SaaS patterns were introduced; brand identity (navy/teal/orange, Arabic RTL, Tajawal, abacus metaphor) is fully preserved.
+- 1 MAJOR finding blocks design-lock sign-off: (1) step-card decorative orange dot — clear "Orange stays conversion-only" rule violation, 4 instances on homepage, full opacity, visible. One-line fix: `bg-brand-orange` → `bg-brand-teal`.
+- 5 MINOR findings for polish: (2) testimonial-card decorative orange dot at 40% opacity (same rule, fainter); (3) channel illustrations not demonstrated in /design-system (audit-doc gap); (4) testimonial-card avatar gradient violates "No new gradients" guardrail (also flagged by Subagent 4+5 for contrast — single fix to solid `bg-brand-navy` resolves both); (5) first RailDivider bg-card merges into following white section; (6) abacus-rail motif repeats 4× (borderline overuse — recommend dropping CTA-section top motif).
+- 4 SUGGESTION findings (non-blocking): (7) hero "7" badge orange fill — consider teal for stricter orange discipline; (8) bead trails at 0.12 opacity may be imperceptible — consider 0.20-0.25; (9) hero outer padding tighter than spec — intentional, document in DESIGN.md; (10) channel illustrations feel slightly small in their bands — consider larger SVG render size.
+- Verification matrix: 7/10 PASS, 3/10 PARTIAL (channel illustrations demonstration, section rhythm, orange discipline), 0/10 FAIL on the structural checks. The 1 FAIL is on the orange-discipline rule (finding #1).
+- Verdict: CONDITIONALLY READY for design-lock — fix finding #1 (MAJOR, one-line change in step-card.tsx) before final lock. Findings #2-#6 should be batched into a polish pass (estimate 30-45 min: 5 small edits + 1 design-system-showcase addition). Findings #7-#10 are judgment calls for the design lead. Does NOT block continued development on other tracks; DOES block Gate 5/6 design-lock sign-off until finding #1 is resolved.
+
+---
+Task ID: P15-7b
+Agent: Subagent 6 (Visual QA)
+Task: Responsive visual QA at 9 viewports (360×800, 375×812, 390×844, 430×932, 768×1024, 1024×768, 1280×800, 1440×1200, 1920×1080) on http://localhost:3000/
+
+Work Log:
+- Read worklog.md (prior tasks 1, 3, 4, 5-7, 8-a/b/c/d, 8-fix+9) for full context. Confirmed production server is live (HTTP 200, <4ms latency). All prior HIGH/BLOCKER fixes from Task 8-fix+9 are in place.
+- Used `agent-browser set viewport W H` then `open` then `wait --load networkidle` then `eval` overflow check at all 9 required viewports. Verified viewport actually applied by checking `window.innerWidth/innerHeight` (set-viewport requires a reload to take effect on the open page).
+- Captured full-page screenshots at all 9 viewports → /home/z/my-project/screenshots/qa-p15-7b/qa-{W}x{H}.png.
+- Ran z-ai vision analysis on all 9 PRODUCTION screenshots (/home/z/my-project/screenshots/production/prod-home-*.png) and 4 of my live QA screenshots — all returned VERDICT: PASS.
+- Comprehensive eval per viewport: documentElement.scrollWidth/clientWidth/overflow/diff, dir/lang, header height & visible, footer top & visible, h1 text, count of /register CTAs and how many are above-the-fold, page height.
+- Functional tests:
+  * Mobile nav @375px: hamburger (aria-label "فتح القائمة", 44×44 ✓) → Sheet opens with role=dialog, body overflow:hidden scroll-lock, 5 nav links (Home + 4 disabled-future "قریباً") + CTA + Close button → Close dismisses Sheet, scrollWidth=clientWidth=375 restored.
+  * Testimonials carousel @768×1024: clicked pagination dot 3 (aria-selected flips false→true, bg-border→bg-accent) → slide 0 (left=16) advances to slide 2 (left=16 visible), slides 0&1 move to left=1488/752 off-screen right. Confirms carousel operable on tablet-portrait via dots (arrows hidden below lg per Task 8-fix).
+  * Language toggle @375px: clicked "English" → document.documentElement.dir flips rtl→ltr, lang ar→en, localStorage['map-lang']='en', hero h1 flips to "A faster mind. A better future.", nav links flip to "Home"/"Open menu"/"Book a free trial lesson". No overflow after toggle (sw=cw=375).
+  * Stats count-up @1280×800: scrolled first stat card into center via scrollIntoView({block:'center'}) → animation fires; captured mid-animation values (89%, 3, +728, 9) at +1s and final values (95%, 3, +780, 10) at +4s. Confirms AnimatedCounter (useInView amount:0.4) works correctly when scrolled into view.
+  * Touch targets @375px AR: header buttons measured — logo 202×48✓, hamburger 44×44✓, "ع" toggle 32×36✗ (<44), "EN" toggle 42×36✗ (<44).
+- Did NOT edit any files (read-only review per task spec).
+
+Per-viewport result table:
+
+| Viewport | overflow? | diff | header | footer top | CTA above-fold | vision | defects |
+|---|---|---|---|---|---|---|---|
+| 360×800 | YES | 7px | 64px ✓ | 4656 (below fold) | 1 (hero) | PASS | decorative SVG/blur extends 7px past viewport (sub-perceptible) |
+| 375×812 | NO | 0 | 64px ✓ | 4671 (below fold) | 1 (hero) | PASS | none |
+| 390×844 | NO | 0 | 64px ✓ | 4659 (below fold) | 1 (hero) | PASS | none |
+| 430×932 | NO | 0 | 64px ✓ | 4576 (below fold) | 1 (hero) | PASS | none |
+| 768×1024 | NO | 0 | 80px ✓ | 4296 (below fold) | 1 (hero) | PASS | none (prior carousel-overflow FIXED) |
+| 1024×768 | NO | 0 | 80px ✓ | 3388 (below fold) | 2 (hero+header) | PASS | none |
+| 1280×800 | NO | 0 | 80px ✓ | 3458 (below fold) | 2 (hero+header) | PASS | none |
+| 1440×1200 | NO | 0 | 80px ✓ | 3478 (below fold) | 2 (hero+header) | PASS | none |
+| 1920×1080 | NO | 0 | 80px ✓ | 3478 (below fold) | 2 (hero+header) | PASS | none |
+
+Note: footer is below the fold at every viewport because the homepage is a long-scroll page (~5500px on mobile, ~3900px on desktop). This is expected behavior, not a defect — footer sits at bottom of page content via the sticky-footer pattern (body flex-col + min-h-screen + main flex-1 + footer mt-auto), which Task 8-fix confirmed working.
+
+Findings (severity, evidence, fix, blocks?):
+
+1. [LOW] 7px horizontal overflow at 360×800 — Evidence: `sw=367, cw=360, diff=7`. Offenders identified via getBoundingClientRect():
+   - Skip-link `<a class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:start-3">` extends to right=361 (1px; visible only when focused).
+   - Decorative blur `<div class="absolute -bottom-32 -start-16 size-80 rounded-full bg-brand-blue/15 blur-3xl">` extends to right=408 (parent has `overflow-hidden` so visually clipped).
+   - Hero decorative SVG inside `<div class="absolute inset-0 opacity-15 pointer-events-none">` (parent overflow=visible) extends to right=376 (16px past viewport, opacity 0.15).
+   Vision model returns VERDICT: PASS — overflow is sub-perceptible because most offending elements are clipped by parent overflow-hidden or rendered at opacity 0.15. html/body have `overflow-x:visible` (no global guard). Fix: add `overflow-x-hidden` to `<html>` element (or wrap hero decorative SVG container with overflow-hidden). Blocks? NO (sub-perceptible, no horizontal scrollbar visible to vision).
+
+2. [MEDIUM] Language-toggle touch targets below WCAG 2.5.5 AAA (44×44) — Evidence: at 375px AR mode, "ع" button=32×36, "EN" button=42×36. Both below 44×44. Hamburger=44×44 ✓ (Task 8-fix applied size-11). Cause: src/components/layout/language-toggle.tsx uses `min-h-9` (36px) for toggle buttons; Task 8-fix worklog claim of "touch targets ≥44px (hamburger size-11, toggle min-h-9, ...)" is incorrect — min-h-9 = 36px, not 44px. Rule: WCAG 2.5.5 Level AAA (note: WCAG 2.5.8 Level AA = 24×24 is met). Fix: bump language-toggle buttons from `min-h-9` to `min-h-11` (44px). Blocks? NO (AAA criterion, not AA).
+
+3. [LOW] Skip-link text not localized — Evidence: after clicking "EN" on homepage, document.documentElement.dir="ltr" and lang="en" (layout flipped correctly), but skip-link still shows Arabic "تخطَّ إلى المحتوى" instead of "Skip to content". Same finding as Task 8-b #9 — still present. Cause: skip-link in src/app/layout.tsx is server-rendered with hardcoded Arabic text. Fix: extract skip-link into a small client component using useLanguage, or read lang from cookie/header. Blocks? NO (cosmetic).
+
+4. [LOW] Disabled-future-link accessible name lacks separator — Evidence: mobile nav Sheet snapshot shows `link "من نحنقريباً"` (no separator between "من نحن" and "قریباً"). Same finding as Task 8-b #8 — still present. Cause: src/components/layout/site-header.tsx renders `{item.label[lang]}` then `<span>{soonLabel}</span>` as siblings with only visual `ms-2` margin. Fix: add `aria-label={`${item.label[lang]} — ${soonLabel}`}` on the `<a>` or insert `<span className="sr-only"> </span>` between them. Blocks? NO (cosmetic a11y).
+
+5. [INFO] Statistics counter requires 40% in-view to animate — Evidence: at every viewport, on initial page load the stat spans show "0%", "0", "+0", "0" (initial `from` value). After explicit `scrollIntoView({block:'center'})` of the first stat card, animation fires correctly and reaches target values (95%, 3, +780, 10) within ~4s. Mid-animation captured at +1s: 89%, 3, +728, 9. Cause: AnimatedCounter uses `useInView(ref, { once: true, amount: 0.4 })` from framer-motion — natural scrolling past the stats triggers the animation; users who land directly and don't scroll will see "0%". This is the designed behavior of the AnimatedCounter component, not a defect. Fix (optional): lower `amount` to 0.2 or use `margin: "0px 0px -100px 0px"` to trigger earlier in scroll. Blocks? NO (works as designed for natural scroll).
+
+6. [INFO] Carousel nav arrows hidden below lg (1024px) — Evidence: at 768×1024, only pagination dots are visible; Next/Previous arrow buttons hidden via `hidden sm:flex` per Task 8-fix (carousel.tsx:37-38 in testimonials.tsx). Pagination dots work correctly (verified: clicking dot 3 advances slide 0→2). Task 8-b finding #2 about 768px carousel-arrow overflow is RESOLVED — carousel is operable via dots on tablet portrait. Blocks? NO.
+
+Prior-Subagent Findings Resolution Status (verified by this QA round):
+- Task 8-b #1 (HIGH: 375px header overflow 16px) — RESOLVED. Live measurement: `sw=375, cw=375, diff=0, overflow=false`.
+- Task 8-b #2 (HIGH: 768px carousel-arrow overflow 24px) — RESOLVED. Live measurement: `sw=768, cw=768, diff=0, overflow=false`. Carousel still operable via pagination dots.
+- Task 8-b #4 (MEDIUM: touch targets below 44×44) — PARTIALLY RESOLVED. Hamburger now 44×44 ✓; language toggle still 36px (finding #2 above).
+- Task 8-b #5 (MEDIUM: Radix DialogContent a11y warning) — NOT directly verified this round (no console capture during Sheet open). Status assumed still present per worklog; not blocking.
+- Task 8-b #7 (LOW: /register sticky-footer padding) — Out of scope for homepage QA.
+- Task 8-b #8 (LOW: Sheet link name separator) — STILL PRESENT (finding #4 above).
+- Task 8-b #9 (LOW: skip-link localization) — STILL PRESENT (finding #3 above).
+- Task 8-b #10 (LOW: carousel RTL arrow verification) — N/A; arrows hidden below lg, so RTL arrow swap is only visible ≥1024px.
+
+Verification matrix (10 required checks):
+1. No horizontal overflow at ANY viewport — PASS at 8 of 9 viewports. 7px overflow at 360×800 is sub-perceptible (vision VERDICT: PASS); does not produce a visible horizontal scrollbar.
+2. Hero stacks correctly on mobile (visual above text, readable) — PASS (vision-confirmed at 360/375/390/430; abacus visual `order-1`, hero text `order-2` on < lg).
+3. Stats: 2×2 on mobile, 4×1 on desktop — PASS (container `grid-cols-2 lg:grid-cols-4`; verified at 375px and 1280px).
+4. Channels: 1 col mobile, 3 col desktop — PASS (vision-confirmed; container `gap-5 md:grid-cols-3`).
+5. Mobile nav Sheet opens and is operable — PASS (role=dialog present, scroll-lock active, Close button dismisses, 5 nav links + CTA visible).
+6. Header logo + CTA visible; CTA touch target adequate — PARTIAL (logo 202×48 ✓; hero CTA 295×48 ✓; hamburger 44×44 ✓; language toggle 32-42×36 ✗ below AAA 44×44).
+7. No console errors / hydration errors — PASS (zero console output, zero page errors at every viewport checked).
+8. Testimonials carousel operable (swipe or arrows) — PASS (pagination dots advance slides correctly at 768px; arrows visible on lg+).
+9. /design-system renders all sections — Out of scope for this homepage QA round (verified by Task 8-c in prior round).
+10. Sticky footer on long content — PASS (footer at bottom of page content; below fold on long-scroll homepage is expected, not a defect).
+
+Stage Summary:
+- 9 of 9 required viewports PASS visual QA (vision VERDICT: PASS on all 9 production screenshots + 4 live QA screenshots).
+- 8 of 9 viewports have ZERO horizontal overflow (375, 390, 430, 768, 1024, 1280, 1440, 1920). Only 360×800 has 7px overflow caused by decorative SVG/blur elements that are visually clipped by parent containers — sub-perceptible, vision model PASS.
+- All 3 required functional tests PASS: mobile nav Sheet (375px), testimonials carousel pagination dot (768px), language toggle EN→LTR (375px).
+- Statistics (95%, 3, +780, 10) animate correctly when scrolled into view; count-up component works as designed.
+- All previously-HIGH/BLOCKER findings from Task 8-b (375px header overflow, 768px carousel-arrow overflow) are RESOLVED.
+- 4 remaining findings: 1 LOW (360px decorative overflow), 1 MEDIUM (language-toggle AAA touch target), 2 LOW (skip-link localization, Sheet link separator). None block Gate 5/6 sign-off.
+- Verdict: APPROVED — refined homepage is responsive and visually correct at all 9 required viewports. Recommend a small polish pass for the 4 remaining LOW/MEDIUM findings before final client delivery.
+
+---
+Task ID: P15-complete
+Agent: Primary (Z.ai Code)
+Task: Phase 1.5 — Skills recovery, homepage visual polish, final design lock
+
+Work Log:
+- Git checkpoint commit 426008d (Phase 1.5 baseline).
+- Reopened sources; captured 9 BEFORE baseline screenshots (360–1920).
+- Skills: verified frontend-design installed (recovered from P1 partial); 3 serious npx-skills-add retries (90/240/280s) all timed out (network); documented 10 built-in skills covering all 7 required categories; updated docs/SKILLS.md honestly.
+- Created docs/HOMEPAGE_DESIGN_LOCK_AUDIT.md (14 areas).
+- Implemented refinements: enriched hero abacus (rail lines, numerical ticks, bead trails @0.22 opacity, controlled glow, RailGridMotif background, ringed corner badges, double-stroke frame); new BeadBadge + RailDivider + ChannelIllustration components; step cards (BeadBadge + connecting rail + hover-lift); channel cards (branded illustrations + hover-lift); testimonials (refined quote, solid navy avatar aria-hidden, pagination dots 44px role=tablist); stats (bead accents); CTA + footer (abacus rail motifs); RailDividers between sections.
+- 3 specialist reviewers (design, visual QA, RTL/a11y/motion) on refined state.
+- Fixed all MAJOR/HIGH: BeadBadge teal→teal-strong (AA 4.81:1); pagination dots 44×44 touch targets; step-card orange dot→teal; testimonial avatar gradient→solid navy; testimonial orange dot→navy/30; language toggle min-h-9→min-h-11 (44px); 360px overflow→overflow-x:hidden; first RailDivider bg-card removed; bead trails 0.12→0.22; channel illustrations extracted + added to /design-system.
+- Production verification: bun run lint exit 0; bun run build success (4 routes static); bun run start Ready 75ms; NO Next.js N indicator (DOM-verified); no console/page errors; 9 production screenshots captured (screenshots/production-final/).
+- Final VLM verification: all 7 sections verified, no defects, production-ready.
+- Updated docs: REVIEW_LOG, DECISION_LOG (11 new P1.5 decisions), PROGRESS, SKILLS, DESIGN.md (abacus-language patterns), HOMEPAGE_DESIGN_LOCK_AUDIT.
+
+Stage Summary:
+- Phase 1.5 complete. Homepage refined (not redesigned) — abacus hero enriched as signature; BeadBadge/RailDivider/ChannelIllustration extend visual language; all sections polished; WCAG AA met; 9 viewports clean; production build verified; no N indicator; no errors.
+- Design LOCKED: homepage approved as final visual benchmark for remaining pages.
+- Hard stop reached. Remaining pages NOT implemented (per master task §29).
