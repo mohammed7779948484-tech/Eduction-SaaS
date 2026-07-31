@@ -1,0 +1,1350 @@
+
+# Phase 1.5 Master Task
+# Skills Recovery, Homepage Visual Polish, and Final Design Lock
+You are continuing work inside the EXISTING Mental Arithmetic Program Next.js repository.
+The repository already contains:
+- A working Arabic-first RTL homepage.
+- Responsive mobile, tablet, and desktop layouts.
+- A centralized Tailwind CSS v4 design-token system.
+- Customized shadcn/ui components.
+- A `/design-system` reference route.
+- Shared Header and Footer components.
+- Framer Motion animation presets.
+- A centralized GSAP hero-animation layer.
+- Project documentation.
+- Existing review logs and decision logs.
+- A specialist subagent review structure.
+The current implementation is structurally successful and must be preserved.
+This task is NOT a redesign from scratch.
+This task is a short but serious refinement stage intended to:
+1. Recover and verify the required agent skills.
+2. Apply those skills correctly.
+3. Improve the visual quality of the current homepage.
+4. Synchronize refinements with the design system.
+5. Perform full visual and technical verification.
+6. Lock the final design language before building the remaining pages.
+Do NOT implement the remaining website pages during this task.
+Stop after the homepage has passed the final design-lock review.
+---
+# 1. Primary-Agent Responsibility
+You are the primary implementer and final decision-maker.
+You must personally perform:
+- Repository inspection.
+- Skill discovery and installation.
+- Planning.
+- Design decisions.
+- Documentation updates.
+- Code changes.
+- Component refinement.
+- Motion refinement.
+- Visual testing.
+- Review consolidation.
+- Final approval.
+Subagents are specialist reviewers.
+They must not replace you as the implementer.
+Subagents may:
+- Inspect.
+- Compare.
+- Test.
+- Challenge.
+- Identify problems.
+- Recommend corrections.
+- Verify fixes.
+Subagents must not:
+- Independently redesign the homepage.
+- Create competing versions.
+- Perform uncontrolled overlapping edits.
+- Add dependencies without approval.
+- Delete project files.
+- Change the agreed visual identity without evidence.
+- Build any remaining website page.
+You must write and integrate the final implementation yourself.
+---
+# 2. Hard Scope
+This task includes only:
+- Skill recovery and verification.
+- Homepage visual refinement.
+- Shared component refinement when required by the homepage.
+- Design-token refinement where justified.
+- Framer Motion refinement.
+- GSAP hero refinement where justified.
+- `/design-system` synchronization.
+- Documentation synchronization.
+- Responsive QA.
+- Accessibility QA.
+- RTL QA.
+- Production-build verification.
+- Final design lock.
+This task does NOT include:
+- About page.
+- Program page.
+- Learning Channels page.
+- Virtual Platform page.
+- Registration page.
+- Contact page.
+- Schools and Institutions page.
+- Trainer Training page.
+- FAQ page.
+- Legal pages.
+- Backend.
+- Database.
+- Authentication.
+- CMS.
+- APIs.
+- Payments.
+- Real form submission.
+- Real AI assistant.
+- A replacement project scaffold.
+Do not begin any of those items.
+---
+# 3. Preserve the Successful Existing Work
+Do not assume that the current homepage is broken.
+The following existing behavior has already been visually confirmed and must be preserved unless a genuine regression is discovered:
+- The statistics section appears correctly on mobile.
+- The statistics use a responsive 2×2 layout on mobile.
+- The Header functions on mobile.
+- The Footer appears on mobile.
+- The homepage is responsive.
+- The Arabic RTL structure works.
+- The AR/EN control exists and currently works.
+- The Next.js `N` circle is a development-only indicator, not a website defect.
+- The current section order reflects the client reference.
+- The current design identity reflects the client color palette.
+- The current abacus hero visual is a valid direction.
+- The current system architecture is reusable.
+Do not remove or rewrite working systems merely because a screenshot was previously misunderstood.
+Every proposed correction must be based on:
+- The actual rendered website.
+- The client source files.
+- DESIGN.md.
+- The design-system implementation.
+- Clear visual or technical evidence.
+---
+# 4. Create a Git Checkpoint First
+Before changing anything:
+1. Inspect `git status`.
+2. Preserve any uncommitted user work.
+3. Create a checkpoint commit when safe.
+Suggested commit:
+```bash
+git add .
+git commit -m "checkpoint: homepage v1 and design system foundation"
+
+If a commit cannot be created because the environment does not have Git identity configured, do not fabricate success.
+
+Document the limitation and create another safe backup method, such as:
+
+* A Git branch.
+* A patch file.
+* A copied checkpoint directory.
+* A repository archive.
+
+Record the checkpoint in:
+
+docs/PROGRESS.md
+
+and:
+
+docs/DECISION_LOG.md
+
+⸻
+
+5. Reopen the Authoritative Sources
+
+Before making visual changes, reopen and inspect:
+
+1. The comprehensive Phase 1 proposal PDF.
+2. The client identity and execution-concept DOCX.
+3. All embedded images inside the DOCX.
+4. The client homepage reference image.
+5. Current DESIGN.md.
+6. Current docs/SOURCE_OF_TRUTH.md.
+7. Current /design-system.
+8. Current rendered homepage.
+9. Existing mobile and desktop screenshots.
+10. Current review and decision logs.
+
+Do not rely only on earlier notes.
+
+Reconcile the current implementation with the source files again.
+
+Confirm:
+
+* Homepage section order.
+* Brand colors.
+* Arabic terminology.
+* Conversion priorities.
+* Target audiences.
+* Abacus visual direction.
+* Educational tone.
+* Institutional tone.
+* Child-safety messaging.
+* Learning-channel terminology.
+* Footer requirements.
+* Header requirements.
+* CTA hierarchy.
+
+Do not introduce unsupported production claims.
+
+Prototype statistics and testimonials may remain illustrative, but they must be documented as demo content.
+
+⸻
+
+6. Recover and Verify Agent Skills
+
+The previous skill-discovery process found useful skills, but installation reportedly failed because of network timeouts.
+
+This task must make a serious second attempt.
+
+Do not simply repeat the previous statement that installation failed.
+
+6.1 Verify Current Skill State
+
+Before installing anything:
+
+* Inspect the project-local skill directories.
+* Inspect the active agent’s supported skill paths.
+* Check whether any skills were partially installed.
+* Check whether find-skills is already discoverable.
+* Check whether installed skill metadata is valid.
+* Check whether each skill has a readable SKILL.md.
+* Check for incomplete folders caused by failed downloads.
+
+Remove only incomplete or corrupted skill installations.
+
+Do not remove valid existing skills.
+
+6.2 Use find-skills
+
+Use the official or currently installed find-skills capability to search for the best skills for:
+
+* Frontend design.
+* Design systems.
+* DESIGN.md authoring.
+* Project planning.
+* Task decomposition.
+* Next.js App Router.
+* React architecture.
+* React performance.
+* Tailwind CSS v4.
+* shadcn/ui.
+* Arabic RTL design.
+* Accessibility.
+* Framer Motion.
+* GSAP.
+* Browser automation.
+* Responsive visual verification.
+* Screenshot review.
+* Documentation quality.
+* AGENTS.md authoring.
+
+6.3 Skill Evaluation Rules
+
+For every candidate, inspect the full SKILL.md.
+
+Evaluate:
+
+* Repository owner.
+* Source reputation.
+* Maintenance activity.
+* Compatibility with the current stack.
+* Compatibility with Claude Code, Codex, or the active agent.
+* Required MCP services.
+* Required external tools.
+* Installation count or adoption when available.
+* Security findings.
+* Shell commands included.
+* External downloads.
+* Overlap with other skills.
+* Practical benefit to this project.
+
+Do not install a skill only because its name sounds relevant.
+
+Do not install a Figma-dependent skill when no Figma source is available.
+
+Do not install a skill that requires an unavailable MCP without documenting that limitation.
+
+Prefer approximately five to eight focused, high-value skills.
+
+6.4 Required Skill Categories
+
+At minimum, secure suitable skills for:
+
+1. Frontend visual design.
+2. shadcn/ui.
+3. Next.js or React best practices.
+4. Planning and task decomposition.
+5. Accessibility.
+6. Browser or visual verification.
+7. Design-system or DESIGN.md authoring.
+
+Add dedicated Framer Motion or GSAP skills only if they are strong and compatible.
+
+6.5 Installation Retry Strategy
+
+When installation fails:
+
+1. Capture the exact error.
+2. Retry with a longer timeout.
+3. Retry using the supported package runner most compatible with the project.
+4. Retry through the repository URL when package-style installation fails.
+5. Use project-local installation.
+6. Avoid creating a conflicting lockfile.
+7. Verify network access to the source repository.
+8. Check whether a proxy or environment restriction is causing the issue.
+9. Retry individual skills rather than one large batch.
+10. Avoid infinite retries.
+
+Use a reasonable retry sequence with increasing delays.
+
+Do not claim a skill is installed until all these are true:
+
+* Its directory exists.
+* Its SKILL.md is readable.
+* Its metadata is valid.
+* The active agent can discover it.
+* Its required tools are available.
+* You can explicitly invoke or apply it.
+
+6.6 Honest Failure Handling
+
+If a skill still cannot be installed after serious retries:
+
+* Record every attempted command.
+* Record the exact error.
+* Record the retry count.
+* Record whether the failure is network-related, permission-related, tool-related, or repository-related.
+* Do not claim successful installation.
+* Continue only when the active environment already provides equivalent built-in capability, and clearly document the substitution.
+
+The goal is verified capability, not a false installation count.
+
+6.7 Skills Documentation
+
+Update:
+
+docs/SKILLS.md
+
+For every skill include:
+
+* Name.
+* Source.
+* Version or commit when available.
+* Installed or rejected.
+* Exact installation command.
+* Exact installed location.
+* Verification method.
+* Required tools.
+* Assigned agent or subagent.
+* Project phase where used.
+* Security observations.
+* Failed attempts where relevant.
+* Final status.
+
+⸻
+
+7. Recreate or Reconfirm the Specialist Review Team
+
+Only after skill verification, define the review team again.
+
+Each reviewer must be assigned the most suitable verified skills.
+
+Recommended reviewers:
+
+Reviewer 1: Client Source Auditor
+
+Assigned skills:
+
+* Requirements analysis.
+* Project planning.
+* Frontend-design review when applicable.
+
+Responsibilities:
+
+* Compare the homepage against the Phase 1 PDF.
+* Compare it against the client DOCX.
+* Compare it against the reference image.
+* Verify Arabic terminology.
+* Detect unsupported claims.
+* Verify section hierarchy.
+* Verify that design improvements do not abandon the client direction.
+
+Reviewer 2: Frontend Design and Design-System Reviewer
+
+Assigned skills:
+
+* Frontend design.
+* Design systems.
+* DESIGN.md.
+* Tailwind CSS v4.
+* shadcn/ui.
+
+Responsibilities:
+
+* Review visual hierarchy.
+* Review component consistency.
+* Review spacing.
+* Review typography.
+* Review color use.
+* Review card language.
+* Review design-system synchronization.
+* Detect generic AI-generated visual patterns.
+
+Reviewer 3: Architecture Reviewer
+
+Assigned skills:
+
+* Next.js.
+* React architecture.
+* React performance.
+* shadcn/ui.
+
+Responsibilities:
+
+* Detect duplicate components.
+* Detect unnecessary client components.
+* Detect local hardcoded design values.
+* Detect architecture regression.
+* Detect dependency creep.
+* Verify reuse.
+* Verify existing systems were preserved.
+
+Reviewer 4: Arabic RTL and Accessibility Reviewer
+
+Assigned skills:
+
+* Accessibility.
+* RTL design.
+* Browser verification.
+
+Responsibilities:
+
+* Inspect Arabic readability.
+* Inspect RTL order.
+* Inspect keyboard navigation.
+* Inspect focus states.
+* Inspect contrast.
+* Inspect semantic markup.
+* Inspect touch targets.
+* Inspect carousel controls.
+* Inspect mobile menu.
+* Inspect reduced-motion support.
+
+Reviewer 5: Motion Reviewer
+
+Assigned skills:
+
+* Framer Motion.
+* GSAP.
+* React performance.
+* Accessibility.
+
+Responsibilities:
+
+* Review centralized motion tokens.
+* Review reveal timing.
+* Review hero choreography.
+* Review reduced-motion behavior.
+* Detect excessive animation.
+* Detect missing cleanup.
+* Verify Arabic text is not animated character-by-character.
+* Confirm that animation improves meaning rather than adding noise.
+
+Reviewer 6: Responsive Visual QA Reviewer
+
+Assigned skills:
+
+* Browser automation.
+* Screenshot inspection.
+* Responsive frontend design.
+
+Responsibilities:
+
+* Inspect the actual rendered website.
+* Capture required screenshots.
+* Review layout at all required viewports.
+* Check overflow.
+* Check section spacing.
+* Check typography.
+* Check image and SVG scale.
+* Check Header and Footer.
+* Check production output.
+* Compare implementation with the reference image.
+
+Reviewer 7: Documentation Reviewer
+
+Assigned skills:
+
+* Documentation quality.
+* AGENTS.md.
+* Planning.
+
+Responsibilities:
+
+* Verify DESIGN.md matches implementation.
+* Verify /design-system matches the homepage patterns.
+* Verify PROGRESS.md is accurate.
+* Verify REVIEW_LOG.md is complete.
+* Verify SKILLS.md is truthful.
+* Detect contradictions and stale statements.
+
+Subagents report findings only.
+
+The primary agent performs all corrections.
+
+⸻
+
+8. Create the Homepage Refinement Audit
+
+Create:
+
+docs/HOMEPAGE_DESIGN_LOCK_AUDIT.md
+
+Before editing, inspect each existing section and record:
+
+* Current strengths.
+* Current weaknesses.
+* Whether a change is required.
+* Evidence.
+* Relevant source reference.
+* Relevant DESIGN.md rule.
+* Proposed change.
+* Risk of overdesign.
+* Acceptance criterion.
+
+Audit:
+
+1. Header.
+2. Hero.
+3. Statistics.
+4. How the Program Works.
+5. Learning Channels.
+6. Testimonials.
+7. Final CTA.
+8. Footer.
+9. Transitions between sections.
+10. Mobile composition.
+11. Tablet composition.
+12. Desktop composition.
+13. Motion.
+14. Design-system reuse.
+
+Do not create work solely to increase the number of changes.
+
+Preserve sections that already work well.
+
+⸻
+
+9. Homepage Refinement Objective
+
+The current homepage is:
+
+* Structurally correct.
+* Responsive.
+* Clean.
+* Consistent.
+* Closely related to the client reference.
+
+The refinement objective is to raise it from a clean, well-built prototype to a more memorable, polished, client-presentation-quality design.
+
+Improve quality without:
+
+* Rebuilding from scratch.
+* Abandoning the reference.
+* Changing the brand.
+* Adding visual clutter.
+* Turning it into a generic SaaS website.
+* Adding random gradients.
+* Adding excessive glassmorphism.
+* Adding unrelated 3D effects.
+* Adding a new component library.
+* Adding animation everywhere.
+
+The final result should feel:
+
+* Educational.
+* Confident.
+* Modern.
+* Trustworthy.
+* Child-friendly without appearing childish.
+* Institutional without appearing boring.
+* Designed specifically for a mental-arithmetic program.
+
+⸻
+
+10. Header Refinement
+
+The current Header is functional on mobile and desktop.
+
+Do not replace it unnecessarily.
+
+Review and refine only where visual evidence supports improvement.
+
+Check:
+
+* Logo scale.
+* Program-name typography.
+* Vertical alignment.
+* Navigation spacing.
+* CTA prominence.
+* Language control.
+* Mobile menu control.
+* Header height.
+* RTL order.
+* Touch targets.
+* Focus states.
+* Mobile spacing.
+* Desktop balance.
+
+The current AR/EN control may remain.
+
+Do not remove it merely because the prototype is currently Arabic-first.
+
+If the English content remains incomplete, document it as a prototype capability or future-state preview rather than falsely presenting a fully translated production site.
+
+Do not let language-system work consume the majority of this refinement task.
+
+⸻
+
+11. Hero Refinement
+
+Preserve the existing successful direction:
+
+* Navy container.
+* Teal accent.
+* Orange primary CTA.
+* Secondary action.
+* Abacus visual.
+* Arabic-first hierarchy.
+* Rounded container.
+* Relationship to the client reference.
+
+Improve only what raises presentation quality:
+
+* Hero internal balance.
+* Headline scale.
+* Text measure.
+* Description readability.
+* CTA spacing.
+* Button hierarchy.
+* Abacus composition.
+* Decorative depth.
+* Background detail.
+* Mobile arrangement.
+* Tablet arrangement.
+* Desktop whitespace.
+* Relationship between text and visual.
+* Shadow and border refinement.
+
+The abacus should remain the visual hero.
+
+Do not replace it with a generic stock image.
+
+Consider subtle reusable visual details such as:
+
+* Abacus rail lines.
+* Bead trails.
+* Numerical marks.
+* Fine grid structure.
+* Controlled glow.
+* Low-opacity geometric motifs.
+
+Keep them restrained.
+
+The hero must remain attractive with animation disabled.
+
+⸻
+
+12. Statistics Refinement
+
+The current statistics section works on desktop and mobile.
+
+Do not remove it.
+
+Do not claim it is missing.
+
+Preserve the responsive 2×2 mobile layout.
+
+Review:
+
+* Number scale.
+* Label scale.
+* Spacing.
+* Desktop distribution.
+* Mobile alignment.
+* Section height.
+* Background.
+* Dividers or visual grouping.
+* Animation timing.
+* RTL reading order.
+
+The section should clearly bridge the Hero and the educational explanation.
+
+Illustrative data must remain centralized and documented.
+
+⸻
+
+13. “How the Program Works” Refinement
+
+The current section is structurally correct but may be visually enriched.
+
+Preserve the four source-defined steps.
+
+Improve its sense of progression.
+
+Possible improvements:
+
+* A subtle RTL journey path.
+* Abacus-inspired connecting lines.
+* Stronger step-number treatment.
+* More meaningful step icons.
+* Better internal spacing.
+* Better relationship between number, title, and description.
+* Reduced unused card space.
+* Stronger mobile rhythm.
+* Controlled hover behavior.
+* A reusable StepCard variant.
+
+Do not create four unrelated visual designs.
+
+The progression must remain immediately understandable.
+
+⸻
+
+14. Learning-Channel Cards Refinement
+
+Preserve the three source-defined channels:
+
+* Learning at centers.
+* Learning through partner schools.
+* Learning through the virtual platform.
+
+Improve the cards without replacing their shared structure.
+
+Review:
+
+* Colored visual area.
+* Icon scale.
+* Illustration value.
+* Text hierarchy.
+* Card balance.
+* CTA styling.
+* Equal height.
+* Mobile stacking.
+* Hover behavior.
+* Visual distinction between channels.
+
+Consider lightweight branded SVG illustrations based on:
+
+* A center or classroom.
+* A partner school.
+* A virtual learning screen.
+
+Illustrations must use design-system colors and shared illustration rules.
+
+Do not use unrelated stock photography.
+
+Do not create overly complex animated illustrations.
+
+⸻
+
+15. Testimonials Refinement
+
+The testimonials section is important for client persuasion and parent trust.
+
+Improve it carefully.
+
+Review:
+
+* Quote hierarchy.
+* Card width.
+* Use of empty space.
+* Avatar or identity marker.
+* Parent or student name.
+* Relationship or city.
+* Quote symbol.
+* Carousel controls.
+* Swipe behavior.
+* Pagination or position indicator.
+* Mobile readability.
+* Desktop balance.
+* Transition quality.
+
+Use multiple representative demo testimonials.
+
+Clearly document that demo testimonials are illustrative.
+
+Do not claim they are verified client testimonials.
+
+Avoid making the section visually louder than the Hero.
+
+⸻
+
+16. Final CTA Refinement
+
+Preserve the orange conversion banner.
+
+Review:
+
+* Heading scale.
+* Supporting copy.
+* Button contrast.
+* Spacing.
+* Mobile wrapping.
+* Decorative motifs.
+* Relationship to the primary conversion goal.
+* Hover and focus states.
+* Framer Motion use.
+
+The orange color must remain primarily associated with conversion.
+
+Do not spread orange across unrelated interface controls.
+
+The CTA may continue to link to the current prototype-safe registration behavior.
+
+Do not build a production registration workflow.
+
+⸻
+
+17. Footer Refinement
+
+The current Footer appears correctly on mobile and desktop.
+
+Do not remove major content merely because it is dense in a screenshot.
+
+Review actual rendered behavior.
+
+Refine:
+
+* Column balance.
+* Typography.
+* Link hierarchy.
+* Contact prominence.
+* Child-protection message.
+* Mobile spacing.
+* Mobile section grouping.
+* Social and contact icons.
+* Legal line.
+* Language control placement.
+* Alignment.
+* Contrast.
+* Touch targets.
+
+Preserve the existing information architecture unless source evidence supports change.
+
+Do not implement footer links to unfinished pages in a way that creates broken navigation.
+
+Use prototype-safe link behavior.
+
+⸻
+
+18. Extend the Abacus Visual Language Carefully
+
+The strongest custom element is the abacus visual.
+
+Extend its design language subtly to other sections.
+
+Possible reusable patterns:
+
+* Bead-shaped number badges.
+* Fine rail connectors.
+* Small abacus corner motifs.
+* Section dividers inspired by rods.
+* Subtle background grids.
+* Numerical counters.
+* Controlled bead movement.
+* Line-based SVG ornaments.
+
+Do not place a full abacus in every section.
+
+Do not overdecorate.
+
+The objective is visual unity, not repetition.
+
+Any new pattern must be:
+
+* Reusable.
+* Token-driven.
+* Documented.
+* Demonstrated in /design-system.
+* Accessible.
+* Compatible with reduced motion.
+
+⸻
+
+19. Motion Refinement
+
+Keep framer-motion.
+
+Do not migrate to the motion package.
+
+Use:
+
+import { motion, AnimatePresence } from "framer-motion"
+
+Use CSS transitions for simple states.
+
+Use Framer Motion for:
+
+* Shared reveals.
+* Staggered cards.
+* Carousel transitions.
+* Button and card interaction.
+* Layout changes.
+* Section entrances.
+* Subtle number animation.
+
+Use GSAP only for:
+
+* The coordinated Hero timeline.
+* Complex abacus choreography when it genuinely benefits the design.
+* One or two signature sequences requiring timeline control.
+
+Do not use GSAP for:
+
+* Ordinary fade-ins.
+* Every card.
+* Every icon.
+* Simple hover effects.
+
+Review:
+
+* Duration.
+* Easing.
+* Stagger.
+* Trigger timing.
+* Scroll behavior.
+* Cleanup.
+* Reduced-motion fallback.
+* Performance.
+* Mobile motion intensity.
+
+Do not animate Arabic text character-by-character.
+
+Prefer:
+
+* Complete lines.
+* Phrase groups.
+* Whole blocks.
+* Words only when Arabic joining remains correct.
+
+No animation may delay access to content.
+
+⸻
+
+20. Design-System Synchronization
+
+Any accepted visual refinement must be reflected in:
+
+* DESIGN.md
+* Central token files.
+* Shared components.
+* Framer Motion presets.
+* GSAP layer where relevant.
+* /design-system
+* docs/MOTION_GUIDELINES.md
+* docs/ASSET_GUIDELINES.md
+* docs/DECISION_LOG.md
+
+Do not add homepage-only magic values.
+
+Do not hardcode:
+
+* Brand colors.
+* Shadow values.
+* Radius values.
+* Animation durations.
+* Easing values.
+* Spacing values that should be tokens.
+
+Do not create duplicate primitives.
+
+Update /design-system with any new:
+
+* Step-card treatment.
+* Channel illustration pattern.
+* Testimonial style.
+* Section-divider pattern.
+* Bead badge.
+* CTA treatment.
+* Motion preset.
+* Responsive typography rule.
+
+⸻
+
+21. Keep Dependency Discipline
+
+Do not add a new UI library.
+
+Do not add another general animation library.
+
+Retain:
+
+* Next.js.
+* React.
+* Tailwind CSS v4.
+* shadcn/ui.
+* Framer Motion.
+* GSAP.
+* Existing required Radix packages.
+* Existing curated dependencies.
+
+A new dependency is allowed only when:
+
+* Existing tools cannot solve the problem cleanly.
+* The benefit is substantial.
+* The package is actively maintained.
+* Bundle impact is acceptable.
+* Security is reviewed.
+* The decision is documented.
+* The primary agent approves it.
+
+Do not restore removed scaffold dependencies.
+
+No Prisma, NextAuth, database, CMS, or backend package may return.
+
+⸻
+
+22. Mandatory Review Loop
+
+For each major refinement area:
+
+1. Reopen the relevant source.
+2. Inspect the currently rendered implementation.
+3. Record the intended improvement.
+4. Primary agent implements it.
+5. Primary agent performs self-review.
+6. Relevant specialist subagents review it.
+7. Consolidate findings.
+8. Fix accepted findings.
+9. Re-render.
+10. Capture screenshots.
+11. Compare before and after.
+12. Check for regressions.
+13. Update documentation.
+14. Repeat when necessary.
+
+Use severity levels:
+
+* BLOCKER
+* CRITICAL
+* MAJOR
+* MINOR
+* SUGGESTION
+
+A refinement milestone is incomplete while it contains:
+
+* Any blocker.
+* Any critical issue.
+* Any unresolved major issue.
+* A conflict with an authoritative source.
+* A serious RTL defect.
+* A serious accessibility defect.
+* A major responsive defect.
+* Broken build or runtime behavior.
+* Documentation contradiction.
+
+Do not loop indefinitely over subjective preferences.
+
+Minor stylistic suggestions may be documented and deferred once the design-lock quality gate is met.
+
+⸻
+
+23. Required Responsive Verification
+
+Test the actual rendered homepage at:
+
+* 360 × 800
+* 375 × 812
+* 390 × 844
+* 430 × 932
+* 768 × 1024
+* 1024 × 768
+* 1280 × 800
+* 1440 × 1200
+* 1920 × 1080
+
+For each viewport verify:
+
+* No horizontal overflow.
+* No clipped content.
+* No overlapping elements.
+* No broken Header.
+* No broken Footer.
+* Statistics remain visible.
+* Correct RTL ordering.
+* Readable Arabic typography.
+* Clear CTA hierarchy.
+* Appropriate line lengths.
+* Balanced spacing.
+* Correct illustration scaling.
+* Carousel controls remain usable.
+* Touch targets remain accessible.
+* No layout jump caused by animation.
+
+Do not judge mobile quality from one long-page screenshot alone.
+
+Inspect individual sections and full-page flow.
+
+⸻
+
+24. Production Verification
+
+The N circle is the Next.js development indicator and is not part of the website.
+
+Do not classify it as a design defect.
+
+However, final client-review screenshots must be captured from a production build.
+
+Run:
+
+bun run lint
+bun run build
+bun run start
+
+Use the production server for final screenshots.
+
+Verify:
+
+* No Next.js development indicator.
+* No development toolbar.
+* No console errors.
+* No hydration warnings.
+* No missing assets.
+* No debug text.
+* No failed network request required by the prototype.
+* No backend imports.
+* No Prisma imports.
+* No NextAuth imports.
+* No unexpected API routes.
+* No conflicting lockfiles.
+
+Capture screenshots from the production build.
+
+⸻
+
+25. Visual Comparison
+
+Create before-and-after comparisons for at least:
+
+* Hero desktop.
+* Hero mobile.
+* How It Works desktop.
+* How It Works mobile.
+* Learning Channels desktop.
+* Learning Channels mobile.
+* Testimonials desktop.
+* Testimonials mobile.
+* Footer desktop.
+* Footer mobile.
+* Full homepage at 390px.
+* Full homepage at 1440px.
+
+Record:
+
+* What changed.
+* Why it changed.
+* Which source or design rule supports the change.
+* Whether it improves clarity, identity, conversion, or trust.
+* Whether the design system was updated.
+
+Do not call a change an improvement without visual evidence.
+
+⸻
+
+26. Final Design-Lock Review
+
+After implementation, perform five final rounds.
+
+Round 1: Primary-Agent Full Review
+
+Inspect:
+
+* Source alignment.
+* Homepage.
+* Header.
+* Footer.
+* Design tokens.
+* Shared components.
+* Motion.
+* /design-system.
+* Documentation.
+* Production output.
+
+Round 2: Specialist Reviews
+
+Ask every relevant reviewer to inspect the final state.
+
+Reviewers must inspect current files and current screenshots, not stale versions.
+
+Round 3: Findings Consolidation
+
+Create one final issue list.
+
+Resolve:
+
+* Every blocker.
+* Every critical issue.
+* Every major issue.
+
+For minor findings:
+
+* Fix them when practical.
+* Otherwise document the reason for deferral.
+
+Round 4: Regression Verification
+
+Run:
+
+* Lint.
+* Build.
+* Production runtime.
+* All required viewports.
+* Browser console review.
+* RTL review.
+* Accessibility review.
+* Reduced-motion review.
+* Link review.
+* Dependency review.
+
+Round 5: Source Reconciliation
+
+Reopen:
+
+* Phase 1 PDF.
+* Client DOCX.
+* Client homepage reference image.
+
+Confirm:
+
+* The identity remains recognizable.
+* The homepage structure remains correct.
+* The new visual refinement does not contradict the client.
+* No unsupported factual claim was introduced.
+* The page remains suitable as the design benchmark for future pages.
+* Documentation accurately describes the final state.
+
+⸻
+
+27. Design-Lock Acceptance Criteria
+
+The homepage is design-locked only when:
+
+* Required skills were genuinely verified or their installation failure was truthfully documented after serious retries.
+* Every installed skill has a readable SKILL.md.
+* Every reviewer has an assigned verified skill set.
+* The homepage remains structurally faithful to the client reference.
+* The visual result is more polished and distinctive than V1.
+* The Hero remains the visual centerpiece.
+* The abacus language subtly connects the full page.
+* Statistics remain correct and visible on all viewports.
+* Step progression is clearer.
+* Learning-channel cards are visually richer.
+* Testimonials communicate trust more effectively.
+* Final CTA is refined.
+* Header and Footer remain functional and polished.
+* Arabic RTL behavior remains correct.
+* AR/EN behavior does not regress.
+* Motion is restrained and purposeful.
+* Reduced-motion behavior works.
+* New visual patterns are represented in /design-system.
+* DESIGN.md matches implementation.
+* No blocker remains.
+* No critical issue remains.
+* No major issue remains.
+* Production build succeeds.
+* Final screenshots are captured from production.
+* No remaining website page has been implemented.
+
+⸻
+
+28. Required Deliverables
+
+Update or create:
+
+* docs/HOMEPAGE_DESIGN_LOCK_AUDIT.md
+* docs/SKILLS.md
+* docs/REVIEW_LOG.md
+* docs/DECISION_LOG.md
+* docs/PROGRESS.md
+* docs/QA_CHECKLIST.md
+* DESIGN.md
+* docs/MOTION_GUIDELINES.md
+* docs/ASSET_GUIDELINES.md
+* /design-system
+* Homepage code.
+* Shared components affected by refinements.
+* Production screenshots.
+* Before-and-after comparisons.
+
+Final report must include:
+
+Skills
+
+* Skills searched.
+* Skills installed.
+* Skills rejected.
+* Retry attempts.
+* Exact errors.
+* Installed locations.
+* Verification evidence.
+* Skill assigned to each reviewer.
+* Where each skill was used.
+
+Visual Refinement
+
+* Sections changed.
+* Sections intentionally preserved.
+* Components added or refined.
+* Tokens added or refined.
+* Illustrations added.
+* Motion changes.
+* Reasons for every significant visual decision.
+
+Review Team
+
+* Reviewers used.
+* Skills assigned.
+* Findings.
+* Severity.
+* Accepted or rejected.
+* Resolution.
+
+Verification
+
+* Commands run.
+* Production-build result.
+* Viewports tested.
+* Screenshots captured.
+* Console status.
+* RTL status.
+* Accessibility status.
+* Reduced-motion status.
+* Link status.
+* Remaining minor suggestions.
+
+Design Lock
+
+State clearly whether the homepage is approved as the final visual benchmark for the remaining pages.
+
+Do not claim design lock when unresolved blocker, critical, or major issues remain.
+
+⸻
+
+29. Hard Stop
+
+After:
+
+* Skill recovery and verification.
+* Homepage refinement.
+* Design-system synchronization.
+* Specialist reviews.
+* Production verification.
+* Final design lock.
+* Final report.
+
+STOP.
+
+Do not build the remaining pages.
+
+The following task will implement the remaining pages in controlled, reviewed waves after this design lock is approved.

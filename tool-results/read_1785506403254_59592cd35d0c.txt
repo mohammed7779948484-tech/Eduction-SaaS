@@ -1,0 +1,1350 @@
+     1→
+     2→# Phase 1.5 Master Task
+     3→# Skills Recovery, Homepage Visual Polish, and Final Design Lock
+     4→You are continuing work inside the EXISTING Mental Arithmetic Program Next.js repository.
+     5→The repository already contains:
+     6→- A working Arabic-first RTL homepage.
+     7→- Responsive mobile, tablet, and desktop layouts.
+     8→- A centralized Tailwind CSS v4 design-token system.
+     9→- Customized shadcn/ui components.
+    10→- A `/design-system` reference route.
+    11→- Shared Header and Footer components.
+    12→- Framer Motion animation presets.
+    13→- A centralized GSAP hero-animation layer.
+    14→- Project documentation.
+    15→- Existing review logs and decision logs.
+    16→- A specialist subagent review structure.
+    17→The current implementation is structurally successful and must be preserved.
+    18→This task is NOT a redesign from scratch.
+    19→This task is a short but serious refinement stage intended to:
+    20→1. Recover and verify the required agent skills.
+    21→2. Apply those skills correctly.
+    22→3. Improve the visual quality of the current homepage.
+    23→4. Synchronize refinements with the design system.
+    24→5. Perform full visual and technical verification.
+    25→6. Lock the final design language before building the remaining pages.
+    26→Do NOT implement the remaining website pages during this task.
+    27→Stop after the homepage has passed the final design-lock review.
+    28→---
+    29→# 1. Primary-Agent Responsibility
+    30→You are the primary implementer and final decision-maker.
+    31→You must personally perform:
+    32→- Repository inspection.
+    33→- Skill discovery and installation.
+    34→- Planning.
+    35→- Design decisions.
+    36→- Documentation updates.
+    37→- Code changes.
+    38→- Component refinement.
+    39→- Motion refinement.
+    40→- Visual testing.
+    41→- Review consolidation.
+    42→- Final approval.
+    43→Subagents are specialist reviewers.
+    44→They must not replace you as the implementer.
+    45→Subagents may:
+    46→- Inspect.
+    47→- Compare.
+    48→- Test.
+    49→- Challenge.
+    50→- Identify problems.
+    51→- Recommend corrections.
+    52→- Verify fixes.
+    53→Subagents must not:
+    54→- Independently redesign the homepage.
+    55→- Create competing versions.
+    56→- Perform uncontrolled overlapping edits.
+    57→- Add dependencies without approval.
+    58→- Delete project files.
+    59→- Change the agreed visual identity without evidence.
+    60→- Build any remaining website page.
+    61→You must write and integrate the final implementation yourself.
+    62→---
+    63→# 2. Hard Scope
+    64→This task includes only:
+    65→- Skill recovery and verification.
+    66→- Homepage visual refinement.
+    67→- Shared component refinement when required by the homepage.
+    68→- Design-token refinement where justified.
+    69→- Framer Motion refinement.
+    70→- GSAP hero refinement where justified.
+    71→- `/design-system` synchronization.
+    72→- Documentation synchronization.
+    73→- Responsive QA.
+    74→- Accessibility QA.
+    75→- RTL QA.
+    76→- Production-build verification.
+    77→- Final design lock.
+    78→This task does NOT include:
+    79→- About page.
+    80→- Program page.
+    81→- Learning Channels page.
+    82→- Virtual Platform page.
+    83→- Registration page.
+    84→- Contact page.
+    85→- Schools and Institutions page.
+    86→- Trainer Training page.
+    87→- FAQ page.
+    88→- Legal pages.
+    89→- Backend.
+    90→- Database.
+    91→- Authentication.
+    92→- CMS.
+    93→- APIs.
+    94→- Payments.
+    95→- Real form submission.
+    96→- Real AI assistant.
+    97→- A replacement project scaffold.
+    98→Do not begin any of those items.
+    99→---
+   100→# 3. Preserve the Successful Existing Work
+   101→Do not assume that the current homepage is broken.
+   102→The following existing behavior has already been visually confirmed and must be preserved unless a genuine regression is discovered:
+   103→- The statistics section appears correctly on mobile.
+   104→- The statistics use a responsive 2×2 layout on mobile.
+   105→- The Header functions on mobile.
+   106→- The Footer appears on mobile.
+   107→- The homepage is responsive.
+   108→- The Arabic RTL structure works.
+   109→- The AR/EN control exists and currently works.
+   110→- The Next.js `N` circle is a development-only indicator, not a website defect.
+   111→- The current section order reflects the client reference.
+   112→- The current design identity reflects the client color palette.
+   113→- The current abacus hero visual is a valid direction.
+   114→- The current system architecture is reusable.
+   115→Do not remove or rewrite working systems merely because a screenshot was previously misunderstood.
+   116→Every proposed correction must be based on:
+   117→- The actual rendered website.
+   118→- The client source files.
+   119→- DESIGN.md.
+   120→- The design-system implementation.
+   121→- Clear visual or technical evidence.
+   122→---
+   123→# 4. Create a Git Checkpoint First
+   124→Before changing anything:
+   125→1. Inspect `git status`.
+   126→2. Preserve any uncommitted user work.
+   127→3. Create a checkpoint commit when safe.
+   128→Suggested commit:
+   129→```bash
+   130→git add .
+   131→git commit -m "checkpoint: homepage v1 and design system foundation"
+   132→
+   133→If a commit cannot be created because the environment does not have Git identity configured, do not fabricate success.
+   134→
+   135→Document the limitation and create another safe backup method, such as:
+   136→
+   137→* A Git branch.
+   138→* A patch file.
+   139→* A copied checkpoint directory.
+   140→* A repository archive.
+   141→
+   142→Record the checkpoint in:
+   143→
+   144→docs/PROGRESS.md
+   145→
+   146→and:
+   147→
+   148→docs/DECISION_LOG.md
+   149→
+   150→⸻
+   151→
+   152→5. Reopen the Authoritative Sources
+   153→
+   154→Before making visual changes, reopen and inspect:
+   155→
+   156→1. The comprehensive Phase 1 proposal PDF.
+   157→2. The client identity and execution-concept DOCX.
+   158→3. All embedded images inside the DOCX.
+   159→4. The client homepage reference image.
+   160→5. Current DESIGN.md.
+   161→6. Current docs/SOURCE_OF_TRUTH.md.
+   162→7. Current /design-system.
+   163→8. Current rendered homepage.
+   164→9. Existing mobile and desktop screenshots.
+   165→10. Current review and decision logs.
+   166→
+   167→Do not rely only on earlier notes.
+   168→
+   169→Reconcile the current implementation with the source files again.
+   170→
+   171→Confirm:
+   172→
+   173→* Homepage section order.
+   174→* Brand colors.
+   175→* Arabic terminology.
+   176→* Conversion priorities.
+   177→* Target audiences.
+   178→* Abacus visual direction.
+   179→* Educational tone.
+   180→* Institutional tone.
+   181→* Child-safety messaging.
+   182→* Learning-channel terminology.
+   183→* Footer requirements.
+   184→* Header requirements.
+   185→* CTA hierarchy.
+   186→
+   187→Do not introduce unsupported production claims.
+   188→
+   189→Prototype statistics and testimonials may remain illustrative, but they must be documented as demo content.
+   190→
+   191→⸻
+   192→
+   193→6. Recover and Verify Agent Skills
+   194→
+   195→The previous skill-discovery process found useful skills, but installation reportedly failed because of network timeouts.
+   196→
+   197→This task must make a serious second attempt.
+   198→
+   199→Do not simply repeat the previous statement that installation failed.
+   200→
+   201→6.1 Verify Current Skill State
+   202→
+   203→Before installing anything:
+   204→
+   205→* Inspect the project-local skill directories.
+   206→* Inspect the active agent’s supported skill paths.
+   207→* Check whether any skills were partially installed.
+   208→* Check whether find-skills is already discoverable.
+   209→* Check whether installed skill metadata is valid.
+   210→* Check whether each skill has a readable SKILL.md.
+   211→* Check for incomplete folders caused by failed downloads.
+   212→
+   213→Remove only incomplete or corrupted skill installations.
+   214→
+   215→Do not remove valid existing skills.
+   216→
+   217→6.2 Use find-skills
+   218→
+   219→Use the official or currently installed find-skills capability to search for the best skills for:
+   220→
+   221→* Frontend design.
+   222→* Design systems.
+   223→* DESIGN.md authoring.
+   224→* Project planning.
+   225→* Task decomposition.
+   226→* Next.js App Router.
+   227→* React architecture.
+   228→* React performance.
+   229→* Tailwind CSS v4.
+   230→* shadcn/ui.
+   231→* Arabic RTL design.
+   232→* Accessibility.
+   233→* Framer Motion.
+   234→* GSAP.
+   235→* Browser automation.
+   236→* Responsive visual verification.
+   237→* Screenshot review.
+   238→* Documentation quality.
+   239→* AGENTS.md authoring.
+   240→
+   241→6.3 Skill Evaluation Rules
+   242→
+   243→For every candidate, inspect the full SKILL.md.
+   244→
+   245→Evaluate:
+   246→
+   247→* Repository owner.
+   248→* Source reputation.
+   249→* Maintenance activity.
+   250→* Compatibility with the current stack.
+   251→* Compatibility with Claude Code, Codex, or the active agent.
+   252→* Required MCP services.
+   253→* Required external tools.
+   254→* Installation count or adoption when available.
+   255→* Security findings.
+   256→* Shell commands included.
+   257→* External downloads.
+   258→* Overlap with other skills.
+   259→* Practical benefit to this project.
+   260→
+   261→Do not install a skill only because its name sounds relevant.
+   262→
+   263→Do not install a Figma-dependent skill when no Figma source is available.
+   264→
+   265→Do not install a skill that requires an unavailable MCP without documenting that limitation.
+   266→
+   267→Prefer approximately five to eight focused, high-value skills.
+   268→
+   269→6.4 Required Skill Categories
+   270→
+   271→At minimum, secure suitable skills for:
+   272→
+   273→1. Frontend visual design.
+   274→2. shadcn/ui.
+   275→3. Next.js or React best practices.
+   276→4. Planning and task decomposition.
+   277→5. Accessibility.
+   278→6. Browser or visual verification.
+   279→7. Design-system or DESIGN.md authoring.
+   280→
+   281→Add dedicated Framer Motion or GSAP skills only if they are strong and compatible.
+   282→
+   283→6.5 Installation Retry Strategy
+   284→
+   285→When installation fails:
+   286→
+   287→1. Capture the exact error.
+   288→2. Retry with a longer timeout.
+   289→3. Retry using the supported package runner most compatible with the project.
+   290→4. Retry through the repository URL when package-style installation fails.
+   291→5. Use project-local installation.
+   292→6. Avoid creating a conflicting lockfile.
+   293→7. Verify network access to the source repository.
+   294→8. Check whether a proxy or environment restriction is causing the issue.
+   295→9. Retry individual skills rather than one large batch.
+   296→10. Avoid infinite retries.
+   297→
+   298→Use a reasonable retry sequence with increasing delays.
+   299→
+   300→Do not claim a skill is installed until all these are true:
+   301→
+   302→* Its directory exists.
+   303→* Its SKILL.md is readable.
+   304→* Its metadata is valid.
+   305→* The active agent can discover it.
+   306→* Its required tools are available.
+   307→* You can explicitly invoke or apply it.
+   308→
+   309→6.6 Honest Failure Handling
+   310→
+   311→If a skill still cannot be installed after serious retries:
+   312→
+   313→* Record every attempted command.
+   314→* Record the exact error.
+   315→* Record the retry count.
+   316→* Record whether the failure is network-related, permission-related, tool-related, or repository-related.
+   317→* Do not claim successful installation.
+   318→* Continue only when the active environment already provides equivalent built-in capability, and clearly document the substitution.
+   319→
+   320→The goal is verified capability, not a false installation count.
+   321→
+   322→6.7 Skills Documentation
+   323→
+   324→Update:
+   325→
+   326→docs/SKILLS.md
+   327→
+   328→For every skill include:
+   329→
+   330→* Name.
+   331→* Source.
+   332→* Version or commit when available.
+   333→* Installed or rejected.
+   334→* Exact installation command.
+   335→* Exact installed location.
+   336→* Verification method.
+   337→* Required tools.
+   338→* Assigned agent or subagent.
+   339→* Project phase where used.
+   340→* Security observations.
+   341→* Failed attempts where relevant.
+   342→* Final status.
+   343→
+   344→⸻
+   345→
+   346→7. Recreate or Reconfirm the Specialist Review Team
+   347→
+   348→Only after skill verification, define the review team again.
+   349→
+   350→Each reviewer must be assigned the most suitable verified skills.
+   351→
+   352→Recommended reviewers:
+   353→
+   354→Reviewer 1: Client Source Auditor
+   355→
+   356→Assigned skills:
+   357→
+   358→* Requirements analysis.
+   359→* Project planning.
+   360→* Frontend-design review when applicable.
+   361→
+   362→Responsibilities:
+   363→
+   364→* Compare the homepage against the Phase 1 PDF.
+   365→* Compare it against the client DOCX.
+   366→* Compare it against the reference image.
+   367→* Verify Arabic terminology.
+   368→* Detect unsupported claims.
+   369→* Verify section hierarchy.
+   370→* Verify that design improvements do not abandon the client direction.
+   371→
+   372→Reviewer 2: Frontend Design and Design-System Reviewer
+   373→
+   374→Assigned skills:
+   375→
+   376→* Frontend design.
+   377→* Design systems.
+   378→* DESIGN.md.
+   379→* Tailwind CSS v4.
+   380→* shadcn/ui.
+   381→
+   382→Responsibilities:
+   383→
+   384→* Review visual hierarchy.
+   385→* Review component consistency.
+   386→* Review spacing.
+   387→* Review typography.
+   388→* Review color use.
+   389→* Review card language.
+   390→* Review design-system synchronization.
+   391→* Detect generic AI-generated visual patterns.
+   392→
+   393→Reviewer 3: Architecture Reviewer
+   394→
+   395→Assigned skills:
+   396→
+   397→* Next.js.
+   398→* React architecture.
+   399→* React performance.
+   400→* shadcn/ui.
+   401→
+   402→Responsibilities:
+   403→
+   404→* Detect duplicate components.
+   405→* Detect unnecessary client components.
+   406→* Detect local hardcoded design values.
+   407→* Detect architecture regression.
+   408→* Detect dependency creep.
+   409→* Verify reuse.
+   410→* Verify existing systems were preserved.
+   411→
+   412→Reviewer 4: Arabic RTL and Accessibility Reviewer
+   413→
+   414→Assigned skills:
+   415→
+   416→* Accessibility.
+   417→* RTL design.
+   418→* Browser verification.
+   419→
+   420→Responsibilities:
+   421→
+   422→* Inspect Arabic readability.
+   423→* Inspect RTL order.
+   424→* Inspect keyboard navigation.
+   425→* Inspect focus states.
+   426→* Inspect contrast.
+   427→* Inspect semantic markup.
+   428→* Inspect touch targets.
+   429→* Inspect carousel controls.
+   430→* Inspect mobile menu.
+   431→* Inspect reduced-motion support.
+   432→
+   433→Reviewer 5: Motion Reviewer
+   434→
+   435→Assigned skills:
+   436→
+   437→* Framer Motion.
+   438→* GSAP.
+   439→* React performance.
+   440→* Accessibility.
+   441→
+   442→Responsibilities:
+   443→
+   444→* Review centralized motion tokens.
+   445→* Review reveal timing.
+   446→* Review hero choreography.
+   447→* Review reduced-motion behavior.
+   448→* Detect excessive animation.
+   449→* Detect missing cleanup.
+   450→* Verify Arabic text is not animated character-by-character.
+   451→* Confirm that animation improves meaning rather than adding noise.
+   452→
+   453→Reviewer 6: Responsive Visual QA Reviewer
+   454→
+   455→Assigned skills:
+   456→
+   457→* Browser automation.
+   458→* Screenshot inspection.
+   459→* Responsive frontend design.
+   460→
+   461→Responsibilities:
+   462→
+   463→* Inspect the actual rendered website.
+   464→* Capture required screenshots.
+   465→* Review layout at all required viewports.
+   466→* Check overflow.
+   467→* Check section spacing.
+   468→* Check typography.
+   469→* Check image and SVG scale.
+   470→* Check Header and Footer.
+   471→* Check production output.
+   472→* Compare implementation with the reference image.
+   473→
+   474→Reviewer 7: Documentation Reviewer
+   475→
+   476→Assigned skills:
+   477→
+   478→* Documentation quality.
+   479→* AGENTS.md.
+   480→* Planning.
+   481→
+   482→Responsibilities:
+   483→
+   484→* Verify DESIGN.md matches implementation.
+   485→* Verify /design-system matches the homepage patterns.
+   486→* Verify PROGRESS.md is accurate.
+   487→* Verify REVIEW_LOG.md is complete.
+   488→* Verify SKILLS.md is truthful.
+   489→* Detect contradictions and stale statements.
+   490→
+   491→Subagents report findings only.
+   492→
+   493→The primary agent performs all corrections.
+   494→
+   495→⸻
+   496→
+   497→8. Create the Homepage Refinement Audit
+   498→
+   499→Create:
+   500→
+   501→docs/HOMEPAGE_DESIGN_LOCK_AUDIT.md
+   502→
+   503→Before editing, inspect each existing section and record:
+   504→
+   505→* Current strengths.
+   506→* Current weaknesses.
+   507→* Whether a change is required.
+   508→* Evidence.
+   509→* Relevant source reference.
+   510→* Relevant DESIGN.md rule.
+   511→* Proposed change.
+   512→* Risk of overdesign.
+   513→* Acceptance criterion.
+   514→
+   515→Audit:
+   516→
+   517→1. Header.
+   518→2. Hero.
+   519→3. Statistics.
+   520→4. How the Program Works.
+   521→5. Learning Channels.
+   522→6. Testimonials.
+   523→7. Final CTA.
+   524→8. Footer.
+   525→9. Transitions between sections.
+   526→10. Mobile composition.
+   527→11. Tablet composition.
+   528→12. Desktop composition.
+   529→13. Motion.
+   530→14. Design-system reuse.
+   531→
+   532→Do not create work solely to increase the number of changes.
+   533→
+   534→Preserve sections that already work well.
+   535→
+   536→⸻
+   537→
+   538→9. Homepage Refinement Objective
+   539→
+   540→The current homepage is:
+   541→
+   542→* Structurally correct.
+   543→* Responsive.
+   544→* Clean.
+   545→* Consistent.
+   546→* Closely related to the client reference.
+   547→
+   548→The refinement objective is to raise it from a clean, well-built prototype to a more memorable, polished, client-presentation-quality design.
+   549→
+   550→Improve quality without:
+   551→
+   552→* Rebuilding from scratch.
+   553→* Abandoning the reference.
+   554→* Changing the brand.
+   555→* Adding visual clutter.
+   556→* Turning it into a generic SaaS website.
+   557→* Adding random gradients.
+   558→* Adding excessive glassmorphism.
+   559→* Adding unrelated 3D effects.
+   560→* Adding a new component library.
+   561→* Adding animation everywhere.
+   562→
+   563→The final result should feel:
+   564→
+   565→* Educational.
+   566→* Confident.
+   567→* Modern.
+   568→* Trustworthy.
+   569→* Child-friendly without appearing childish.
+   570→* Institutional without appearing boring.
+   571→* Designed specifically for a mental-arithmetic program.
+   572→
+   573→⸻
+   574→
+   575→10. Header Refinement
+   576→
+   577→The current Header is functional on mobile and desktop.
+   578→
+   579→Do not replace it unnecessarily.
+   580→
+   581→Review and refine only where visual evidence supports improvement.
+   582→
+   583→Check:
+   584→
+   585→* Logo scale.
+   586→* Program-name typography.
+   587→* Vertical alignment.
+   588→* Navigation spacing.
+   589→* CTA prominence.
+   590→* Language control.
+   591→* Mobile menu control.
+   592→* Header height.
+   593→* RTL order.
+   594→* Touch targets.
+   595→* Focus states.
+   596→* Mobile spacing.
+   597→* Desktop balance.
+   598→
+   599→The current AR/EN control may remain.
+   600→
+   601→Do not remove it merely because the prototype is currently Arabic-first.
+   602→
+   603→If the English content remains incomplete, document it as a prototype capability or future-state preview rather than falsely presenting a fully translated production site.
+   604→
+   605→Do not let language-system work consume the majority of this refinement task.
+   606→
+   607→⸻
+   608→
+   609→11. Hero Refinement
+   610→
+   611→Preserve the existing successful direction:
+   612→
+   613→* Navy container.
+   614→* Teal accent.
+   615→* Orange primary CTA.
+   616→* Secondary action.
+   617→* Abacus visual.
+   618→* Arabic-first hierarchy.
+   619→* Rounded container.
+   620→* Relationship to the client reference.
+   621→
+   622→Improve only what raises presentation quality:
+   623→
+   624→* Hero internal balance.
+   625→* Headline scale.
+   626→* Text measure.
+   627→* Description readability.
+   628→* CTA spacing.
+   629→* Button hierarchy.
+   630→* Abacus composition.
+   631→* Decorative depth.
+   632→* Background detail.
+   633→* Mobile arrangement.
+   634→* Tablet arrangement.
+   635→* Desktop whitespace.
+   636→* Relationship between text and visual.
+   637→* Shadow and border refinement.
+   638→
+   639→The abacus should remain the visual hero.
+   640→
+   641→Do not replace it with a generic stock image.
+   642→
+   643→Consider subtle reusable visual details such as:
+   644→
+   645→* Abacus rail lines.
+   646→* Bead trails.
+   647→* Numerical marks.
+   648→* Fine grid structure.
+   649→* Controlled glow.
+   650→* Low-opacity geometric motifs.
+   651→
+   652→Keep them restrained.
+   653→
+   654→The hero must remain attractive with animation disabled.
+   655→
+   656→⸻
+   657→
+   658→12. Statistics Refinement
+   659→
+   660→The current statistics section works on desktop and mobile.
+   661→
+   662→Do not remove it.
+   663→
+   664→Do not claim it is missing.
+   665→
+   666→Preserve the responsive 2×2 mobile layout.
+   667→
+   668→Review:
+   669→
+   670→* Number scale.
+   671→* Label scale.
+   672→* Spacing.
+   673→* Desktop distribution.
+   674→* Mobile alignment.
+   675→* Section height.
+   676→* Background.
+   677→* Dividers or visual grouping.
+   678→* Animation timing.
+   679→* RTL reading order.
+   680→
+   681→The section should clearly bridge the Hero and the educational explanation.
+   682→
+   683→Illustrative data must remain centralized and documented.
+   684→
+   685→⸻
+   686→
+   687→13. “How the Program Works” Refinement
+   688→
+   689→The current section is structurally correct but may be visually enriched.
+   690→
+   691→Preserve the four source-defined steps.
+   692→
+   693→Improve its sense of progression.
+   694→
+   695→Possible improvements:
+   696→
+   697→* A subtle RTL journey path.
+   698→* Abacus-inspired connecting lines.
+   699→* Stronger step-number treatment.
+   700→* More meaningful step icons.
+   701→* Better internal spacing.
+   702→* Better relationship between number, title, and description.
+   703→* Reduced unused card space.
+   704→* Stronger mobile rhythm.
+   705→* Controlled hover behavior.
+   706→* A reusable StepCard variant.
+   707→
+   708→Do not create four unrelated visual designs.
+   709→
+   710→The progression must remain immediately understandable.
+   711→
+   712→⸻
+   713→
+   714→14. Learning-Channel Cards Refinement
+   715→
+   716→Preserve the three source-defined channels:
+   717→
+   718→* Learning at centers.
+   719→* Learning through partner schools.
+   720→* Learning through the virtual platform.
+   721→
+   722→Improve the cards without replacing their shared structure.
+   723→
+   724→Review:
+   725→
+   726→* Colored visual area.
+   727→* Icon scale.
+   728→* Illustration value.
+   729→* Text hierarchy.
+   730→* Card balance.
+   731→* CTA styling.
+   732→* Equal height.
+   733→* Mobile stacking.
+   734→* Hover behavior.
+   735→* Visual distinction between channels.
+   736→
+   737→Consider lightweight branded SVG illustrations based on:
+   738→
+   739→* A center or classroom.
+   740→* A partner school.
+   741→* A virtual learning screen.
+   742→
+   743→Illustrations must use design-system colors and shared illustration rules.
+   744→
+   745→Do not use unrelated stock photography.
+   746→
+   747→Do not create overly complex animated illustrations.
+   748→
+   749→⸻
+   750→
+   751→15. Testimonials Refinement
+   752→
+   753→The testimonials section is important for client persuasion and parent trust.
+   754→
+   755→Improve it carefully.
+   756→
+   757→Review:
+   758→
+   759→* Quote hierarchy.
+   760→* Card width.
+   761→* Use of empty space.
+   762→* Avatar or identity marker.
+   763→* Parent or student name.
+   764→* Relationship or city.
+   765→* Quote symbol.
+   766→* Carousel controls.
+   767→* Swipe behavior.
+   768→* Pagination or position indicator.
+   769→* Mobile readability.
+   770→* Desktop balance.
+   771→* Transition quality.
+   772→
+   773→Use multiple representative demo testimonials.
+   774→
+   775→Clearly document that demo testimonials are illustrative.
+   776→
+   777→Do not claim they are verified client testimonials.
+   778→
+   779→Avoid making the section visually louder than the Hero.
+   780→
+   781→⸻
+   782→
+   783→16. Final CTA Refinement
+   784→
+   785→Preserve the orange conversion banner.
+   786→
+   787→Review:
+   788→
+   789→* Heading scale.
+   790→* Supporting copy.
+   791→* Button contrast.
+   792→* Spacing.
+   793→* Mobile wrapping.
+   794→* Decorative motifs.
+   795→* Relationship to the primary conversion goal.
+   796→* Hover and focus states.
+   797→* Framer Motion use.
+   798→
+   799→The orange color must remain primarily associated with conversion.
+   800→
+   801→Do not spread orange across unrelated interface controls.
+   802→
+   803→The CTA may continue to link to the current prototype-safe registration behavior.
+   804→
+   805→Do not build a production registration workflow.
+   806→
+   807→⸻
+   808→
+   809→17. Footer Refinement
+   810→
+   811→The current Footer appears correctly on mobile and desktop.
+   812→
+   813→Do not remove major content merely because it is dense in a screenshot.
+   814→
+   815→Review actual rendered behavior.
+   816→
+   817→Refine:
+   818→
+   819→* Column balance.
+   820→* Typography.
+   821→* Link hierarchy.
+   822→* Contact prominence.
+   823→* Child-protection message.
+   824→* Mobile spacing.
+   825→* Mobile section grouping.
+   826→* Social and contact icons.
+   827→* Legal line.
+   828→* Language control placement.
+   829→* Alignment.
+   830→* Contrast.
+   831→* Touch targets.
+   832→
+   833→Preserve the existing information architecture unless source evidence supports change.
+   834→
+   835→Do not implement footer links to unfinished pages in a way that creates broken navigation.
+   836→
+   837→Use prototype-safe link behavior.
+   838→
+   839→⸻
+   840→
+   841→18. Extend the Abacus Visual Language Carefully
+   842→
+   843→The strongest custom element is the abacus visual.
+   844→
+   845→Extend its design language subtly to other sections.
+   846→
+   847→Possible reusable patterns:
+   848→
+   849→* Bead-shaped number badges.
+   850→* Fine rail connectors.
+   851→* Small abacus corner motifs.
+   852→* Section dividers inspired by rods.
+   853→* Subtle background grids.
+   854→* Numerical counters.
+   855→* Controlled bead movement.
+   856→* Line-based SVG ornaments.
+   857→
+   858→Do not place a full abacus in every section.
+   859→
+   860→Do not overdecorate.
+   861→
+   862→The objective is visual unity, not repetition.
+   863→
+   864→Any new pattern must be:
+   865→
+   866→* Reusable.
+   867→* Token-driven.
+   868→* Documented.
+   869→* Demonstrated in /design-system.
+   870→* Accessible.
+   871→* Compatible with reduced motion.
+   872→
+   873→⸻
+   874→
+   875→19. Motion Refinement
+   876→
+   877→Keep framer-motion.
+   878→
+   879→Do not migrate to the motion package.
+   880→
+   881→Use:
+   882→
+   883→import { motion, AnimatePresence } from "framer-motion"
+   884→
+   885→Use CSS transitions for simple states.
+   886→
+   887→Use Framer Motion for:
+   888→
+   889→* Shared reveals.
+   890→* Staggered cards.
+   891→* Carousel transitions.
+   892→* Button and card interaction.
+   893→* Layout changes.
+   894→* Section entrances.
+   895→* Subtle number animation.
+   896→
+   897→Use GSAP only for:
+   898→
+   899→* The coordinated Hero timeline.
+   900→* Complex abacus choreography when it genuinely benefits the design.
+   901→* One or two signature sequences requiring timeline control.
+   902→
+   903→Do not use GSAP for:
+   904→
+   905→* Ordinary fade-ins.
+   906→* Every card.
+   907→* Every icon.
+   908→* Simple hover effects.
+   909→
+   910→Review:
+   911→
+   912→* Duration.
+   913→* Easing.
+   914→* Stagger.
+   915→* Trigger timing.
+   916→* Scroll behavior.
+   917→* Cleanup.
+   918→* Reduced-motion fallback.
+   919→* Performance.
+   920→* Mobile motion intensity.
+   921→
+   922→Do not animate Arabic text character-by-character.
+   923→
+   924→Prefer:
+   925→
+   926→* Complete lines.
+   927→* Phrase groups.
+   928→* Whole blocks.
+   929→* Words only when Arabic joining remains correct.
+   930→
+   931→No animation may delay access to content.
+   932→
+   933→⸻
+   934→
+   935→20. Design-System Synchronization
+   936→
+   937→Any accepted visual refinement must be reflected in:
+   938→
+   939→* DESIGN.md
+   940→* Central token files.
+   941→* Shared components.
+   942→* Framer Motion presets.
+   943→* GSAP layer where relevant.
+   944→* /design-system
+   945→* docs/MOTION_GUIDELINES.md
+   946→* docs/ASSET_GUIDELINES.md
+   947→* docs/DECISION_LOG.md
+   948→
+   949→Do not add homepage-only magic values.
+   950→
+   951→Do not hardcode:
+   952→
+   953→* Brand colors.
+   954→* Shadow values.
+   955→* Radius values.
+   956→* Animation durations.
+   957→* Easing values.
+   958→* Spacing values that should be tokens.
+   959→
+   960→Do not create duplicate primitives.
+   961→
+   962→Update /design-system with any new:
+   963→
+   964→* Step-card treatment.
+   965→* Channel illustration pattern.
+   966→* Testimonial style.
+   967→* Section-divider pattern.
+   968→* Bead badge.
+   969→* CTA treatment.
+   970→* Motion preset.
+   971→* Responsive typography rule.
+   972→
+   973→⸻
+   974→
+   975→21. Keep Dependency Discipline
+   976→
+   977→Do not add a new UI library.
+   978→
+   979→Do not add another general animation library.
+   980→
+   981→Retain:
+   982→
+   983→* Next.js.
+   984→* React.
+   985→* Tailwind CSS v4.
+   986→* shadcn/ui.
+   987→* Framer Motion.
+   988→* GSAP.
+   989→* Existing required Radix packages.
+   990→* Existing curated dependencies.
+   991→
+   992→A new dependency is allowed only when:
+   993→
+   994→* Existing tools cannot solve the problem cleanly.
+   995→* The benefit is substantial.
+   996→* The package is actively maintained.
+   997→* Bundle impact is acceptable.
+   998→* Security is reviewed.
+   999→* The decision is documented.
+  1000→* The primary agent approves it.
+  1001→
+  1002→Do not restore removed scaffold dependencies.
+  1003→
+  1004→No Prisma, NextAuth, database, CMS, or backend package may return.
+  1005→
+  1006→⸻
+  1007→
+  1008→22. Mandatory Review Loop
+  1009→
+  1010→For each major refinement area:
+  1011→
+  1012→1. Reopen the relevant source.
+  1013→2. Inspect the currently rendered implementation.
+  1014→3. Record the intended improvement.
+  1015→4. Primary agent implements it.
+  1016→5. Primary agent performs self-review.
+  1017→6. Relevant specialist subagents review it.
+  1018→7. Consolidate findings.
+  1019→8. Fix accepted findings.
+  1020→9. Re-render.
+  1021→10. Capture screenshots.
+  1022→11. Compare before and after.
+  1023→12. Check for regressions.
+  1024→13. Update documentation.
+  1025→14. Repeat when necessary.
+  1026→
+  1027→Use severity levels:
+  1028→
+  1029→* BLOCKER
+  1030→* CRITICAL
+  1031→* MAJOR
+  1032→* MINOR
+  1033→* SUGGESTION
+  1034→
+  1035→A refinement milestone is incomplete while it contains:
+  1036→
+  1037→* Any blocker.
+  1038→* Any critical issue.
+  1039→* Any unresolved major issue.
+  1040→* A conflict with an authoritative source.
+  1041→* A serious RTL defect.
+  1042→* A serious accessibility defect.
+  1043→* A major responsive defect.
+  1044→* Broken build or runtime behavior.
+  1045→* Documentation contradiction.
+  1046→
+  1047→Do not loop indefinitely over subjective preferences.
+  1048→
+  1049→Minor stylistic suggestions may be documented and deferred once the design-lock quality gate is met.
+  1050→
+  1051→⸻
+  1052→
+  1053→23. Required Responsive Verification
+  1054→
+  1055→Test the actual rendered homepage at:
+  1056→
+  1057→* 360 × 800
+  1058→* 375 × 812
+  1059→* 390 × 844
+  1060→* 430 × 932
+  1061→* 768 × 1024
+  1062→* 1024 × 768
+  1063→* 1280 × 800
+  1064→* 1440 × 1200
+  1065→* 1920 × 1080
+  1066→
+  1067→For each viewport verify:
+  1068→
+  1069→* No horizontal overflow.
+  1070→* No clipped content.
+  1071→* No overlapping elements.
+  1072→* No broken Header.
+  1073→* No broken Footer.
+  1074→* Statistics remain visible.
+  1075→* Correct RTL ordering.
+  1076→* Readable Arabic typography.
+  1077→* Clear CTA hierarchy.
+  1078→* Appropriate line lengths.
+  1079→* Balanced spacing.
+  1080→* Correct illustration scaling.
+  1081→* Carousel controls remain usable.
+  1082→* Touch targets remain accessible.
+  1083→* No layout jump caused by animation.
+  1084→
+  1085→Do not judge mobile quality from one long-page screenshot alone.
+  1086→
+  1087→Inspect individual sections and full-page flow.
+  1088→
+  1089→⸻
+  1090→
+  1091→24. Production Verification
+  1092→
+  1093→The N circle is the Next.js development indicator and is not part of the website.
+  1094→
+  1095→Do not classify it as a design defect.
+  1096→
+  1097→However, final client-review screenshots must be captured from a production build.
+  1098→
+  1099→Run:
+  1100→
+  1101→bun run lint
+  1102→bun run build
+  1103→bun run start
+  1104→
+  1105→Use the production server for final screenshots.
+  1106→
+  1107→Verify:
+  1108→
+  1109→* No Next.js development indicator.
+  1110→* No development toolbar.
+  1111→* No console errors.
+  1112→* No hydration warnings.
+  1113→* No missing assets.
+  1114→* No debug text.
+  1115→* No failed network request required by the prototype.
+  1116→* No backend imports.
+  1117→* No Prisma imports.
+  1118→* No NextAuth imports.
+  1119→* No unexpected API routes.
+  1120→* No conflicting lockfiles.
+  1121→
+  1122→Capture screenshots from the production build.
+  1123→
+  1124→⸻
+  1125→
+  1126→25. Visual Comparison
+  1127→
+  1128→Create before-and-after comparisons for at least:
+  1129→
+  1130→* Hero desktop.
+  1131→* Hero mobile.
+  1132→* How It Works desktop.
+  1133→* How It Works mobile.
+  1134→* Learning Channels desktop.
+  1135→* Learning Channels mobile.
+  1136→* Testimonials desktop.
+  1137→* Testimonials mobile.
+  1138→* Footer desktop.
+  1139→* Footer mobile.
+  1140→* Full homepage at 390px.
+  1141→* Full homepage at 1440px.
+  1142→
+  1143→Record:
+  1144→
+  1145→* What changed.
+  1146→* Why it changed.
+  1147→* Which source or design rule supports the change.
+  1148→* Whether it improves clarity, identity, conversion, or trust.
+  1149→* Whether the design system was updated.
+  1150→
+  1151→Do not call a change an improvement without visual evidence.
+  1152→
+  1153→⸻
+  1154→
+  1155→26. Final Design-Lock Review
+  1156→
+  1157→After implementation, perform five final rounds.
+  1158→
+  1159→Round 1: Primary-Agent Full Review
+  1160→
+  1161→Inspect:
+  1162→
+  1163→* Source alignment.
+  1164→* Homepage.
+  1165→* Header.
+  1166→* Footer.
+  1167→* Design tokens.
+  1168→* Shared components.
+  1169→* Motion.
+  1170→* /design-system.
+  1171→* Documentation.
+  1172→* Production output.
+  1173→
+  1174→Round 2: Specialist Reviews
+  1175→
+  1176→Ask every relevant reviewer to inspect the final state.
+  1177→
+  1178→Reviewers must inspect current files and current screenshots, not stale versions.
+  1179→
+  1180→Round 3: Findings Consolidation
+  1181→
+  1182→Create one final issue list.
+  1183→
+  1184→Resolve:
+  1185→
+  1186→* Every blocker.
+  1187→* Every critical issue.
+  1188→* Every major issue.
+  1189→
+  1190→For minor findings:
+  1191→
+  1192→* Fix them when practical.
+  1193→* Otherwise document the reason for deferral.
+  1194→
+  1195→Round 4: Regression Verification
+  1196→
+  1197→Run:
+  1198→
+  1199→* Lint.
+  1200→* Build.
+  1201→* Production runtime.
+  1202→* All required viewports.
+  1203→* Browser console review.
+  1204→* RTL review.
+  1205→* Accessibility review.
+  1206→* Reduced-motion review.
+  1207→* Link review.
+  1208→* Dependency review.
+  1209→
+  1210→Round 5: Source Reconciliation
+  1211→
+  1212→Reopen:
+  1213→
+  1214→* Phase 1 PDF.
+  1215→* Client DOCX.
+  1216→* Client homepage reference image.
+  1217→
+  1218→Confirm:
+  1219→
+  1220→* The identity remains recognizable.
+  1221→* The homepage structure remains correct.
+  1222→* The new visual refinement does not contradict the client.
+  1223→* No unsupported factual claim was introduced.
+  1224→* The page remains suitable as the design benchmark for future pages.
+  1225→* Documentation accurately describes the final state.
+  1226→
+  1227→⸻
+  1228→
+  1229→27. Design-Lock Acceptance Criteria
+  1230→
+  1231→The homepage is design-locked only when:
+  1232→
+  1233→* Required skills were genuinely verified or their installation failure was truthfully documented after serious retries.
+  1234→* Every installed skill has a readable SKILL.md.
+  1235→* Every reviewer has an assigned verified skill set.
+  1236→* The homepage remains structurally faithful to the client reference.
+  1237→* The visual result is more polished and distinctive than V1.
+  1238→* The Hero remains the visual centerpiece.
+  1239→* The abacus language subtly connects the full page.
+  1240→* Statistics remain correct and visible on all viewports.
+  1241→* Step progression is clearer.
+  1242→* Learning-channel cards are visually richer.
+  1243→* Testimonials communicate trust more effectively.
+  1244→* Final CTA is refined.
+  1245→* Header and Footer remain functional and polished.
+  1246→* Arabic RTL behavior remains correct.
+  1247→* AR/EN behavior does not regress.
+  1248→* Motion is restrained and purposeful.
+  1249→* Reduced-motion behavior works.
+  1250→* New visual patterns are represented in /design-system.
+  1251→* DESIGN.md matches implementation.
+  1252→* No blocker remains.
+  1253→* No critical issue remains.
+  1254→* No major issue remains.
+  1255→* Production build succeeds.
+  1256→* Final screenshots are captured from production.
+  1257→* No remaining website page has been implemented.
+  1258→
+  1259→⸻
+  1260→
+  1261→28. Required Deliverables
+  1262→
+  1263→Update or create:
+  1264→
+  1265→* docs/HOMEPAGE_DESIGN_LOCK_AUDIT.md
+  1266→* docs/SKILLS.md
+  1267→* docs/REVIEW_LOG.md
+  1268→* docs/DECISION_LOG.md
+  1269→* docs/PROGRESS.md
+  1270→* docs/QA_CHECKLIST.md
+  1271→* DESIGN.md
+  1272→* docs/MOTION_GUIDELINES.md
+  1273→* docs/ASSET_GUIDELINES.md
+  1274→* /design-system
+  1275→* Homepage code.
+  1276→* Shared components affected by refinements.
+  1277→* Production screenshots.
+  1278→* Before-and-after comparisons.
+  1279→
+  1280→Final report must include:
+  1281→
+  1282→Skills
+  1283→
+  1284→* Skills searched.
+  1285→* Skills installed.
+  1286→* Skills rejected.
+  1287→* Retry attempts.
+  1288→* Exact errors.
+  1289→* Installed locations.
+  1290→* Verification evidence.
+  1291→* Skill assigned to each reviewer.
+  1292→* Where each skill was used.
+  1293→
+  1294→Visual Refinement
+  1295→
+  1296→* Sections changed.
+  1297→* Sections intentionally preserved.
+  1298→* Components added or refined.
+  1299→* Tokens added or refined.
+  1300→* Illustrations added.
+  1301→* Motion changes.
+  1302→* Reasons for every significant visual decision.
+  1303→
+  1304→Review Team
+  1305→
+  1306→* Reviewers used.
+  1307→* Skills assigned.
+  1308→* Findings.
+  1309→* Severity.
+  1310→* Accepted or rejected.
+  1311→* Resolution.
+  1312→
+  1313→Verification
+  1314→
+  1315→* Commands run.
+  1316→* Production-build result.
+  1317→* Viewports tested.
+  1318→* Screenshots captured.
+  1319→* Console status.
+  1320→* RTL status.
+  1321→* Accessibility status.
+  1322→* Reduced-motion status.
+  1323→* Link status.
+  1324→* Remaining minor suggestions.
+  1325→
+  1326→Design Lock
+  1327→
+  1328→State clearly whether the homepage is approved as the final visual benchmark for the remaining pages.
+  1329→
+  1330→Do not claim design lock when unresolved blocker, critical, or major issues remain.
+  1331→
+  1332→⸻
+  1333→
+  1334→29. Hard Stop
+  1335→
+  1336→After:
+  1337→
+  1338→* Skill recovery and verification.
+  1339→* Homepage refinement.
+  1340→* Design-system synchronization.
+  1341→* Specialist reviews.
+  1342→* Production verification.
+  1343→* Final design lock.
+  1344→* Final report.
+  1345→
+  1346→STOP.
+  1347→
+  1348→Do not build the remaining pages.
+  1349→
+  1350→The following task will implement the remaining pages in controlled, reviewed waves after this design lock is approved.
