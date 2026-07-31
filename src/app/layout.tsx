@@ -49,14 +49,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl" suppressHydrationWarning>
+    <html lang="ar" dir="rtl" suppressHydrationWarning className={tajawal.variable}>
       <body
-        className={`${tajawal.variable} font-sans antialiased bg-background text-foreground min-h-screen flex flex-col`}
+        className="font-sans antialiased bg-background text-foreground min-h-screen flex flex-col"
       >
         <LanguageProvider>
           <a
             href="#main"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:start-3 focus:z-toast focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground focus:shadow-lg"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:start-3 focus:z-[1400] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground focus:shadow-lg"
           >
             تخطَّ إلى المحتوى
           </a>

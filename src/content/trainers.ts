@@ -3,7 +3,7 @@
 export const trainersContent = {
   hero: {
     eyebrow: { ar: "تدريب المدربين", en: "Trainer training" },
-    title: { ar: "كن مدرّباً معتمداً في الحساب الذهني", en: "Become a certified mental-arithmetic trainer" },
+    title: { ar: "كن مدرّباً في الحساب الذهني", en: "Become a mental-arithmetic trainer" },
     subtitle: {
       ar: "انضم إلى برنامج تطوير المدربين — مسارٌ مهني يجمع بين إتقان السوروبان ومهارات التدريس للأطفال.",
       en: "Join the trainer development program — a professional path combining Soroban mastery with child-teaching skills.",
@@ -34,7 +34,7 @@ export const trainersContent = {
       { number: "1", title: { ar: "القبول والمقابلة", en: "Admission & interview" }, description: { ar: "تقييم القبول الأولي.", en: "Initial admission assessment." } },
       { number: "2", title: { ar: "التدريب الأساسي", en: "Foundation training" }, description: { ar: "إتقان السوروبان والمنهجية.", en: "Mastering Soroban and methodology." } },
       { number: "3", title: { ar: "التمرين العملي", en: "Practical training" }, description: { ar: "تدريسٌ تحت إشراف مدرّبٍ متمرّس.", en: "Teaching under a senior trainer's supervision." } },
-      { number: "4", title: { ar: "الاعتماد", en: "Certification" }, description: { ar: "اعتمادٌ كمدرّبٍ في البرنامج.", en: "Certification as a program trainer." } },
+      { number: "4", title: { ar: "التخرّج", en: "Graduation" }, description: { ar: "تخرّجٌ كمدرّبٍ في البرنامج.", en: "Graduation as a program trainer." } },
     ],
   },
   benefits: {

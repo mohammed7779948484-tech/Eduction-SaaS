@@ -82,6 +82,7 @@ export interface Channel {
   title: { ar: string; en: string };
   description: { ar: string; en: string };
   cta: { ar: string; en: string };
+  href: string;
 }
 
 export const channelsHeading: { ar: string; en: string } = {
@@ -98,6 +99,7 @@ export const channels: Channel[] = [
       en: "In-person lessons at our equipped branches with specialist trainers.",
     },
     cta: { ar: "اعرف الفروع", en: "See branches" },
+    href: "/contact",
   },
   {
     variant: "blue",
@@ -107,6 +109,7 @@ export const channels: Channel[] = [
       en: "A program integrated into the school day at partner schools.",
     },
     cta: { ar: "شراكة المدارس", en: "School partnership" },
+    href: "/schools",
   },
   {
     variant: "teal",
@@ -116,6 +119,7 @@ export const channels: Channel[] = [
       en: "Interactive online learning via the educational platform (coming soon).",
     },
     cta: { ar: "قريباً", en: "Coming soon" },
+    href: "/platform",
   },
 ];
 

@@ -84,6 +84,7 @@ export default function SchoolsPage() {
       {/* Benefits split */}
       <SectionShell tone="white">
         <PageContainer>
+          <SectionHeading title={c.benefits.title.ar} align="center" className="mb-8" />
           <div className="grid gap-6 md:grid-cols-2">
             <Card className="p-6 border-border bg-card shadow-sm">
               <h3 className="text-lg font-bold text-primary mb-4">{c.benefits.schoolBenefits.title.ar}</h3>

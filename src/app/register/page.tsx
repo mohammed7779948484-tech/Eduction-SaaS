@@ -30,7 +30,7 @@ export default function RegisterPage() {
     { name: "parentPhone", label: c.form.parentPhone, type: "tel" as const, required: true, autoComplete: "tel", placeholder: { ar: "+967…", en: "+967…" } },
     { name: "parentEmail", label: c.form.parentEmail, type: "email" as const, required: true, autoComplete: "email", placeholder: { ar: "example@mail.com", en: "example@mail.com" } },
     { name: "studentName", label: c.form.studentName, type: "text" as const, required: true, placeholder: { ar: "اسم الطفل", en: "Child name" } },
-    { name: "studentAge", label: c.form.studentAge, type: "select" as const, required: true, options: [
+    { name: "studentAge", label: c.form.studentAge, type: "select" as const, required: true, placeholder: { ar: "اختر العمر", en: "Select age" }, options: [
       { value: "7", label: { ar: "7 سنوات", en: "7 years" } },
       { value: "8", label: { ar: "8 سنوات", en: "8 years" } },
       { value: "9", label: { ar: "9 سنوات", en: "9 years" } },
@@ -38,9 +38,9 @@ export default function RegisterPage() {
       { value: "11", label: { ar: "11 سنة", en: "11 years" } },
       { value: "12", label: { ar: "12 سنة", en: "12 years" } },
     ] },
-    { name: "channel", label: c.form.channel, type: "select" as const, required: true, options: c.channels },
-    { name: "branch", label: c.form.branch, type: "select" as const, required: true, options: c.branches },
-    { name: "schedule", label: c.form.schedule, type: "select" as const, required: true, options: c.schedules },
+    { name: "channel", label: c.form.channel, type: "select" as const, required: true, placeholder: { ar: "اختر القناة", en: "Select channel" }, options: c.channels },
+    { name: "branch", label: c.form.branch, type: "select" as const, required: true, placeholder: { ar: "اختر الفرع", en: "Select branch" }, options: c.branches },
+    { name: "schedule", label: c.form.schedule, type: "select" as const, required: true, placeholder: { ar: "اختر الوقت", en: "Select schedule" }, options: c.schedules },
     { name: "consent", label: c.form.consent, type: "checkbox" as const, required: true },
   ];
 
@@ -74,7 +74,8 @@ export default function RegisterPage() {
 
       {/* Form */}
       <SectionShell tone="default">
-        <PageContainer className="max-w-2xl">
+        <PageContainer width="narrow">
+          <h2 className="sr-only">{`نموذج التسجيل`}</h2>
           <PrototypeForm fields={fields} submitLabel={c.form.submit} schema={schema} sections={sections} />
           {/* WhatsApp alternative */}
           <div className="mt-6 text-center">

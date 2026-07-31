@@ -1,17 +1,31 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/components/layout/language-provider";
 
 /**
  * SuccessState — shared post-submit success message for all prototype forms.
- * Shows a success message + reset button. No data sent.
+ * Accessible: role="status" + aria-live="polite" + auto-focus for screen readers.
+ * Clearly states no data was sent.
  */
 export function SuccessState({ onReset }: { onReset: () => void }) {
   const { lang } = useLanguage();
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    ref.current?.focus();
+  }, []);
+
   return (
-    <div className="flex flex-col items-center justify-center gap-4 py-12 text-center">
+    <div
+      ref={ref}
+      role="status"
+      aria-live="polite"
+      tabIndex={-1}
+      className="flex flex-col items-center justify-center gap-4 py-12 text-center focus:outline-none"
+    >
       <span className="flex size-16 items-center justify-center rounded-full bg-success/15">
         <CheckCircle2 className="size-8 text-success" />
       </span>

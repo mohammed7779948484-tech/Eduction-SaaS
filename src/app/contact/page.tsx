@@ -97,14 +97,6 @@ export default function ContactPage() {
                   ))}
                 </Accordion>
               </Card>
-              <div className="mt-4">
-                <Button asChild variant="outline" size="lg" className="w-full">
-                  <a href={`https://wa.me/${site.whatsapp.replace(/[^0-9]/g, "")}`} className="inline-flex items-center gap-2">
-                    <MessageCircle className="size-4" />
-                    تواصل عبر الواتساب
-                  </a>
-                </Button>
-              </div>
             </div>
           </div>
         </PageContainer>

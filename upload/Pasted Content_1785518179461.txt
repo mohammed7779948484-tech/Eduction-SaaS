@@ -1,0 +1,1256 @@
+
+# Phase 2.5 Corrective Master Task
+# Mandatory Source Reconciliation, Real Subagent Review, UX Refinement, and Site-Wide Quality Loop
+You are continuing inside the EXISTING Mental Arithmetic Program Next.js repository.
+You have already implemented the homepage, the design system, and the remaining public-site pages.
+However, the previous Phase 2 execution did not visibly demonstrate full compliance with the required orchestration process.
+In particular, the following must now be corrected and verified:
+- The original Phase 1 proposal and client reference files must be reread completely.
+- All repository documentation must be reread.
+- Every implemented page must be traced back to its source-defined purpose, sections, and content requirements.
+- Real specialist subagents must be created and used.
+- Subagents must review the actual rendered implementation, not only code.
+- User experience must be reviewed and refined across all pages.
+- Design-system consistency must be verified and corrected.
+- Responsive, RTL, accessibility, content, architecture, and motion quality must be reviewed through repeated loops.
+- No unsupported claim of completion is allowed without evidence.
+This is a corrective audit, review, and refinement phase.
+Do not recreate the project.
+Do not discard the existing implementation.
+Do not add backend functionality.
+Do not add databases, authentication, APIs, CMS, payment, real submissions, or production platform behavior.
+Your job is to verify, improve, and professionally approve the frontend-only prototype.
+---
+# 1. You Are the Parent Orchestrator Agent
+The user is giving this prompt directly to you.
+There is no other parent agent above you.
+You are the Parent Orchestrator Agent.
+You must personally:
+- Read the complete source material.
+- Read the complete documentation.
+- Inspect the complete current implementation.
+- Create the corrective plan.
+- Create and instruct real subagents.
+- Assign exact verified skills to every subagent.
+- Review all subagent findings.
+- Decide which findings are valid.
+- Apply all shared and architectural fixes yourself.
+- Delegate narrowly scoped page-specific corrections when useful.
+- Run repeated review and correction loops.
+- Integrate all changes.
+- Verify the complete production build.
+- Decide whether the frontend is genuinely ready for client presentation.
+You are not allowed to skip subagents and complete the work alone.
+You are not allowed to simulate subagent findings yourself.
+You are not allowed to claim that subagents were created unless the environment actually created them.
+If the active environment does not support subagents:
+1. Stop before making corrective implementation changes.
+2. State clearly that subagents cannot be created in the current environment.
+3. Provide the exact capability or permission that is missing.
+4. Do not pretend that an internal self-review is a subagent review.
+The use of real subagents is a mandatory condition of this task.
+---
+# 2. Preserve the Frontend-Only Boundary
+This project remains a static, visual, interactive frontend prototype.
+Do not add or restore:
+- Prisma.
+- SQLite.
+- PostgreSQL.
+- Payload CMS.
+- Any database.
+- Authentication.
+- NextAuth.
+- User accounts.
+- API routes for form submission.
+- Server Actions that persist data.
+- External form services.
+- Email sending.
+- SMS sending.
+- WhatsApp API integration.
+- Payment processing.
+- File uploads.
+- Real booking.
+- Real registration.
+- Real LMS functionality.
+- Real student dashboards.
+- Real parent dashboards.
+- Real trainer dashboards.
+- A real AI assistant.
+- Personal-data persistence.
+Forms may only:
+- Validate locally.
+- Simulate a brief loading state.
+- Display an explicit prototype success state.
+- Reset local UI state.
+Forms must not send network requests or claim that information was actually received.
+---
+# 3. Mandatory Source Reconciliation Before Review
+Before reviewing or editing any page, reopen the original authoritative files.
+You must reread and inspect:
+1. The comprehensive Phase 1 proposal PDF.
+2. The client identity and website execution-concept DOCX.
+3. Every embedded image inside the DOCX.
+4. The original client homepage reference image.
+5. Any other source file uploaded for this project.
+Do not rely only on:
+- Previous summaries.
+- Earlier extraction notes.
+- Existing page specifications.
+- Memory.
+- Filenames.
+- OCR fragments.
+- The previous final report.
+Inspect the files visually and textually where applicable.
+The PDF must be read page by page.
+The DOCX must be inspected for:
+- Text.
+- Brand palette.
+- Information architecture.
+- Homepage concept.
+- UI-component examples.
+- Embedded logo or brand assets.
+- RTL and localization instructions.
+The reference image must be inspected visually.
+Create:
+`docs/SOURCE_RECONCILIATION_PHASE_2_5.md`
+For each source, record:
+- File name.
+- Pages or sections inspected.
+- Requirements extracted.
+- Page requirements affected.
+- Brand rules extracted.
+- Content requirements extracted.
+- Conflicts with existing documentation.
+- Conflicts with current implementation.
+- Missing or uncertain information.
+- Resolution.
+- Prototype assumptions.
+Do not silently correct or supplement source material with general knowledge.
+When a source does not support a claim, say so.
+---
+# 4. Mandatory Documentation Review
+Recursively read every project Markdown file before beginning the page audits.
+At minimum, inspect:
+- `README.md`
+- `AGENTS.md`
+- `DESIGN.md`
+- All nested `AGENTS.md`
+- Every file under `docs/`
+- Every file under `docs/page-briefs/`
+- Every existing audit.
+- Every review log.
+- Every decision log.
+- Every implementation matrix.
+- Every progress file.
+- Every skills file.
+- Every motion or asset guideline.
+Create:
+`docs/DOCUMENTATION_RECONCILIATION_PHASE_2_5.md`
+Record:
+- Documents read.
+- Stale statements.
+- Contradictions.
+- Missing page requirements.
+- Requirements documented but not implemented.
+- Implementation features not supported by documentation.
+- Incorrect completion claims.
+- Required document updates.
+Do not update documentation before identifying the existing contradictions.
+---
+# 5. Inspect the Actual Existing Repository
+Inspect the current repository completely.
+Review:
+- `package.json`
+- Lockfile.
+- Scripts.
+- All routes.
+- Root layout.
+- Header.
+- Footer.
+- Navigation.
+- All content files.
+- All page components.
+- Shared components.
+- shadcn components.
+- Design tokens.
+- Typography.
+- Global CSS.
+- Framer Motion layer.
+- GSAP layer.
+- Forms.
+- Dialogs.
+- Accordions.
+- Carousels.
+- Local search.
+- Illustrations.
+- Metadata.
+- Current Git status.
+Run the current application before making changes.
+Inspect all implemented routes in the browser.
+Do not infer page quality from source code alone.
+Create:
+`docs/CURRENT_IMPLEMENTATION_AUDIT_PHASE_2_5.md`
+Record:
+- Routes found.
+- Sections present on every route.
+- Shared components used.
+- Duplicate components.
+- Hardcoded values.
+- Current interactions.
+- Missing source-defined sections.
+- Extra unsupported sections.
+- Broken or weak UX.
+- Responsive defects.
+- Accessibility defects.
+- Design-system violations.
+- Frontend-only scope violations.
+- Documentation drift.
+---
+# 6. Build a Source-to-Implementation Traceability Matrix
+Create:
+`docs/PAGE_TRACEABILITY_MATRIX_PHASE_2_5.md`
+Include one detailed section for every route:
+- `/`
+- `/about`
+- `/program`
+- `/channels`
+- `/platform`
+- `/register`
+- `/contact`
+- `/schools`
+- `/trainers`
+- `/faq`
+- `/privacy`
+- `/design-system`
+For every public page, include:
+- Source-defined page title.
+- Current route.
+- Primary audience.
+- Primary user goal.
+- Primary CTA.
+- Every source-required section.
+- Exact source file and location supporting the section.
+- Whether the section currently exists.
+- Whether its content matches the source.
+- Whether the visual treatment serves the page goal.
+- Whether interaction is appropriate.
+- Whether it uses approved design-system components.
+- Missing content.
+- Unsupported content.
+- Required corrective action.
+- Final verification status.
+Do not begin visual polishing until the traceability matrix is complete.
+---
+# 7. Verify Skills Before Creating Subagents
+Read:
+`docs/SKILLS.md`
+Inspect actual skill directories.
+For every listed skill, verify:
+- The directory exists.
+- `SKILL.md` exists.
+- `SKILL.md` is readable.
+- The skill is discoverable by the active agent.
+- Required tools are available.
+- Installation is complete.
+- It is compatible with the current repository.
+Do not assign imaginary or failed skills.
+Create or update:
+`docs/SKILLS_PHASE_2_5_VERIFICATION.md`
+For every skill record:
+- Exact skill name.
+- Source.
+- Installed location.
+- Verification status.
+- Required dependencies.
+- Assigned subagent.
+- Task where it will be used.
+- Any limitation.
+If an important skill is missing, retry its installation before creating subagents.
+Use reasonable retries.
+Record exact commands and errors.
+Do not claim successful installation without evidence.
+---
+# 8. Mandatory Real Subagent Team
+After completing source, documentation, repository, traceability, and skill verification, create real specialist subagents.
+Create at least five subagents concurrently.
+Use six when supported.
+Each subagent must receive a dedicated prompt written by you.
+Do not use one vague generic prompt for all reviewers.
+Before launching them, save every exact subagent prompt under:
+```text
+docs/subagent-prompts/
+├── source-content-auditor.md
+├── ux-conversion-reviewer.md
+├── design-system-reviewer.md
+├── architecture-reuse-reviewer.md
+├── rtl-accessibility-reviewer.md
+└── responsive-motion-qa-reviewer.md
+
+The exact prompts saved in these files must match the prompts actually given to the subagents.
+
+Each subagent must:
+
+* Read the required source files.
+* Read the required project documentation.
+* Read the relevant verified SKILL.md files.
+* Inspect current code.
+* Inspect rendered pages.
+* Provide evidence-based findings.
+* Avoid editing unless explicitly assigned a narrow corrective task.
+* Report skills actually used.
+* Report files and routes inspected.
+* Classify findings by severity.
+
+Use these severities:
+
+* BLOCKER
+* CRITICAL
+* MAJOR
+* MINOR
+* SUGGESTION
+
+Every finding must include:
+
+* Route.
+* Section.
+* Viewport when applicable.
+* File or component.
+* Problem.
+* Evidence.
+* Source requirement or design rule violated.
+* User impact.
+* Recommended correction.
+* Whether it blocks approval.
+
+⸻
+
+9. Subagent 1 — Source and Content Auditor
+
+This subagent must independently read:
+
+* The full Phase 1 PDF.
+* The complete client DOCX.
+* All embedded DOCX images.
+* The client reference image.
+* SOURCE_OF_TRUTH.md
+* PAGE_SPECS.md
+* All page briefs.
+* Current content files.
+* Current rendered pages.
+
+Assign verified skills related to:
+
+* Requirements analysis.
+* Document review.
+* Planning.
+* Frontend content review.
+
+It must inspect every page for:
+
+* Missing source-required sections.
+* Incorrect terminology.
+* Unsupported claims.
+* Invented numbers.
+* Invented partnerships.
+* Invented accreditations.
+* Incorrect target audience.
+* Incorrect CTA.
+* Missing child-protection messaging.
+* Incorrect treatment of the future virtual platform.
+* Content that does not match the page goal.
+* Content that appears generic rather than source-derived.
+
+Save its complete report under:
+
+docs/reviews/source-content-audit-phase-2-5.md
+
+⸻
+
+10. Subagent 2 — UX and Conversion Reviewer
+
+This subagent must review the complete rendered website as a user journey.
+
+Assign verified skills related to:
+
+* Frontend design.
+* UX.
+* Conversion design.
+* Browser verification.
+* Responsive design.
+
+It must review:
+
+* Navigation clarity.
+* Page-to-page flow.
+* CTA hierarchy.
+* Visitor understanding.
+* Parent journey.
+* School-partnership journey.
+* Trainer-interest journey.
+* Registration journey.
+* Contact journey.
+* FAQ discoverability.
+* Platform “coming soon” clarity.
+* Form friction.
+* Error messages.
+* Prototype notices.
+* Success states.
+* Content density.
+* Cognitive load.
+* Mobile usability.
+* Empty states.
+* Confusing or dead interactions.
+* Consistency of user expectations.
+
+It must identify pages that look visually complete but provide a weak or confusing experience.
+
+Save its report under:
+
+docs/reviews/ux-conversion-audit-phase-2-5.md
+
+⸻
+
+11. Subagent 3 — Design-System and Visual Consistency Reviewer
+
+This subagent must read:
+
+* DESIGN.md
+* Design tokens.
+* /design-system
+* Homepage.
+* Every internal page.
+* Shared components.
+* Brand source files.
+
+Assign verified skills related to:
+
+* Frontend design.
+* Design systems.
+* shadcn/ui.
+* Tailwind CSS v4.
+* Typography.
+
+It must review:
+
+* Color use.
+* Semantic token use.
+* Typography.
+* Spacing.
+* Radius.
+* Shadows.
+* Containers.
+* Page heroes.
+* Buttons.
+* Cards.
+* Forms.
+* Accordions.
+* Illustrations.
+* Icons.
+* CTA hierarchy.
+* Abacus visual language.
+* Section rhythm.
+* Visual consistency.
+* Excessive repetition.
+* Page distinctiveness.
+* Generic AI-generated patterns.
+* Hardcoded values.
+* Missing design-system variants.
+* Design patterns used in pages but absent from /design-system.
+
+It must verify that all pages feel like one website without looking like duplicated templates.
+
+Save its report under:
+
+docs/reviews/design-system-audit-phase-2-5.md
+
+⸻
+
+12. Subagent 4 — Architecture and Component-Reuse Reviewer
+
+This subagent must inspect the complete codebase.
+
+Assign verified skills related to:
+
+* Next.js.
+* React architecture.
+* React performance.
+* shadcn/ui.
+* TypeScript.
+
+It must review:
+
+* Server and Client Component boundaries.
+* Duplicate components.
+* Duplicate form logic.
+* Duplicate cards.
+* Duplicate CTAs.
+* Duplicate page heroes.
+* Large page files.
+* Content architecture.
+* Shared-component use.
+* Local hardcoded design values.
+* Dependency creep.
+* Unnecessary global state.
+* Unnecessary client boundaries.
+* Incorrect metadata architecture.
+* Hydration risks.
+* Form reuse.
+* Navigation architecture.
+* Type safety.
+* Missing error handling.
+* Accessibility component foundations.
+* Frontend-only boundary.
+
+It must detect whether the fast implementation created ten superficially complete but internally inconsistent pages.
+
+Save its report under:
+
+docs/reviews/architecture-reuse-audit-phase-2-5.md
+
+⸻
+
+13. Subagent 5 — RTL and Accessibility Reviewer
+
+This subagent must inspect every route in code and browser.
+
+Assign verified skills related to:
+
+* Accessibility.
+* Arabic RTL.
+* Browser testing.
+* Semantic HTML.
+
+It must review:
+
+* RTL order.
+* Logical CSS properties.
+* Arabic typography.
+* Text wrapping.
+* Heading hierarchy.
+* Landmarks.
+* Skip link.
+* Keyboard navigation.
+* Focus states.
+* Dialog focus.
+* Form labels.
+* Form errors.
+* aria-describedby.
+* aria-invalid.
+* Required-field communication.
+* Accordion behavior.
+* Carousel behavior.
+* Search behavior.
+* Table semantics.
+* Table-of-contents links.
+* Contrast.
+* Touch targets.
+* Reduced-motion behavior.
+* Alternative text.
+* Screen-reader clarity.
+* Error and success announcements.
+
+Save its report under:
+
+docs/reviews/rtl-accessibility-audit-phase-2-5.md
+
+⸻
+
+14. Subagent 6 — Responsive Visual and Motion QA Reviewer
+
+Create this subagent when the environment supports six concurrent agents.
+
+Assign verified skills related to:
+
+* Browser automation.
+* Screenshot testing.
+* Responsive design.
+* Framer Motion.
+* GSAP.
+* Visual QA.
+
+It must inspect every route at:
+
+* 360 × 800
+* 375 × 812
+* 390 × 844
+* 430 × 932
+* 768 × 1024
+* 1024 × 768
+* 1280 × 800
+* 1440 × 1200
+* 1920 × 1080
+
+It must review:
+
+* Horizontal overflow.
+* Clipping.
+* Empty space.
+* Text wrapping.
+* Header.
+* Navigation.
+* Page hero.
+* Section rhythm.
+* Forms.
+* Tables.
+* Timelines.
+* Illustrations.
+* Carousels.
+* Accordions.
+* Footer.
+* Motion timing.
+* Reduced motion.
+* Layout shift.
+* Console errors.
+* Hydration errors.
+* Missing assets.
+* Production rendering.
+
+Save its report under:
+
+docs/reviews/responsive-motion-qa-phase-2-5.md
+
+⸻
+
+15. Parent Consolidation After First Review Wave
+
+Do not begin correcting pages before all required subagents finish.
+
+After all reports return, you must personally create:
+
+docs/CONSOLIDATED_FINDINGS_PHASE_2_5.md
+
+For every finding include:
+
+* Finding ID.
+* Reviewer.
+* Severity.
+* Route.
+* Affected component.
+* Evidence.
+* Accepted or rejected.
+* Reason.
+* Fix owner.
+* Fix scope.
+* Verification required.
+* Resolution status.
+
+Merge duplicate findings.
+
+Resolve conflicts between reviewers.
+
+Do not automatically accept every subjective suggestion.
+
+Do not reject a source-supported, accessibility, functional, or responsive finding without evidence.
+
+Prioritize:
+
+1. Blockers.
+2. Critical issues.
+3. Major issues.
+4. Minor issues.
+5. Suggestions.
+
+⸻
+
+16. Correction Strategy
+
+You, the Parent Orchestrator Agent, own shared and architectural corrections.
+
+You must personally fix:
+
+* Design tokens.
+* Shared components.
+* Header.
+* Footer.
+* Navigation.
+* Forms architecture.
+* Motion presets.
+* shadcn variants.
+* Content architecture.
+* Cross-page issues.
+* Global accessibility issues.
+* Global responsive issues.
+* Documentation.
+
+For page-specific corrections, you may create focused corrective subagents.
+
+Do not ask them to rebuild full pages.
+
+Create narrow prompts such as:
+
+* Improve Program level progression UX.
+* Correct Schools page source omissions.
+* Refine Registration mobile form.
+* Improve Platform conceptual-preview clarity.
+* Correct FAQ categorization.
+* Improve Privacy reading experience.
+
+Every corrective subagent must:
+
+* Read the original page brief.
+* Read the relevant source sections.
+* Read DESIGN.md.
+* Use assigned verified skills.
+* Edit only allowed page-specific files.
+* Return evidence and screenshots.
+* Avoid shared-file changes.
+
+Save corrective prompts under:
+
+docs/subagent-prompts/corrections/
+
+⸻
+
+17. Mandatory Page Review Waves
+
+Review and correct the existing pages in controlled waves.
+
+Do not attempt to polish all pages blindly in one pass.
+
+Wave A — Core Educational Pages
+
+Review and correct:
+
+* /about
+* /program
+* /channels
+* /platform
+
+Focus on:
+
+* Source completeness.
+* Educational storytelling.
+* Trust.
+* Program understanding.
+* Level progression.
+* Channel comparison.
+* Future-platform clarity.
+* Page distinction.
+* CTA flow.
+
+After corrections, launch fresh review subagents for:
+
+* Source and content.
+* UX and conversion.
+* Design-system consistency.
+* RTL and accessibility.
+* Responsive visual QA.
+
+Do not move to Wave B until no blocker, critical, or major issue remains.
+
+Wave B — Conversion and Institutional Pages
+
+Review and correct:
+
+* /register
+* /contact
+* /schools
+* /trainers
+
+Focus on:
+
+* Form UX.
+* Local validation.
+* Prototype notice.
+* No network request.
+* Consent.
+* Mobile form usability.
+* Institutional credibility.
+* Partnership journey.
+* Trainer journey.
+* Contact clarity.
+* Success states.
+
+After corrections, launch fresh review subagents.
+
+Do not move to Wave C until no blocker, critical, or major issue remains.
+
+Wave C — Support and Legal Pages
+
+Review and correct:
+
+* /faq
+* /privacy
+
+Focus on:
+
+* FAQ categorization.
+* Search.
+* Accordion UX.
+* Contact escalation.
+* Legal reading comfort.
+* Table of contents.
+* Child-protection content.
+* Draft/legal-review status.
+* No unsupported legal claims.
+
+After corrections, launch fresh review subagents.
+
+Do not move to final site review until no blocker, critical, or major issue remains.
+
+⸻
+
+18. UX Improvement Requirements
+
+The review must go beyond verifying that routes return 200.
+
+Improve the actual user experience.
+
+Across all pages, verify:
+
+* The visitor immediately understands the page purpose.
+* Each page has one clear primary CTA.
+* Secondary actions do not compete with the primary CTA.
+* Page introductions are concise and useful.
+* Section order follows the visitor’s questions.
+* Dense content is broken into understandable structures.
+* Important information is not buried inside repetitive cards.
+* Pages do not repeat identical layouts unnecessarily.
+* Forms feel simple and trustworthy.
+* Success states state clearly that no real submission occurred.
+* Platform previews are clearly conceptual.
+* Schools and trainer pages have appropriate institutional tone.
+* FAQ search is useful.
+* Legal content is readable.
+* Contact methods are easy to find.
+* Cross-page links support a coherent journey.
+* Mobile UX is not a compressed desktop version.
+
+Do not add decoration as a substitute for improved information architecture.
+
+⸻
+
+19. Design-System Compliance Requirements
+
+All improvements must use the approved design system.
+
+Do not create page-local visual systems.
+
+Verify:
+
+* No raw brand hex values outside token files.
+* No duplicate button implementation.
+* No duplicate form primitive.
+* No duplicate card foundation.
+* No page-local shadow system.
+* No page-local radius system.
+* No arbitrary motion values when tokens exist.
+* No direct GSAP imports outside the centralized GSAP layer.
+* No inconsistent CTA colors.
+* Orange remains reserved primarily for conversion.
+* Typography follows DESIGN.md.
+* New reusable patterns appear in /design-system.
+* New tokens are documented.
+* New shared variants are documented.
+* Page-specific patterns remain compatible with the overall identity.
+
+When the implementation reveals a missing design-system component:
+
+1. Stop the page-local correction.
+2. Implement the component centrally.
+3. Add it to /design-system.
+4. Verify RTL and accessibility.
+5. Resume page correction.
+
+⸻
+
+20. Content Accuracy Rules
+
+Use the original files as the authority.
+
+Do not invent:
+
+* Real team members.
+* Qualifications.
+* Accreditations.
+* Awards.
+* Partner schools.
+* Branches not provided by the source.
+* Verified testimonials.
+* Performance guarantees.
+* Employment guarantees.
+* Legal certifications.
+* Platform functionality that does not exist.
+* Published prices unsupported by the source.
+* Confirmed outcomes unsupported by the source.
+
+When demo content is necessary:
+
+* Mark it internally as illustrative.
+* Keep it realistic.
+* Avoid presenting it as verified client data.
+* Document it in the relevant content file or documentation.
+
+Preserve the client’s terminology and framing.
+
+⸻
+
+21. Motion Review Rules
+
+Retain Framer Motion.
+
+Retain GSAP only through the approved centralized layer.
+
+Review whether motion:
+
+* Clarifies hierarchy.
+* Supports progression.
+* Reinforces the abacus identity.
+* Works on mobile.
+* Works with reduced motion.
+* Does not hide content.
+* Does not cause layout shift.
+* Does not animate Arabic characters individually.
+* Does not delay access.
+* Does not repeat the same reveal excessively.
+* Does not make internal pages more animated than the homepage.
+
+Use CSS for simple hover and focus transitions.
+
+Do not add another animation library.
+
+⸻
+
+22. Production Browser Verification
+
+Final visual QA must use a production build.
+
+Run the repository’s actual commands, including:
+
+bun run lint
+bunx tsc --noEmit
+bun run build
+bun run start
+
+Do not claim success unless each command actually succeeds.
+
+Use the production server for screenshots.
+
+Verify:
+
+* Every route returns 200.
+* No console errors.
+* No hydration warnings.
+* No Next.js development indicator.
+* No missing assets.
+* No failed required requests.
+* No horizontal overflow.
+* No broken navigation.
+* No dead CTA.
+* No unfinished placeholder route.
+* No accidental backend request.
+* No form network submission.
+* No runtime crash.
+* No layout instability.
+
+⸻
+
+23. Required Before-and-After Evidence
+
+For every public page, capture:
+
+* Before desktop screenshot.
+* After desktop screenshot.
+* Before mobile screenshot.
+* After mobile screenshot.
+
+Use consistent viewport sizes:
+
+* Mobile: 390 × 844.
+* Desktop: 1440 × 1200 or another documented consistent height.
+
+For pages with important tablet behavior, also capture:
+
+* 768 × 1024.
+
+Create:
+
+docs/VISUAL_CHANGELOG_PHASE_2_5.md
+
+For every page record:
+
+* What changed.
+* Why it changed.
+* Which reviewer found the issue.
+* Which source or design rule supports the change.
+* User-experience impact.
+* Components changed.
+* Whether /design-system was updated.
+* Screenshot paths.
+
+Do not describe changes as improvements without evidence.
+
+⸻
+
+24. Second Independent Review Wave
+
+After all corrective implementation is complete, create a new set of review subagents.
+
+Do not reuse stale initial findings as the final review.
+
+Create at least five fresh final reviewers:
+
+1. Source traceability reviewer.
+2. UX and conversion reviewer.
+3. Design-system consistency reviewer.
+4. RTL and accessibility reviewer.
+5. Production responsive visual QA reviewer.
+
+They must inspect:
+
+* The latest source files.
+* The latest code.
+* The latest documentation.
+* The latest production screenshots.
+* The latest rendered routes.
+
+They must not approve based on the parent agent’s report.
+
+They must independently verify the final state.
+
+Save reports under:
+
+docs/reviews/final/
+├── source-traceability.md
+├── ux-conversion.md
+├── design-system.md
+├── rtl-accessibility.md
+└── production-visual-qa.md
+
+⸻
+
+25. Final Correction Loop
+
+After the second independent review wave:
+
+1. Consolidate findings.
+2. Fix every blocker.
+3. Fix every critical issue.
+4. Fix every major issue.
+5. Re-run affected checks.
+6. Re-run affected reviewers.
+7. Repeat until no blocker, critical, or major issue remains.
+
+Do not stop after one review pass.
+
+Do not claim that a finding is fixed without:
+
+* Code evidence.
+* Browser verification.
+* Updated screenshot where visual.
+* Updated documentation where relevant.
+
+Minor findings may be deferred only when:
+
+* The reason is documented.
+* The user experience remains professional.
+* The source is not contradicted.
+* Accessibility is not harmed.
+* No regression risk exists.
+
+⸻
+
+26. Documentation Updates
+
+Update all affected documents, including:
+
+* README.md
+* AGENTS.md only when operational rules changed.
+* DESIGN.md
+* docs/SOURCE_OF_TRUTH.md
+* docs/PAGE_SPECS.md
+* docs/INFORMATION_ARCHITECTURE.md
+* docs/PAGE_IMPLEMENTATION_MATRIX.md
+* Page briefs.
+* docs/MOTION_GUIDELINES.md
+* docs/ASSET_GUIDELINES.md
+* docs/QA_CHECKLIST.md
+* docs/PROGRESS.md
+* docs/REVIEW_LOG.md
+* docs/DECISION_LOG.md
+* docs/SKILLS.md
+
+Do not overwrite history.
+
+Append corrective review rounds clearly.
+
+Ensure documentation matches the final implementation.
+
+⸻
+
+27. Automated Scope Verification
+
+Run repository checks to confirm:
+
+* No Prisma import.
+* No database utilities.
+* No NextAuth import.
+* No Payload import.
+* No CMS package.
+* No backend SDK.
+* No API form submission.
+* No unexpected route handler.
+* No Server Action that stores form data.
+* No payment code.
+* No email sending.
+* No SMS sending.
+* No personal-data persistence.
+* No direct GSAP import outside approved files.
+* No raw brand color outside token definitions.
+* No duplicate button primitive.
+* No duplicate input primitive.
+* No duplicate form foundation.
+* No conflicting lockfile.
+* No scaffold branding.
+* No dead navigation links.
+* No broken CTA.
+* No placeholder page presented as complete.
+* No real platform dashboard.
+* No console errors.
+* No hydration warnings.
+* No horizontal overflow.
+
+⸻
+
+28. Completion Criteria
+
+This corrective task is complete only when:
+
+* The full original source files were reread.
+* All documentation was reread.
+* The complete current repository was inspected.
+* The source-to-page traceability matrix is complete.
+* Skills were verified.
+* Real subagents were created.
+* Exact subagent prompts were saved.
+* All subagent reports were saved.
+* Every page was reviewed.
+* UX was reviewed.
+* Design-system compliance was reviewed.
+* Architecture and reuse were reviewed.
+* RTL and accessibility were reviewed.
+* Responsive visual QA was performed.
+* All three page waves passed.
+* A second independent final review wave was completed.
+* All blockers were fixed.
+* All critical issues were fixed.
+* All major issues were fixed.
+* Production build succeeded.
+* All public routes were production-tested.
+* Before-and-after screenshots exist.
+* Documentation matches implementation.
+* No backend, database, CMS, authentication, payment, or real submission exists.
+* The complete frontend is genuinely suitable for presentation to the client.
+
+Do not claim completion merely because:
+
+* Routes return 200.
+* Lint succeeds.
+* Build succeeds.
+* Pages exist.
+* A small number of screenshots were captured.
+
+Technical success is necessary but not sufficient.
+
+⸻
+
+29. Final Report
+
+Provide a final report containing:
+
+Source Review
+
+* Files reread.
+* Pages or sections inspected.
+* Important requirements recovered.
+* Missing requirements found in the previous implementation.
+* Conflicts resolved.
+
+Subagent Evidence
+
+* Subagents created.
+* Exact role of each.
+* Exact prompts used.
+* Skills assigned.
+* Reports produced.
+* Findings by severity.
+* Fresh final reviewers created.
+
+Page-by-Page Results
+
+For every page:
+
+* Source requirements.
+* Initial problems.
+* Corrections.
+* UX improvements.
+* Design-system improvements.
+* Accessibility improvements.
+* Responsive improvements.
+* Screenshots.
+* Final status.
+
+Shared-System Results
+
+* Shared components refined.
+* shadcn components refined.
+* Tokens refined.
+* Motion refined.
+* Navigation refined.
+* Forms refined.
+* /design-system updated.
+
+Verification
+
+* Lint.
+* TypeScript.
+* Build.
+* Production start.
+* Routes tested.
+* Viewports tested.
+* Console status.
+* Hydration status.
+* Accessibility status.
+* RTL status.
+* Link status.
+* Frontend-only status.
+
+Remaining Issues
+
+* Minor deferred issues only.
+* Reason for deferral.
+* Impact.
+* Recommended future action.
+
+Final Assessment
+
+State whether the complete frontend prototype is genuinely ready for client presentation.
+
+Do not claim readiness while any blocker, critical, or major issue remains.
+
+⸻
+
+30. Hard Stop
+
+After the corrective source review, real subagent reviews, UX refinements, design-system corrections, repeated review loops, documentation updates, and production verification are complete:
+
+STOP.
+
+Do not implement:
+
+* Backend.
+* Database.
+* CMS.
+* Authentication.
+* Real submission.
+* Payments.
+* Email.
+* SMS.
+* WhatsApp API.
+* Real LMS.
+* Student dashboard.
+* Parent dashboard.
+* Trainer dashboard.
+* Production platform functionality.
+
+This task ends with a fully reviewed, source-aligned, design-system-consistent, high-quality frontend prototype ready for client presentation.

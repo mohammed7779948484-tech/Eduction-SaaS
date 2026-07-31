@@ -50,7 +50,7 @@
   --cta-foreground: var(--brand-navy-dark);
 
   /* ===== Semantic: states ===== */
-  --destructive: #d64545;
+  --destructive: #c44141;
   --destructive-foreground: var(--brand-white);
   --success: #2f9e6f;
   --success-foreground: var(--brand-white);

@@ -9,6 +9,7 @@ import { CTASection } from "@/components/layout/cta-section";
 import { AnimatedReveal } from "@/components/motion/animated-reveal";
 import { AnimatedStagger, AnimatedStaggerItem } from "@/components/motion/animated-stagger";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Calculator, Brain, Clock, TrendingUp } from "lucide-react";
 import { programContent } from "@/content/program";
 import { faq } from "@/content/faq";
@@ -136,6 +137,11 @@ export default function ProgramPage() {
               </AccordionItem>
             ))}
           </Accordion>
+          <div className="text-center pt-4">
+            <Button asChild variant="outline" size="lg">
+              <a href="/faq">المزيد من الأسئلة</a>
+            </Button>
+          </div>
         </PageContainer>
       </SectionShell>
 

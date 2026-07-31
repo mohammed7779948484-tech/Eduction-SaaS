@@ -97,7 +97,7 @@ export function SiteFooter() {
             <a
               key={item.href}
               href={item.enabled ? item.href : undefined}
-              className="text-xs text-primary-foreground/60 hover:text-brand-teal transition-colors"
+              className="text-xs text-primary-foreground/70 hover:text-brand-teal transition-colors"
             >
               {item.label[lang]}
             </a>
@@ -106,7 +106,7 @@ export function SiteFooter() {
 
         {/* Bottom bar */}
         <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 pt-6">
-          <p className="text-xs text-primary-foreground/60 text-center sm:text-start">
+          <p className="text-xs text-primary-foreground/70 text-center sm:text-start">
             © {new Date().getFullYear()} {site.name[dir]}
           </p>
           <LanguageToggle tone="light" />

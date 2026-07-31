@@ -42,10 +42,10 @@ export function ChannelCard({ channel, className }: ChannelCardProps) {
         <p className="text-sm text-muted-foreground leading-relaxed">
           {channel.description[lang]}
         </p>
-        <span className="inline-flex items-center gap-1.5 text-sm font-bold text-brand-teal-strong group-hover:gap-2.5 transition-all">
+        <a href={channel.href} className="inline-flex items-center gap-1.5 text-sm font-bold text-brand-teal-strong group-hover:gap-2.5 transition-all">
           {channel.cta[lang]}
           <Arrow className="size-4" />
-        </span>
+        </a>
       </div>
     </Card>
   );

@@ -51,6 +51,6 @@ export const platformContent = {
   },
   interestForm: {
     title: { ar: "سجّل اهتمامك", en: "Register your interest" },
-    body: { ar: "أخبرنا ببريدك الإلكتروني لنُعلمك عند إطلاق المنصّة.", en: "Tell us your email and we'll notify you when the platform launches." },
+    body: { ar: "سجّل اهتمامك عبر نموذج التسجيل ليصلك إشعارٌ عند إطلاق المنصّة.", en: "Register your interest via the registration form to be notified when the platform launches." },
   },
 } as const;
