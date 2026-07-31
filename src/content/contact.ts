@@ -35,4 +35,12 @@ export const contactContent = {
       { q: { ar: "أين فروعكم؟", en: "Where are your branches?" }, a: { ar: "صنعاء، تعز، عدن.", en: "Sana'a, Taiz, Aden." } },
     ],
   },
+  social: {
+    title: { ar: "تابعونا", en: "Follow us" },
+    items: [
+      { name: { ar: "فيسبوك", en: "Facebook" }, href: "https://facebook.com", icon: "facebook" },
+      { name: { ar: "إنستغرام", en: "Instagram" }, href: "https://instagram.com", icon: "instagram" },
+      { name: { ar: "يوتيوب", en: "YouTube" }, href: "https://youtube.com", icon: "youtube" },
+    ],
+  },
 } as const;

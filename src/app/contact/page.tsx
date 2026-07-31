@@ -8,7 +8,7 @@ import { PrototypeForm } from "@/components/brand/prototype-form";
 import { BranchCard } from "@/components/brand/branch-card";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Phone, Mail, MapPin } from "lucide-react";
+import { MessageCircle, Phone, Mail, MapPin, Facebook, Instagram, Youtube } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -78,6 +78,7 @@ export default function ContactPage() {
       {/* Form + Common questions */}
       <SectionShell tone="white">
         <PageContainer>
+          <h2 className="sr-only">{`نموذج التواصل والأسئلة`}</h2>
           <div className="grid gap-8 lg:grid-cols-2">
             {/* Form */}
             <div>
@@ -98,6 +99,29 @@ export default function ContactPage() {
                 </Accordion>
               </Card>
             </div>
+          </div>
+        </PageContainer>
+      </SectionShell>
+
+      {/* Social links */}
+      <SectionShell tone="default" spacing="compact">
+        <PageContainer className="text-center">
+          <h2 className="text-lg font-bold text-primary mb-4">{c.social.title.ar}</h2>
+          <div className="flex items-center justify-center gap-4">
+            {c.social.items.map((s, i) => (
+              <a
+                key={i}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.name.ar}
+                className="flex size-12 items-center justify-center rounded-full bg-secondary text-primary hover:bg-accent hover:text-accent-foreground transition-colors"
+              >
+                {s.icon === "facebook" && <Facebook className="size-5" />}
+                {s.icon === "instagram" && <Instagram className="size-5" />}
+                {s.icon === "youtube" && <Youtube className="size-5" />}
+              </a>
+            ))}
           </div>
         </PageContainer>
       </SectionShell>

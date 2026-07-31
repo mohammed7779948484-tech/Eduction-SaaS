@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { LanguageProvider } from "@/components/layout/language-provider";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { FloatingWhatsApp } from "@/components/layout/floating-whatsapp";
 
 const tajawal = Tajawal({
   variable: "--font-tajawal",
@@ -63,6 +64,7 @@ export default function RootLayout({
           <SiteHeader />
           <main id="main" className="flex-1">{children}</main>
           <SiteFooter />
+          <FloatingWhatsApp />
           <Toaster />
         </LanguageProvider>
       </body>

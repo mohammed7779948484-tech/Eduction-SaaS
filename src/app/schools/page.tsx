@@ -8,7 +8,9 @@ import { SectionHeading } from "@/components/brand/section-heading";
 import { ProcessTimeline } from "@/components/brand/process-timeline";
 import { PrototypeForm } from "@/components/brand/prototype-form";
 import { Card } from "@/components/ui/card";
-import { CheckCircle2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { CheckCircle2, MessageCircle } from "lucide-react";
+import { site } from "@/content/site";
 import {
   Accordion,
   AccordionContent,
@@ -142,6 +144,14 @@ export default function SchoolsPage() {
             <div>
               <h2 className="text-xl font-bold text-primary mb-4">{c.form.title.ar}</h2>
               <PrototypeForm fields={fields} submitLabel={c.form.submit} schema={schema} />
+              <div className="mt-4">
+                <Button asChild variant="outline" size="lg" className="w-full">
+                  <a href={`https://wa.me/${site.whatsapp.replace(/[^0-9]/g, "")}`} className="inline-flex items-center gap-2">
+                    <MessageCircle className="size-4" />
+                    تواصل عبر واتساب
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
         </PageContainer>
