@@ -1,0 +1,1820 @@
+# Phase 2 Master Task
+# Implement All Remaining Public-Site Pages Through Controlled Parallel Subagent Waves
+You are continuing inside the EXISTING Mental Arithmetic Program Next.js repository.
+The homepage and design system have already passed a dedicated refinement and design-lock stage.
+You must now implement ALL remaining public-site pages while preserving:
+- The approved visual identity.
+- The locked homepage design language.
+- The existing Tailwind CSS v4 token system.
+- The existing shadcn/ui component architecture.
+- The existing Framer Motion system.
+- The centralized GSAP rules.
+- Arabic-first RTL behavior.
+- Existing responsive rules.
+- Existing documentation.
+- Existing verified agent skills.
+- The frontend-only prototype scope.
+This is an implementation and integration phase.
+It is not a new discovery project.
+It is not a redesign of the homepage.
+It is not a backend-development phase.
+The remaining pages must be implemented through controlled parallel waves of page-builder subagents, followed by specialist review waves and repeated correction loops.
+---
+# Your Role: You Are the Parent Orchestrator Agent
+You are the same primary agent that previously inspected this repository, established the design system, implemented the homepage, coordinated the specialist reviewers, and completed the homepage design-lock phase.
+The user is giving this Phase 2 prompt directly to you.
+There is no separate parent agent above you.
+You are the Parent Orchestrator Agent for this entire phase.
+Every time this prompt says “the parent agent,” “the orchestrator,” or “the primary agent,” it refers directly to you, the agent currently executing this prompt.
+You must personally:
+- Read the complete repository and documentation.
+- Reconstruct the full project context.
+- Create the Phase 2 implementation plan.
+- Divide the remaining pages into controlled implementation waves.
+- Determine which pages may be built safely in parallel.
+- Inspect component requirements before each wave.
+- Install and customize required shadcn/ui components before delegation.
+- Prepare all shared components and shared architectural foundations.
+- Write a dedicated, detailed prompt for every page-builder subagent.
+- Assign verified skills to every subagent.
+- Create and supervise the subagents.
+- Review every returned implementation.
+- Merge and integrate approved work.
+- Resolve conflicts.
+- Perform shared and architectural corrections.
+- Create separate review subagents after every implementation wave.
+- Run repeated implementation, review, correction, and verification loops.
+- Decide when a wave has passed its quality gate.
+- Maintain all repository-wide documentation.
+- Perform the final production verification.
+- Decide whether the complete frontend prototype is ready for presentation.
+You are not merely a coordinator who passes the full task to subagents.
+You must think, plan, prepare, supervise, integrate, test, correct, and approve the work.
+The subagents are temporary specialists working under your direction.
+They do not own the project architecture.
+They do not make final decisions.
+They do not decide the implementation waves.
+They do not install dependencies.
+They do not edit global systems unless you explicitly assign a narrowly scoped shared task.
+They do not approve their own work.
+You remain accountable for the correctness, visual quality, consistency, and completeness of the entire website.
+---
+# 1. Primary Objective
+Implement all remaining public-site pages as a polished, coherent, responsive, interactive frontend prototype suitable for presentation to the client.
+The result must feel like one professionally designed website.
+It must not look like:
+- Ten independently generated AI pages.
+- A collection of unrelated templates.
+- Repeated page layouts with changed text.
+- Generic SaaS landing pages.
+- A shadcn component showcase.
+- A production platform pretending to be functional.
+Every page must:
+- Serve its specific visitor goal.
+- Use the approved design system.
+- Reuse shared components appropriately.
+- Have a distinctive but related composition.
+- Be Arabic-first and fully RTL.
+- Work on mobile, tablet, laptop, and large desktop.
+- Use realistic demonstration content.
+- Avoid unsupported factual claims.
+- Remain frontend-only.
+---
+# 2. Absolute Frontend-Only Boundary
+This project is a visual and interactive frontend prototype only.
+Do not add or restore:
+- A database.
+- Prisma.
+- PostgreSQL.
+- SQLite.
+- Payload CMS.
+- Any CMS.
+- Authentication.
+- NextAuth.
+- User accounts.
+- Server-side form processing.
+- API routes for form submission.
+- External form services.
+- Payment gateways.
+- Real payment processing.
+- Real registration.
+- Real bookings.
+- Email sending.
+- SMS sending.
+- WhatsApp API integration.
+- File uploads.
+- A real map API.
+- A real AI assistant.
+- A real student platform.
+- A real parent dashboard.
+- A real trainer portal.
+- Analytics requiring backend setup.
+- Server-state libraries without an actual frontend need.
+Forms may only:
+- Validate locally.
+- Simulate a short loading state.
+- Display a prototype success message or toast.
+- Reset locally.
+- Store temporary UI state in memory when needed.
+Forms must never:
+- Send a network request.
+- Claim that real registration occurred.
+- Claim that a school request was received.
+- Claim that payment was processed.
+- Persist personal data.
+- Collect real child data for storage.
+All prototype behavior must be transparent and non-destructive.
+---
+# 3. Your Responsibilities as the Parent Orchestrator
+You are the parent agent, lead architect, design-system owner, integration engineer, and final quality controller.
+Every time this prompt says “the parent agent,” “the orchestrator,” or “the primary agent,” it refers directly to you, the agent currently executing this prompt.
+You must personally own:
+- Repository understanding.
+- Source interpretation.
+- Wave planning.
+- Page allocation.
+- Shared architecture.
+- Shared components.
+- shadcn component installation.
+- Dependency decisions.
+- Skill assignment.
+- Subagent prompt creation.
+- Merge and integration.
+- Conflict resolution.
+- Cross-page consistency.
+- Review consolidation.
+- Shared fixes.
+- Final site-wide verification.
+- Final approval.
+Page-builder subagents may implement individual pages.
+They must not control:
+- Global architecture.
+- Design tokens.
+- Shared dependency installation.
+- `components/ui`.
+- Navigation architecture.
+- Global motion tokens.
+- Global typography.
+- Root layout.
+- Package management.
+- Repository-wide documentation.
+- Final integration.
+You must prepare the repository before launching each implementation wave.
+---
+# 4. Mandatory Documentation and Repository Reading
+Before planning or editing anything, read the complete project context.
+Do not rely on memory from the previous phase.
+## 4.1 Read Every Project Documentation File
+Recursively inspect all Markdown documentation in the repository, including at minimum:
+- `README.md`
+- `AGENTS.md`
+- `DESIGN.md`
+- `docs/SOURCE_OF_TRUTH.md`
+- `docs/PROJECT_CONTEXT.md`
+- `docs/INFORMATION_ARCHITECTURE.md`
+- `docs/PAGE_SPECS.md`
+- `docs/REPOSITORY_AUDIT.md`
+- `docs/DEPENDENCY_AUDIT.md`
+- `docs/SKILLS.md`
+- `docs/MOTION_GUIDELINES.md`
+- `docs/ASSET_GUIDELINES.md`
+- `docs/IMPLEMENTATION_PLAN.md`
+- `docs/QA_CHECKLIST.md`
+- `docs/PROGRESS.md`
+- `docs/REVIEW_LOG.md`
+- `docs/DECISION_LOG.md`
+- `docs/HOMEPAGE_DESIGN_LOCK_AUDIT.md`
+- Any new documentation generated during the design-lock phase.
+- Any nested `AGENTS.md` files.
+- Any page-specific specification files.
+Do not skip files because their names look familiar.
+## 4.2 Reopen the Original Authoritative Sources
+Reinspect:
+1. The comprehensive Phase 1 proposal PDF.
+2. The client identity and execution-concept DOCX.
+3. All embedded images in the DOCX.
+4. The original homepage reference image.
+Use the original sources to verify documentation, not to bypass it.
+## 4.3 Inspect the Current Implementation
+Inspect:
+- All existing routes.
+- Root layout.
+- Header.
+- Footer.
+- Navigation data.
+- Design-system page.
+- Design tokens.
+- Typography.
+- Motion presets.
+- GSAP layer.
+- Shared brand components.
+- Shared layout components.
+- Content files.
+- Current forms and dialogs.
+- Current localized content structure.
+- Current package dependencies.
+- Current shadcn components.
+- Current Git status.
+Run the current project and visually inspect:
+- Homepage.
+- `/design-system`.
+- Any existing prototype-safe routes.
+Do not design pages without first seeing the approved implementation.
+---
+# 5. Establish the Exact Page Inventory
+The homepage is already complete.
+Implement the following remaining pages, subject to the exact route names defined by the current documentation and route configuration:
+1. About — من نحن.
+2. Program — البرنامج.
+3. Learning Channels — القنوات التعليمية.
+4. Virtual Platform — المنصة الافتراضية.
+5. Registration and Trial Lesson — التسجيل والحصة التجريبية.
+6. Contact — تواصل معنا.
+7. Schools and Institutions — المدارس والمؤسسات.
+8. Trainer Training — تدريب المدربين.
+9. Frequently Asked Questions — الأسئلة الشائعة.
+10. Privacy, Child Protection, and Terms — الخصوصية وحماية الطفل والشروط.
+Do not create duplicate routes for the same purpose.
+If current documentation separates legal content differently, preserve the documented route architecture and record the decision.
+Create or update:
+`docs/PAGE_IMPLEMENTATION_MATRIX.md`
+For every page include:
+- Arabic title.
+- English title when the current bilingual architecture requires it.
+- Route.
+- Primary audience.
+- Main visitor goal.
+- Primary CTA.
+- Secondary CTA.
+- Required sections.
+- Required shared components.
+- Required shadcn primitives.
+- Required interactions.
+- Required content data.
+- Required motion patterns.
+- Source references.
+- Prototype assumptions.
+- Builder subagent.
+- Assigned skills.
+- Wave.
+- Implementation status.
+- Review status.
+- Final approval status.
+---
+# 6. Create Detailed Page Build Briefs Before Coding
+Before launching any page-builder subagent, create a detailed build brief for each page.
+Create:
+```text
+docs/page-briefs/
+├── about.md
+├── program.md
+├── channels.md
+├── platform.md
+├── registration.md
+├── contact.md
+├── schools.md
+├── trainers.md
+├── faq.md
+└── privacy.md
+
+Each brief must be derived from:
+
+* docs/PAGE_SPECS.md
+* docs/INFORMATION_ARCHITECTURE.md
+* DESIGN.md
+* Original client sources.
+* Approved homepage patterns.
+* Existing design-system components.
+
+Each page brief must include:
+
+Page Purpose
+
+* Audience.
+* Visitor intent.
+* Conversion objective.
+* Trust objective.
+* Relationship to other pages.
+
+Required Content
+
+* Exact required sections.
+* Required terminology.
+* Required messages.
+* Required CTA.
+* Demo-content assumptions.
+* Claims that must not be invented.
+
+Visual Direction
+
+* Page-specific visual thesis.
+* Recommended composition.
+* Which homepage patterns may be reused.
+* Which patterns must not be repeated unnecessarily.
+* Page-specific illustration direction.
+* Abacus-inspired visual treatment where relevant.
+* Responsive priorities.
+
+Component Plan
+
+* Existing shared components to use.
+* Existing shadcn primitives to use.
+* New page-specific components allowed.
+* New shared components proposed.
+* Components the page agent is forbidden to duplicate.
+
+Interaction Plan
+
+* Framer Motion patterns.
+* Forms or local interactions.
+* Tabs.
+* Accordions.
+* Comparison controls.
+* Stepper behavior.
+* Carousel behavior.
+* Local filtering.
+* Reduced-motion behavior.
+
+File Ownership
+
+* Exact files the page agent may create.
+* Exact files the page agent may edit.
+* Files the page agent must not edit.
+
+Acceptance Criteria
+
+* Content.
+* Visual quality.
+* RTL.
+* Accessibility.
+* Responsive behavior.
+* Component reuse.
+* Performance.
+* Prototype-scope compliance.
+
+Do not launch implementation agents using vague one-paragraph instructions.
+
+⸻
+
+7. Verify Skills Before Delegation
+
+Read the final docs/SKILLS.md produced during the design-lock phase.
+
+Verify:
+
+* Which skills are actually installed.
+* Which skills are discoverable.
+* Which skills have readable SKILL.md files.
+* Which skills require external tools.
+* Which skills failed installation.
+* Which built-in capabilities substitute for missing skills.
+
+Do not invent skill names.
+
+Do not assign an uninstalled skill to a subagent.
+
+For every implementation and review subagent:
+
+* State the exact verified skills it must use.
+* Tell it to open and read the full SKILL.md for each assigned skill.
+* Tell it when each skill applies.
+* Require it to report which skills it actually used.
+* Require it to distinguish skill guidance from its own design judgment.
+
+Likely skill categories include:
+
+* Frontend design.
+* Design systems.
+* shadcn/ui.
+* Next.js.
+* React best practices.
+* Tailwind CSS v4.
+* Accessibility.
+* Arabic RTL.
+* Framer Motion.
+* Browser automation.
+* Responsive visual QA.
+* Planning and task decomposition.
+
+Use the exact installed skill names from the repository.
+
+⸻
+
+8. Parent-Only Component Readiness Gate
+
+Before launching each page implementation wave, perform a Component Readiness Gate.
+
+Page agents must not discover halfway through implementation that they need to install or redesign shared primitives.
+
+8.1 Inspect Page Requirements
+
+For every page in the upcoming wave:
+
+* Read its page brief.
+* List all interactions.
+* List all forms.
+* List all navigation patterns.
+* List all content layouts.
+* List all reusable visual patterns.
+* List all required shadcn primitives.
+
+8.2 Inspect Existing Components
+
+Check:
+
+* src/components/ui
+* src/components/brand
+* src/components/layout
+* src/components/sections
+* src/components/motion
+* /design-system
+
+Determine whether each required component:
+
+* Already exists and is suitable.
+* Exists but needs a centralized variant.
+* Must be installed from shadcn.
+* Must be created as a shared branded component.
+* Should remain page-specific.
+
+8.3 Install shadcn Components Centrally
+
+Only you, the Parent Orchestrator Agent, may install shadcn components.
+
+Use the current package manager and the official shadcn CLI compatible with the repository.
+
+Install only components required by the upcoming wave.
+
+Possible needs may include:
+
+* Accordion.
+* Tabs.
+* Dialog.
+* Sheet.
+* Form.
+* Input.
+* Textarea.
+* Select.
+* Radio Group.
+* Checkbox.
+* Progress.
+* Carousel.
+* Tooltip.
+* Badge.
+* Card.
+* Separator.
+* Scroll Area.
+* Alert.
+* Skeleton.
+
+Do not install everything preemptively.
+
+Do not recreate an existing shadcn primitive manually.
+
+After installing:
+
+* Inspect the generated files.
+* Integrate semantic tokens.
+* Adapt RTL behavior.
+* Adapt focus states.
+* Add approved design-system variants.
+* Verify accessibility.
+* Add demonstrations to /design-system.
+* Run lint and build.
+* Commit or checkpoint the foundation.
+
+8.4 Prepare Shared Brand Components
+
+You, the Parent Orchestrator Agent, must create or refine shared components required by multiple pages before delegation.
+
+Possible shared components include:
+
+* PageHero
+* PageIntro
+* Breadcrumbs
+* TrustStrip
+* FeatureGrid
+* ProcessTimeline
+* ComparisonTable
+* MetricCard
+* LevelCard
+* ProfileCard
+* BranchCard
+* ContactMethodCard
+* FormSection
+* PrototypeFormNotice
+* SuccessState
+* FAQGroup
+* LegalSection
+* TableOfContents
+* PlatformFeatureCard
+* PartnershipStep
+* AudienceCard
+* CTASection
+* EmptyPlatformPreview
+* Shared illustration frames.
+
+Only create a shared abstraction when at least two pages genuinely need it or when it is a foundational design-system pattern.
+
+Do not over-abstract every section.
+
+8.5 Readiness Gate Completion
+
+Do not launch the wave until:
+
+* Required shadcn primitives are present.
+* Shared variants are integrated.
+* /design-system demonstrates new primitives.
+* Shared components compile.
+* Page agents have clear allowed-file boundaries.
+* No page agent needs to install a package.
+* No page agent needs to edit global tokens.
+
+If a page agent later discovers a missing shared component, it must stop and submit a Component Request to you.
+
+You then:
+
+1. Evaluate the request.
+2. Install or create the component centrally.
+3. Update /design-system.
+4. Verify it.
+5. Tell the page agent to resume.
+
+⸻
+
+9. Parallel Work Isolation
+
+Page-builder subagents will work simultaneously.
+
+Prevent merge conflicts and uncontrolled edits.
+
+Use isolated worktrees, branches, agent workspaces, or the platform’s supported isolation system.
+
+Each page agent must have:
+
+* A dedicated branch or isolated workspace.
+* A unique page route.
+* A unique content file.
+* A unique page-component directory.
+* A narrow file-ownership list.
+
+Page agents must not edit:
+
+* package.json
+* Lockfiles.
+* Root layout.tsx.
+* Global CSS.
+* Token files.
+* DESIGN.md
+* AGENTS.md
+* Navigation configuration.
+* Footer.
+* Header.
+* Shared shadcn primitives.
+* Shared motion tokens.
+* Shared GSAP files.
+* Repository-wide documentation.
+* Another page agent’s files.
+
+Page agents may submit requested shared changes in their completion report.
+
+You own all shared changes and merge resolution.
+
+⸻
+
+10. Page-Agent Prompt Requirements
+
+Before launching each page-builder subagent, you must write a dedicated professional prompt.
+
+Do not send the same generic prompt to every agent.
+
+Each prompt must contain:
+
+1. A concise project summary.
+2. Prototype-only scope.
+3. Page name and route.
+4. Page audience.
+5. Page goal.
+6. Primary conversion.
+7. Exact required sections.
+8. Source-of-truth files to read.
+9. Documentation files to read.
+10. Exact assigned skills.
+11. Exact existing components to use.
+12. Exact allowed files.
+13. Exact forbidden files.
+14. Interaction requirements.
+15. RTL requirements.
+16. Accessibility requirements.
+17. Responsive requirements.
+18. Motion requirements.
+19. Content assumptions.
+20. Prohibited backend behavior.
+21. Testing requirements.
+22. Required completion report.
+
+Use the following structure when generating each page-agent prompt:
+
+You are the implementation owner for one page only:
+PAGE:
+ROUTE:
+WAVE:
+PRIMARY AUDIENCE:
+PRIMARY GOAL:
+PRIMARY CTA:
+Before coding, read:
+- AGENTS.md
+- DESIGN.md
+- Relevant nested AGENTS.md
+- docs/SOURCE_OF_TRUTH.md
+- docs/PROJECT_CONTEXT.md
+- docs/PAGE_SPECS.md
+- docs/INFORMATION_ARCHITECTURE.md
+- docs/MOTION_GUIDELINES.md
+- docs/ASSET_GUIDELINES.md
+- Your exact page brief
+- Existing homepage and design-system implementations
+- Full SKILL.md files for your assigned verified skills
+Use these verified skills:
+- [exact skill]
+- [exact skill]
+- [exact skill]
+Required page sections:
+- [detailed section]
+- [detailed section]
+- [detailed section]
+You may edit only:
+- [route files]
+- [page-specific components]
+- [page-specific content]
+- [page-specific tests where applicable]
+You must not edit:
+- Global tokens
+- Root layout
+- Package files
+- Lockfiles
+- Shared UI primitives
+- Header
+- Footer
+- Navigation
+- Other pages
+- Repository-wide documentation
+Use only the existing approved design system and parent-prepared components.
+Do not install dependencies.
+Do not create backend functionality.
+Do not send form data.
+Do not create API routes.
+Do not invent verified statistics, qualifications, partnerships, or testimonials.
+Implement:
+- Full Arabic-first RTL page
+- Existing bilingual behavior only when required by the locked architecture
+- Responsive mobile/tablet/desktop composition
+- Accessible semantic markup
+- Correct keyboard interaction
+- Reduced-motion support
+- Centralized demo content
+- Page metadata using static known information
+- Prototype-safe interactions
+Before completion:
+- Run lint on affected files
+- Run type checks
+- Render the page
+- Inspect mobile and desktop
+- Inspect the browser console
+- Verify no overflow
+- Verify no broken content
+- Verify no direct raw brand colors
+- Verify no local duplicate primitives
+Return:
+- Files created
+- Files changed
+- Components reused
+- Skills used
+- Interactions implemented
+- Assumptions
+- Screenshots
+- Validation results
+- Shared component requests
+- Remaining concerns
+
+You must expand this template with the page’s actual detailed requirements.
+
+⸻
+
+11. Implementation Wave 1 — Core Educational Story
+
+Launch four page-builder subagents simultaneously.
+
+Wave 1A — About Page
+
+Route: use the route defined by current navigation and page specifications.
+
+Primary purpose:
+
+* Build institutional trust.
+* Explain the program’s purpose.
+* Show methodology and values.
+* Present leadership or team direction.
+* Demonstrate child-protection commitment.
+
+Required areas, subject to exact source specifications:
+
+* Page hero.
+* Program story.
+* Vision.
+* Mission.
+* Values.
+* Educational methodology.
+* Why mental arithmetic matters.
+* Lead trainer or team presentation using demo content where real data is unavailable.
+* Quality and trust principles.
+* Child-protection commitment.
+* Institutional partnership readiness.
+* Final CTA.
+
+Do not invent:
+
+* Accreditations.
+* Legal certifications.
+* Team names.
+* Awards.
+* Partner organizations.
+
+Use explicit placeholders or clearly representative prototype content where required.
+
+Wave 1B — Program Page
+
+Primary purpose:
+
+* Explain Soroban and the educational program in detail.
+* Help parents understand suitability and progression.
+* Convert interest into a trial lesson.
+
+Required areas:
+
+* Page hero.
+* What mental arithmetic is.
+* What Soroban is.
+* How learning progresses.
+* Ten program levels.
+* Target ages.
+* Program duration or structure only when supported.
+* Core skills.
+* Expected educational outcomes.
+* Learning journey.
+* Assessment or progression explanation.
+* Program-related FAQ.
+* Final trial CTA.
+
+Create a strong reusable treatment for the ten levels.
+
+Do not present unsupported guaranteed outcomes.
+
+Wave 1C — Learning Channels Page
+
+Primary purpose:
+
+* Explain the three learning routes.
+* Help families or institutions identify the suitable path.
+
+Required channels:
+
+* Learning at program centers.
+* Learning through partner schools.
+* Future online or virtual-platform learning.
+
+Required areas:
+
+* Page hero.
+* Three-channel overview.
+* Detailed explanation of each channel.
+* Who each channel suits.
+* Experience and delivery model.
+* Benefits.
+* Simple comparison.
+* Selection guidance.
+* Relevant CTA for each channel.
+* Future-platform status clearly marked.
+
+Do not present the virtual channel as currently operational unless the sources confirm it.
+
+Wave 1D — Virtual Platform Page
+
+Primary purpose:
+
+* Present a credible vision for the future platform.
+* Build interest in Phase 2.
+* Avoid pretending that the platform exists.
+
+Required areas:
+
+* Page hero with a clear “coming soon” status.
+* Platform vision.
+* Student experience concept.
+* Parent portal concept.
+* Exercises and practice concept.
+* Progress-tracking concept.
+* Virtual-class concept.
+* Lesson-library concept.
+* Safety and privacy principles.
+* Conceptual interface previews.
+* Frontend-only interest interaction.
+* Final CTA.
+
+Every dashboard or platform screen must be clearly a conceptual visual preview.
+
+Do not implement a dashboard route or LMS behavior.
+
+⸻
+
+12. Wave 1 Integration and Review Loop
+
+After all four implementation agents finish:
+
+12.1 Your Integration Responsibilities
+
+You must:
+
+* Review each completion report.
+* Inspect every changed file.
+* Reject unrelated edits.
+* Merge pages carefully.
+* Resolve conflicts.
+* Integrate approved shared-component requests.
+* Update navigation only after routes exist.
+* Run lint.
+* Run type checks.
+* Run production build.
+* Start the rendered site.
+* Inspect all four pages.
+
+12.2 Launch Five Review Subagents in Parallel
+
+Create five fresh review subagents:
+
+Review Agent A — Source and Content Audit
+
+Review:
+
+* Required sections.
+* Terminology.
+* Claims.
+* Audience alignment.
+* CTA alignment.
+* Missing source requirements.
+* Unsupported invented facts.
+
+Review Agent B — Visual and Design-System Audit
+
+Review:
+
+* Visual quality.
+* Brand consistency.
+* Typography.
+* Spacing.
+* Component variants.
+* Page distinctiveness.
+* Excessive repetition.
+* Generic AI design.
+* Design-system compliance.
+
+Review Agent C — Architecture and Reuse Audit
+
+Review:
+
+* Shared-component use.
+* Duplication.
+* Client/server boundaries.
+* Data centralization.
+* Local hardcoded values.
+* Dependency violations.
+* Unnecessary abstraction.
+* Cross-page consistency.
+
+Review Agent D — RTL and Accessibility Audit
+
+Review:
+
+* RTL layout.
+* Arabic typography.
+* Semantics.
+* Keyboard behavior.
+* Focus states.
+* Contrast.
+* Touch targets.
+* Logical direction.
+* Reduced motion.
+
+Review Agent E — Responsive Visual and Motion QA
+
+Review rendered pages at required viewports.
+
+Check:
+
+* Overflow.
+* Clipping.
+* Visual hierarchy.
+* Section rhythm.
+* Illustrations.
+* Motion.
+* Console.
+* Hydration.
+* Mobile navigation.
+* Page transitions.
+
+12.3 Findings Format
+
+Every reviewer must classify findings as:
+
+* BLOCKER
+* CRITICAL
+* MAJOR
+* MINOR
+* SUGGESTION
+
+Each finding must include:
+
+* Page.
+* Viewport when applicable.
+* File or component.
+* Evidence.
+* Violated source or rule.
+* Recommended correction.
+* Whether it blocks the wave.
+
+12.4 Correction Loop
+
+You must:
+
+1. Consolidate duplicate findings.
+2. Resolve conflicts between reviewers.
+3. Accept or reject each finding.
+4. Record reasons for rejection.
+5. Apply shared fixes personally.
+6. Send focused correction prompts to original page agents when page-local fixes are substantial.
+7. Re-run reviewers after correction.
+8. Repeat until no blocker, critical, or major issue remains.
+
+Do not begin Wave 2 before Wave 1 is approved.
+
+⸻
+
+13. Implementation Wave 2 — Conversion and Institutional Pages
+
+After Wave 1 approval, run a new Component Readiness Gate.
+
+Then launch four page-builder subagents simultaneously.
+
+Wave 2A — Registration and Trial Lesson Page
+
+Primary purpose:
+
+* Present a clear, low-friction frontend-only registration experience.
+* Demonstrate how trial booking and student interest would work.
+
+Required areas:
+
+* Page hero.
+* Clear choice between trial lesson and general registration when supported.
+* Parent or guardian details.
+* Student details.
+* Age range.
+* Preferred channel.
+* Branch selection.
+* Preferred schedule using static choices.
+* Contact preference.
+* Consent acknowledgement.
+* Prototype notice.
+* Local validation.
+* Loading simulation.
+* Prototype success state.
+* Alternative WhatsApp CTA when appropriate.
+
+Do not:
+
+* Submit data.
+* Store personal information.
+* Connect to a payment service.
+* Collect real card information.
+* Claim that a booking was confirmed.
+* Use a database.
+* Create an API route.
+
+Pricing and payment concepts may be shown only if source documentation supports them and must be clearly non-functional.
+
+Wave 2B — Contact Page
+
+Primary purpose:
+
+* Make direct communication easy.
+* Present branches and contact options clearly.
+
+Required areas:
+
+* Page hero.
+* Phone.
+* WhatsApp.
+* Email.
+* Branch cards.
+* Addresses.
+* Opening hours.
+* Static or illustrative map treatment.
+* General contact form.
+* Prototype success state.
+* Social links when available.
+* Common contact questions.
+* Emergency or child-protection contact guidance only when supported.
+
+Do not add a map provider unless explicitly justified and approved by you.
+
+Do not send form data.
+
+Wave 2C — Schools and Institutions Page
+
+Primary purpose:
+
+* Create a strong B2B partnership proposition.
+* Explain how schools benefit.
+* Collect frontend-only partnership interest.
+
+Required areas:
+
+* Page hero.
+* Why schools partner with the program.
+* Delivery models.
+* During-school, after-school, or activity models only when supported.
+* Benefits to schools.
+* Benefits to students.
+* Implementation process.
+* Partnership steps.
+* Expected outcome categories without guaranteed claims.
+* Institutional trust.
+* Partnership FAQ.
+* Frontend-only school interest form.
+* Final partnership CTA.
+
+The page should feel institutional and credible without losing the main brand identity.
+
+Do not invent partner-school logos or partnership numbers.
+
+Wave 2D — Trainer Training Page
+
+Primary purpose:
+
+* Explain the trainer-development path.
+* Attract qualified interest.
+* Avoid presenting a real online training system.
+
+Required areas:
+
+* Page hero.
+* Who the path is for.
+* What prospective trainers would learn.
+* Skills developed.
+* Training stages.
+* Entry expectations.
+* Benefits.
+* Possible career or contribution paths without guarantees.
+* Application or interest process.
+* Frontend-only interest form.
+* FAQ.
+* Final CTA.
+
+Do not:
+
+* Build a course.
+* Build authentication.
+* Build certification.
+* Claim accreditation.
+* Guarantee employment.
+* Invent official qualification requirements.
+
+⸻
+
+14. Wave 2 Integration and Review Loop
+
+Repeat the complete Wave 1 process:
+
+1. Your integration.
+2. Five parallel specialist review agents.
+3. Source audit.
+4. Design-system audit.
+5. Architecture audit.
+6. RTL/accessibility audit.
+7. Responsive visual and motion QA.
+8. Consolidated findings.
+9. Your fixes.
+10. Focused page-agent corrections where needed.
+11. Reverification.
+12. Documentation updates.
+13. No progression with unresolved blocker, critical, or major issues.
+
+Pay special attention to:
+
+* Form consistency.
+* Prototype notices.
+* Local validation.
+* Consent wording.
+* No network requests.
+* No backend code.
+* No real personal-data storage.
+* No false success claims.
+* Institutional visual quality.
+* Mobile form usability.
+
+Do not begin Wave 3 before Wave 2 is approved.
+
+⸻
+
+15. Implementation Wave 3 — Support and Legal Completion
+
+After Wave 2 approval, run a final Component Readiness Gate.
+
+Launch two page-builder subagents simultaneously.
+
+You may simultaneously launch additional read-only content or legal-structure reviewers, but only two agents should own page implementation.
+
+Wave 3A — Frequently Asked Questions Page
+
+Primary purpose:
+
+* Reduce repeated questions.
+* Help parents, schools, and trainers find quick answers.
+* Route visitors to the correct next action.
+
+Required areas:
+
+* Page hero.
+* Local search or filtering.
+* FAQ categories.
+* Program questions.
+* Age and suitability questions.
+* Trial and registration questions.
+* Channel questions.
+* School-partnership questions.
+* Trainer-path questions.
+* Virtual-platform questions.
+* Contact escalation.
+* Final CTA.
+
+Use frontend-only local filtering.
+
+Use an accessible Accordion.
+
+Search must not call an API.
+
+FAQ content must remain centralized and reusable by other pages where appropriate.
+
+Wave 3B — Privacy, Child Protection, and Terms Page
+
+Primary purpose:
+
+* Present the prototype’s legal and safeguarding structure.
+* Build trust.
+* Avoid pretending that draft legal text is final legal advice.
+
+Required areas:
+
+* Page hero.
+* Table of contents.
+* Privacy overview.
+* Data categories concept.
+* Children’s-data protection.
+* Parent or guardian role.
+* Safeguarding principles.
+* Forms and communication.
+* Cookies or analytics only if relevant to the current prototype.
+* Data retention concept.
+* User rights concept.
+* Terms of use.
+* Contact for questions.
+* Last-updated treatment.
+* Clear draft or prototype status where necessary.
+
+Do not fabricate compliance certifications.
+
+Do not claim legal review occurred unless documented.
+
+Do not insert generic legal text without adapting it to the project context.
+
+Clearly document that production legal copy requires client and legal review.
+
+⸻
+
+16. Wave 3 Review Loop
+
+After implementation:
+
+* You integrate the two pages.
+* Launch the five specialist review agents again.
+* Add a dedicated legal/content-clarity reviewer when available.
+* Fix all blocker, critical, and major findings.
+* Verify FAQ data reuse.
+* Verify legal content status.
+* Verify search accessibility.
+* Verify table-of-contents navigation.
+* Verify mobile reading comfort.
+* Verify no unsupported legal claims.
+* Update all documentation.
+
+Do not proceed to final site integration until Wave 3 passes.
+
+⸻
+
+17. Page Design Quality Rules
+
+Every page must be recognizable as part of the same site, but not identical.
+
+Avoid repeating this exact formula on all pages:
+
+Page Hero
+→ Three Cards
+→ Four Cards
+→ CTA
+
+Instead, choose compositions based on each page’s purpose.
+
+Possible layout patterns include:
+
+* Editorial storytelling.
+* Timeline.
+* Process journey.
+* Comparison matrix.
+* Alternating media sections.
+* Feature showcase.
+* Level progression.
+* Tabbed content.
+* Illustrated concept panels.
+* Trust wall.
+* Form split layout.
+* Branch grid.
+* FAQ category navigation.
+* Legal reading layout.
+
+All patterns must still use:
+
+* Approved tokens.
+* Approved typography.
+* Approved radii.
+* Approved shadows.
+* Approved motion.
+* Approved containers.
+* Approved button hierarchy.
+* Approved illustration rules.
+
+No page may independently create a new visual identity.
+
+⸻
+
+18. Shared Visual Language
+
+Continue the locked homepage visual language through all pages using controlled motifs:
+
+* Abacus rails.
+* Bead forms.
+* Numerical markers.
+* Fine line grids.
+* Teal and navy geometry.
+* Orange reserved for conversion.
+* Educational diagrams.
+* Lightweight custom SVG illustrations.
+* Layered but restrained surfaces.
+* Strong Arabic hierarchy.
+* Generous whitespace.
+* Clear trust elements.
+
+Do not:
+
+* Place a full abacus in every hero.
+* Use the same illustration repeatedly.
+* Add random blobs.
+* Use generic neon.
+* Add unrelated glassmorphism.
+* Use excessive gradients.
+* Use stock imagery that conflicts with the brand.
+* Overanimate decorative details.
+
+Each page should adapt the shared language to its subject.
+
+⸻
+
+19. Content Architecture
+
+Keep page content outside large JSX files.
+
+Prefer:
+
+src/content/
+├── about.ts
+├── program.ts
+├── channels.ts
+├── platform.ts
+├── registration.ts
+├── contact.ts
+├── schools.ts
+├── trainers.ts
+├── faq.ts
+└── legal.ts
+
+Adapt to the existing repository architecture rather than forcing this exact structure.
+
+Requirements:
+
+* Centralized demo content.
+* Strong TypeScript typing.
+* Reusable FAQ records.
+* Reusable CTA records.
+* Reusable branch records.
+* Clear prototype labels.
+* No production secrets.
+* No personal information.
+* No hardcoded factual claims scattered in components.
+* No giant page component containing all copy.
+
+⸻
+
+20. Next.js and React Architecture
+
+Use Server Components by default.
+
+Use Client Components only when needed for:
+
+* Forms.
+* Dialogs.
+* Accordions requiring client behavior.
+* Tabs.
+* Carousels.
+* Local search.
+* Framer Motion.
+* Other real interactions.
+
+Do not convert entire pages to Client Components solely because one section is interactive.
+
+Isolate interactive islands.
+
+Requirements:
+
+* Correct metadata.
+* Semantic landmarks.
+* Accessible headings.
+* One clear h1 per page.
+* Logical heading hierarchy.
+* Correct Arabic lang and RTL inheritance.
+* No hydration mismatch.
+* Stable list keys.
+* No unnecessary global state.
+* No unnecessary Zustand use.
+* No TanStack Query.
+* No server-state fetching.
+* No API calls.
+* No route handlers for prototype forms.
+
+⸻
+
+21. Form Standards
+
+All forms across registration, contact, schools, and trainers must use one centralized form language.
+
+Use:
+
+* Existing shadcn form primitives.
+* React Hook Form when already retained.
+* Zod when already retained.
+* Shared field spacing.
+* Shared error style.
+* Shared required indicators.
+* Shared prototype notice.
+* Shared local loading state.
+* Shared success state.
+* Shared consent treatment.
+
+Forms must include:
+
+* Clear labels.
+* Useful help text.
+* Arabic error messages.
+* Keyboard accessibility.
+* Focus management.
+* Proper autocomplete values when appropriate.
+* 44px or larger touch targets.
+* Disabled and loading states.
+* Reduced-motion support.
+
+Do not:
+
+* Use placeholder text as the only label.
+* Ask for unnecessary child information.
+* Create fake network delays longer than needed.
+* Claim that data was sent.
+* Retain submitted data after the demo success state unless needed temporarily in memory.
+
+⸻
+
+22. Motion Standards
+
+Use CSS for simple state transitions.
+
+Use Framer Motion for:
+
+* Shared entrance presets.
+* Section reveals.
+* Staggered content.
+* Tabs.
+* Dialogs.
+* Local layout transitions.
+* Carousels.
+* Interactive visual feedback.
+
+Use GSAP only through the existing centralized GSAP layer.
+
+Do not add page-local GSAP imports.
+
+Most internal pages should not need a complex GSAP timeline.
+
+Use a page-level signature animation only when:
+
+* It clearly serves the content.
+* It remains lightweight.
+* It is reusable or documented.
+* It works with reduced motion.
+* It does not delay content.
+
+Do not animate Arabic characters individually.
+
+Do not make every page more animated than the homepage.
+
+⸻
+
+23. Navigation and Cross-Linking
+
+After all pages are implemented and approved, you must update centralized navigation.
+
+Requirements:
+
+* Header links point to real implemented routes.
+* Footer links point to real implemented routes.
+* No dead links.
+* No placeholder routes when a real page now exists.
+* Active-page state is clear.
+* Mobile navigation contains all required primary pages.
+* Secondary pages may be grouped appropriately.
+* Legal page is accessible from the Footer.
+* Contextual CTAs link to appropriate pages.
+* Breadcrumbs are used where approved.
+* Back navigation is not required when main navigation is sufficient.
+
+Do not let individual page agents edit central navigation.
+
+You integrate navigation once route readiness is confirmed.
+
+⸻
+
+24. Site-Wide Review After All Waves
+
+After all ten pages pass their wave reviews, perform a site-wide integration review.
+
+24.1 Create Five Final Review Subagents in Parallel
+
+Final Reviewer 1 — Full Source Traceability
+
+Check every page against:
+
+* Original Phase 1 proposal.
+* Client DOCX.
+* PAGE_SPECS.md.
+* Page briefs.
+* Source-of-truth documentation.
+
+Create a requirement-to-page traceability report.
+
+Final Reviewer 2 — Cross-Site Design Consistency
+
+Check:
+
+* Headers.
+* Page heroes.
+* Typography.
+* Cards.
+* CTAs.
+* Forms.
+* Illustrations.
+* Section rhythm.
+* Footer.
+* Mobile behavior.
+* Page distinctiveness.
+* Design-system use.
+
+Final Reviewer 3 — Architecture and Code Quality
+
+Check:
+
+* Duplication.
+* Component boundaries.
+* Data structure.
+* Client components.
+* Imports.
+* Dependencies.
+* Raw design values.
+* Shared-component misuse.
+* Route structure.
+* Build performance.
+
+Final Reviewer 4 — Accessibility and RTL
+
+Check all routes for:
+
+* Heading order.
+* Landmarks.
+* RTL.
+* Keyboard access.
+* Focus.
+* Contrast.
+* Labels.
+* Errors.
+* Dialog focus.
+* Accordion behavior.
+* Carousel behavior.
+* Touch targets.
+* Reduced motion.
+
+Final Reviewer 5 — Production Visual QA
+
+Use the production build.
+
+Inspect every route at:
+
+* 360 × 800
+* 390 × 844
+* 430 × 932
+* 768 × 1024
+* 1024 × 768
+* 1280 × 800
+* 1440 × 1200
+* 1920 × 1080
+
+Check:
+
+* Overflow.
+* Clipping.
+* Empty space.
+* Text wrapping.
+* Images.
+* SVGs.
+* Navigation.
+* Forms.
+* Footer.
+* Console.
+* Hydration.
+* Broken links.
+* Motion.
+* Loading behavior.
+
+24.2 Final Correction Loop
+
+You must:
+
+1. Consolidate all findings.
+2. Prioritize blockers, criticals, and majors.
+3. Fix shared issues centrally.
+4. Assign page-local correction prompts when useful.
+5. Re-run affected reviewers.
+6. Repeat until no blocker, critical, or major issue remains.
+7. Document accepted minor issues.
+8. Run final production verification.
+
+⸻
+
+25. Automated Scope and Quality Checks
+
+Run checks to confirm:
+
+* No Prisma import.
+* No database utility.
+* No NextAuth import.
+* No Payload import.
+* No backend SDK import.
+* No form network submission.
+* No unexpected API routes.
+* No external payment code.
+* No child data persistence.
+* No direct GSAP imports outside the approved layer.
+* No raw brand colors outside token files.
+* No duplicate button primitive.
+* No duplicate form-control primitive.
+* No page-local motion constants where central tokens apply.
+* No conflicting lockfile.
+* No scaffold branding.
+* No broken navigation route.
+* No unfinished placeholder page.
+* No accidental implementation of a real platform dashboard.
+* No runtime console errors.
+* No hydration warnings.
+* No horizontal overflow.
+
+Run:
+
+bun run lint
+bun run build
+bun run start
+
+Use the repository’s actual scripts if names differ.
+
+Do not report commands as successful unless they actually completed successfully.
+
+⸻
+
+26. Documentation Updates
+
+Update:
+
+* README.md
+* AGENTS.md only when operational rules genuinely changed.
+* DESIGN.md
+* docs/PAGE_IMPLEMENTATION_MATRIX.md
+* All docs/page-briefs/*.md
+* docs/PAGE_SPECS.md
+* docs/INFORMATION_ARCHITECTURE.md
+* docs/IMPLEMENTATION_PLAN.md
+* docs/PROGRESS.md
+* docs/REVIEW_LOG.md
+* docs/DECISION_LOG.md
+* docs/QA_CHECKLIST.md
+* docs/MOTION_GUIDELINES.md
+* docs/ASSET_GUIDELINES.md
+* docs/SKILLS.md when skill usage changes.
+
+Record:
+
+* Page agents.
+* Skills used.
+* Shared components created.
+* shadcn components installed.
+* Wave results.
+* Review findings.
+* Fixes.
+* Deferred minor issues.
+* Prototype assumptions.
+* Final route status.
+
+Do not let documentation become stale after implementation.
+
+⸻
+
+27. Completion Criteria Per Page
+
+A page is complete only when:
+
+* All required source-defined sections exist.
+* The content serves the correct audience.
+* The primary CTA is clear.
+* Demo content is appropriate.
+* No unsupported claim appears.
+* The page uses approved components.
+* No duplicate primitives were created.
+* It is visually distinctive but brand-consistent.
+* RTL is correct.
+* Mobile is polished.
+* Tablet is polished.
+* Desktop is polished.
+* Accessibility review passes.
+* Reduced motion works.
+* No backend behavior exists.
+* No network submission occurs.
+* No console error exists.
+* Your integration is complete.
+* Specialist review is complete.
+* No blocker, critical, or major issue remains.
+
+⸻
+
+28. Completion Criteria for the Entire Phase
+
+Phase 2 is complete only when:
+
+* All ten remaining pages are implemented.
+* All three waves passed review.
+* All central navigation is connected.
+* All footer links are connected.
+* No broken route remains.
+* All frontend-only forms work locally.
+* No backend code exists.
+* No database code exists.
+* No authentication code exists.
+* No payment code exists.
+* No real platform functionality exists.
+* All pages use the approved design system.
+* All pages respect RTL.
+* Responsive QA covers every route.
+* Accessibility QA covers every route.
+* Production build succeeds.
+* Final screenshots are captured.
+* Documentation is accurate.
+* No blocker remains.
+* No critical issue remains.
+* No major issue remains.
+
+⸻
+
+29. Final Deliverables
+
+Provide a final report containing:
+
+Page Inventory
+
+For every page:
+
+* Route.
+* Status.
+* Main sections.
+* Shared components.
+* Page-specific components.
+* Interactions.
+* Demo-content assumptions.
+* Review status.
+
+Parallel Implementation
+
+* Waves completed.
+* Page agents created.
+* Prompt used for each agent.
+* Skills assigned.
+* Work isolation method.
+* Merge results.
+* Conflicts resolved.
+
+Component System
+
+* shadcn components installed by you.
+* Shared branded components added.
+* Design-system variants added.
+* /design-system updates.
+* Rejected component requests.
+
+Review Loops
+
+* Review subagents created.
+* Skills assigned.
+* Findings by severity.
+* Blockers fixed.
+* Critical issues fixed.
+* Major issues fixed.
+* Deferred minor suggestions.
+
+Frontend-Only Verification
+
+Confirm with evidence:
+
+* No backend.
+* No database.
+* No auth.
+* No CMS.
+* No payment.
+* No real form submission.
+* No API submission.
+* No personal-data persistence.
+
+Production Verification
+
+* Lint result.
+* Type-check result.
+* Build result.
+* Production-server result.
+* Routes tested.
+* Viewports tested.
+* Console status.
+* Accessibility status.
+* RTL status.
+* Broken-link status.
+* Screenshots.
+
+Final Assessment
+
+State whether the complete frontend prototype is ready for client presentation.
+
+Do not claim readiness while unresolved blocker, critical, or major issues remain.
+
+⸻
+
+30. Hard Stop
+
+After all ten remaining pages are complete, reviewed, integrated, documented, and production-verified:
+
+STOP.
+
+Do not begin:
+
+* Backend implementation.
+* CMS implementation.
+* Database design.
+* Authentication.
+* Real platform development.
+* Student dashboard.
+* Parent dashboard.
+* Trainer dashboard.
+* Payment integration.
+* Email integration.
+* WhatsApp API integration.
+* Deployment of a production data system.
+* Phase 2 educational-platform functionality.
+
+This task ends with a complete, high-quality, frontend-only public-site ready to present to the client.

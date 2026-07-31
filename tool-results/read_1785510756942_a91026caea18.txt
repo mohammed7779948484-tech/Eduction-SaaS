@@ -1,0 +1,1820 @@
+     1→# Phase 2 Master Task
+     2→# Implement All Remaining Public-Site Pages Through Controlled Parallel Subagent Waves
+     3→You are continuing inside the EXISTING Mental Arithmetic Program Next.js repository.
+     4→The homepage and design system have already passed a dedicated refinement and design-lock stage.
+     5→You must now implement ALL remaining public-site pages while preserving:
+     6→- The approved visual identity.
+     7→- The locked homepage design language.
+     8→- The existing Tailwind CSS v4 token system.
+     9→- The existing shadcn/ui component architecture.
+    10→- The existing Framer Motion system.
+    11→- The centralized GSAP rules.
+    12→- Arabic-first RTL behavior.
+    13→- Existing responsive rules.
+    14→- Existing documentation.
+    15→- Existing verified agent skills.
+    16→- The frontend-only prototype scope.
+    17→This is an implementation and integration phase.
+    18→It is not a new discovery project.
+    19→It is not a redesign of the homepage.
+    20→It is not a backend-development phase.
+    21→The remaining pages must be implemented through controlled parallel waves of page-builder subagents, followed by specialist review waves and repeated correction loops.
+    22→---
+    23→# Your Role: You Are the Parent Orchestrator Agent
+    24→You are the same primary agent that previously inspected this repository, established the design system, implemented the homepage, coordinated the specialist reviewers, and completed the homepage design-lock phase.
+    25→The user is giving this Phase 2 prompt directly to you.
+    26→There is no separate parent agent above you.
+    27→You are the Parent Orchestrator Agent for this entire phase.
+    28→Every time this prompt says “the parent agent,” “the orchestrator,” or “the primary agent,” it refers directly to you, the agent currently executing this prompt.
+    29→You must personally:
+    30→- Read the complete repository and documentation.
+    31→- Reconstruct the full project context.
+    32→- Create the Phase 2 implementation plan.
+    33→- Divide the remaining pages into controlled implementation waves.
+    34→- Determine which pages may be built safely in parallel.
+    35→- Inspect component requirements before each wave.
+    36→- Install and customize required shadcn/ui components before delegation.
+    37→- Prepare all shared components and shared architectural foundations.
+    38→- Write a dedicated, detailed prompt for every page-builder subagent.
+    39→- Assign verified skills to every subagent.
+    40→- Create and supervise the subagents.
+    41→- Review every returned implementation.
+    42→- Merge and integrate approved work.
+    43→- Resolve conflicts.
+    44→- Perform shared and architectural corrections.
+    45→- Create separate review subagents after every implementation wave.
+    46→- Run repeated implementation, review, correction, and verification loops.
+    47→- Decide when a wave has passed its quality gate.
+    48→- Maintain all repository-wide documentation.
+    49→- Perform the final production verification.
+    50→- Decide whether the complete frontend prototype is ready for presentation.
+    51→You are not merely a coordinator who passes the full task to subagents.
+    52→You must think, plan, prepare, supervise, integrate, test, correct, and approve the work.
+    53→The subagents are temporary specialists working under your direction.
+    54→They do not own the project architecture.
+    55→They do not make final decisions.
+    56→They do not decide the implementation waves.
+    57→They do not install dependencies.
+    58→They do not edit global systems unless you explicitly assign a narrowly scoped shared task.
+    59→They do not approve their own work.
+    60→You remain accountable for the correctness, visual quality, consistency, and completeness of the entire website.
+    61→---
+    62→# 1. Primary Objective
+    63→Implement all remaining public-site pages as a polished, coherent, responsive, interactive frontend prototype suitable for presentation to the client.
+    64→The result must feel like one professionally designed website.
+    65→It must not look like:
+    66→- Ten independently generated AI pages.
+    67→- A collection of unrelated templates.
+    68→- Repeated page layouts with changed text.
+    69→- Generic SaaS landing pages.
+    70→- A shadcn component showcase.
+    71→- A production platform pretending to be functional.
+    72→Every page must:
+    73→- Serve its specific visitor goal.
+    74→- Use the approved design system.
+    75→- Reuse shared components appropriately.
+    76→- Have a distinctive but related composition.
+    77→- Be Arabic-first and fully RTL.
+    78→- Work on mobile, tablet, laptop, and large desktop.
+    79→- Use realistic demonstration content.
+    80→- Avoid unsupported factual claims.
+    81→- Remain frontend-only.
+    82→---
+    83→# 2. Absolute Frontend-Only Boundary
+    84→This project is a visual and interactive frontend prototype only.
+    85→Do not add or restore:
+    86→- A database.
+    87→- Prisma.
+    88→- PostgreSQL.
+    89→- SQLite.
+    90→- Payload CMS.
+    91→- Any CMS.
+    92→- Authentication.
+    93→- NextAuth.
+    94→- User accounts.
+    95→- Server-side form processing.
+    96→- API routes for form submission.
+    97→- External form services.
+    98→- Payment gateways.
+    99→- Real payment processing.
+   100→- Real registration.
+   101→- Real bookings.
+   102→- Email sending.
+   103→- SMS sending.
+   104→- WhatsApp API integration.
+   105→- File uploads.
+   106→- A real map API.
+   107→- A real AI assistant.
+   108→- A real student platform.
+   109→- A real parent dashboard.
+   110→- A real trainer portal.
+   111→- Analytics requiring backend setup.
+   112→- Server-state libraries without an actual frontend need.
+   113→Forms may only:
+   114→- Validate locally.
+   115→- Simulate a short loading state.
+   116→- Display a prototype success message or toast.
+   117→- Reset locally.
+   118→- Store temporary UI state in memory when needed.
+   119→Forms must never:
+   120→- Send a network request.
+   121→- Claim that real registration occurred.
+   122→- Claim that a school request was received.
+   123→- Claim that payment was processed.
+   124→- Persist personal data.
+   125→- Collect real child data for storage.
+   126→All prototype behavior must be transparent and non-destructive.
+   127→---
+   128→# 3. Your Responsibilities as the Parent Orchestrator
+   129→You are the parent agent, lead architect, design-system owner, integration engineer, and final quality controller.
+   130→Every time this prompt says “the parent agent,” “the orchestrator,” or “the primary agent,” it refers directly to you, the agent currently executing this prompt.
+   131→You must personally own:
+   132→- Repository understanding.
+   133→- Source interpretation.
+   134→- Wave planning.
+   135→- Page allocation.
+   136→- Shared architecture.
+   137→- Shared components.
+   138→- shadcn component installation.
+   139→- Dependency decisions.
+   140→- Skill assignment.
+   141→- Subagent prompt creation.
+   142→- Merge and integration.
+   143→- Conflict resolution.
+   144→- Cross-page consistency.
+   145→- Review consolidation.
+   146→- Shared fixes.
+   147→- Final site-wide verification.
+   148→- Final approval.
+   149→Page-builder subagents may implement individual pages.
+   150→They must not control:
+   151→- Global architecture.
+   152→- Design tokens.
+   153→- Shared dependency installation.
+   154→- `components/ui`.
+   155→- Navigation architecture.
+   156→- Global motion tokens.
+   157→- Global typography.
+   158→- Root layout.
+   159→- Package management.
+   160→- Repository-wide documentation.
+   161→- Final integration.
+   162→You must prepare the repository before launching each implementation wave.
+   163→---
+   164→# 4. Mandatory Documentation and Repository Reading
+   165→Before planning or editing anything, read the complete project context.
+   166→Do not rely on memory from the previous phase.
+   167→## 4.1 Read Every Project Documentation File
+   168→Recursively inspect all Markdown documentation in the repository, including at minimum:
+   169→- `README.md`
+   170→- `AGENTS.md`
+   171→- `DESIGN.md`
+   172→- `docs/SOURCE_OF_TRUTH.md`
+   173→- `docs/PROJECT_CONTEXT.md`
+   174→- `docs/INFORMATION_ARCHITECTURE.md`
+   175→- `docs/PAGE_SPECS.md`
+   176→- `docs/REPOSITORY_AUDIT.md`
+   177→- `docs/DEPENDENCY_AUDIT.md`
+   178→- `docs/SKILLS.md`
+   179→- `docs/MOTION_GUIDELINES.md`
+   180→- `docs/ASSET_GUIDELINES.md`
+   181→- `docs/IMPLEMENTATION_PLAN.md`
+   182→- `docs/QA_CHECKLIST.md`
+   183→- `docs/PROGRESS.md`
+   184→- `docs/REVIEW_LOG.md`
+   185→- `docs/DECISION_LOG.md`
+   186→- `docs/HOMEPAGE_DESIGN_LOCK_AUDIT.md`
+   187→- Any new documentation generated during the design-lock phase.
+   188→- Any nested `AGENTS.md` files.
+   189→- Any page-specific specification files.
+   190→Do not skip files because their names look familiar.
+   191→## 4.2 Reopen the Original Authoritative Sources
+   192→Reinspect:
+   193→1. The comprehensive Phase 1 proposal PDF.
+   194→2. The client identity and execution-concept DOCX.
+   195→3. All embedded images in the DOCX.
+   196→4. The original homepage reference image.
+   197→Use the original sources to verify documentation, not to bypass it.
+   198→## 4.3 Inspect the Current Implementation
+   199→Inspect:
+   200→- All existing routes.
+   201→- Root layout.
+   202→- Header.
+   203→- Footer.
+   204→- Navigation data.
+   205→- Design-system page.
+   206→- Design tokens.
+   207→- Typography.
+   208→- Motion presets.
+   209→- GSAP layer.
+   210→- Shared brand components.
+   211→- Shared layout components.
+   212→- Content files.
+   213→- Current forms and dialogs.
+   214→- Current localized content structure.
+   215→- Current package dependencies.
+   216→- Current shadcn components.
+   217→- Current Git status.
+   218→Run the current project and visually inspect:
+   219→- Homepage.
+   220→- `/design-system`.
+   221→- Any existing prototype-safe routes.
+   222→Do not design pages without first seeing the approved implementation.
+   223→---
+   224→# 5. Establish the Exact Page Inventory
+   225→The homepage is already complete.
+   226→Implement the following remaining pages, subject to the exact route names defined by the current documentation and route configuration:
+   227→1. About — من نحن.
+   228→2. Program — البرنامج.
+   229→3. Learning Channels — القنوات التعليمية.
+   230→4. Virtual Platform — المنصة الافتراضية.
+   231→5. Registration and Trial Lesson — التسجيل والحصة التجريبية.
+   232→6. Contact — تواصل معنا.
+   233→7. Schools and Institutions — المدارس والمؤسسات.
+   234→8. Trainer Training — تدريب المدربين.
+   235→9. Frequently Asked Questions — الأسئلة الشائعة.
+   236→10. Privacy, Child Protection, and Terms — الخصوصية وحماية الطفل والشروط.
+   237→Do not create duplicate routes for the same purpose.
+   238→If current documentation separates legal content differently, preserve the documented route architecture and record the decision.
+   239→Create or update:
+   240→`docs/PAGE_IMPLEMENTATION_MATRIX.md`
+   241→For every page include:
+   242→- Arabic title.
+   243→- English title when the current bilingual architecture requires it.
+   244→- Route.
+   245→- Primary audience.
+   246→- Main visitor goal.
+   247→- Primary CTA.
+   248→- Secondary CTA.
+   249→- Required sections.
+   250→- Required shared components.
+   251→- Required shadcn primitives.
+   252→- Required interactions.
+   253→- Required content data.
+   254→- Required motion patterns.
+   255→- Source references.
+   256→- Prototype assumptions.
+   257→- Builder subagent.
+   258→- Assigned skills.
+   259→- Wave.
+   260→- Implementation status.
+   261→- Review status.
+   262→- Final approval status.
+   263→---
+   264→# 6. Create Detailed Page Build Briefs Before Coding
+   265→Before launching any page-builder subagent, create a detailed build brief for each page.
+   266→Create:
+   267→```text
+   268→docs/page-briefs/
+   269→├── about.md
+   270→├── program.md
+   271→├── channels.md
+   272→├── platform.md
+   273→├── registration.md
+   274→├── contact.md
+   275→├── schools.md
+   276→├── trainers.md
+   277→├── faq.md
+   278→└── privacy.md
+   279→
+   280→Each brief must be derived from:
+   281→
+   282→* docs/PAGE_SPECS.md
+   283→* docs/INFORMATION_ARCHITECTURE.md
+   284→* DESIGN.md
+   285→* Original client sources.
+   286→* Approved homepage patterns.
+   287→* Existing design-system components.
+   288→
+   289→Each page brief must include:
+   290→
+   291→Page Purpose
+   292→
+   293→* Audience.
+   294→* Visitor intent.
+   295→* Conversion objective.
+   296→* Trust objective.
+   297→* Relationship to other pages.
+   298→
+   299→Required Content
+   300→
+   301→* Exact required sections.
+   302→* Required terminology.
+   303→* Required messages.
+   304→* Required CTA.
+   305→* Demo-content assumptions.
+   306→* Claims that must not be invented.
+   307→
+   308→Visual Direction
+   309→
+   310→* Page-specific visual thesis.
+   311→* Recommended composition.
+   312→* Which homepage patterns may be reused.
+   313→* Which patterns must not be repeated unnecessarily.
+   314→* Page-specific illustration direction.
+   315→* Abacus-inspired visual treatment where relevant.
+   316→* Responsive priorities.
+   317→
+   318→Component Plan
+   319→
+   320→* Existing shared components to use.
+   321→* Existing shadcn primitives to use.
+   322→* New page-specific components allowed.
+   323→* New shared components proposed.
+   324→* Components the page agent is forbidden to duplicate.
+   325→
+   326→Interaction Plan
+   327→
+   328→* Framer Motion patterns.
+   329→* Forms or local interactions.
+   330→* Tabs.
+   331→* Accordions.
+   332→* Comparison controls.
+   333→* Stepper behavior.
+   334→* Carousel behavior.
+   335→* Local filtering.
+   336→* Reduced-motion behavior.
+   337→
+   338→File Ownership
+   339→
+   340→* Exact files the page agent may create.
+   341→* Exact files the page agent may edit.
+   342→* Files the page agent must not edit.
+   343→
+   344→Acceptance Criteria
+   345→
+   346→* Content.
+   347→* Visual quality.
+   348→* RTL.
+   349→* Accessibility.
+   350→* Responsive behavior.
+   351→* Component reuse.
+   352→* Performance.
+   353→* Prototype-scope compliance.
+   354→
+   355→Do not launch implementation agents using vague one-paragraph instructions.
+   356→
+   357→⸻
+   358→
+   359→7. Verify Skills Before Delegation
+   360→
+   361→Read the final docs/SKILLS.md produced during the design-lock phase.
+   362→
+   363→Verify:
+   364→
+   365→* Which skills are actually installed.
+   366→* Which skills are discoverable.
+   367→* Which skills have readable SKILL.md files.
+   368→* Which skills require external tools.
+   369→* Which skills failed installation.
+   370→* Which built-in capabilities substitute for missing skills.
+   371→
+   372→Do not invent skill names.
+   373→
+   374→Do not assign an uninstalled skill to a subagent.
+   375→
+   376→For every implementation and review subagent:
+   377→
+   378→* State the exact verified skills it must use.
+   379→* Tell it to open and read the full SKILL.md for each assigned skill.
+   380→* Tell it when each skill applies.
+   381→* Require it to report which skills it actually used.
+   382→* Require it to distinguish skill guidance from its own design judgment.
+   383→
+   384→Likely skill categories include:
+   385→
+   386→* Frontend design.
+   387→* Design systems.
+   388→* shadcn/ui.
+   389→* Next.js.
+   390→* React best practices.
+   391→* Tailwind CSS v4.
+   392→* Accessibility.
+   393→* Arabic RTL.
+   394→* Framer Motion.
+   395→* Browser automation.
+   396→* Responsive visual QA.
+   397→* Planning and task decomposition.
+   398→
+   399→Use the exact installed skill names from the repository.
+   400→
+   401→⸻
+   402→
+   403→8. Parent-Only Component Readiness Gate
+   404→
+   405→Before launching each page implementation wave, perform a Component Readiness Gate.
+   406→
+   407→Page agents must not discover halfway through implementation that they need to install or redesign shared primitives.
+   408→
+   409→8.1 Inspect Page Requirements
+   410→
+   411→For every page in the upcoming wave:
+   412→
+   413→* Read its page brief.
+   414→* List all interactions.
+   415→* List all forms.
+   416→* List all navigation patterns.
+   417→* List all content layouts.
+   418→* List all reusable visual patterns.
+   419→* List all required shadcn primitives.
+   420→
+   421→8.2 Inspect Existing Components
+   422→
+   423→Check:
+   424→
+   425→* src/components/ui
+   426→* src/components/brand
+   427→* src/components/layout
+   428→* src/components/sections
+   429→* src/components/motion
+   430→* /design-system
+   431→
+   432→Determine whether each required component:
+   433→
+   434→* Already exists and is suitable.
+   435→* Exists but needs a centralized variant.
+   436→* Must be installed from shadcn.
+   437→* Must be created as a shared branded component.
+   438→* Should remain page-specific.
+   439→
+   440→8.3 Install shadcn Components Centrally
+   441→
+   442→Only you, the Parent Orchestrator Agent, may install shadcn components.
+   443→
+   444→Use the current package manager and the official shadcn CLI compatible with the repository.
+   445→
+   446→Install only components required by the upcoming wave.
+   447→
+   448→Possible needs may include:
+   449→
+   450→* Accordion.
+   451→* Tabs.
+   452→* Dialog.
+   453→* Sheet.
+   454→* Form.
+   455→* Input.
+   456→* Textarea.
+   457→* Select.
+   458→* Radio Group.
+   459→* Checkbox.
+   460→* Progress.
+   461→* Carousel.
+   462→* Tooltip.
+   463→* Badge.
+   464→* Card.
+   465→* Separator.
+   466→* Scroll Area.
+   467→* Alert.
+   468→* Skeleton.
+   469→
+   470→Do not install everything preemptively.
+   471→
+   472→Do not recreate an existing shadcn primitive manually.
+   473→
+   474→After installing:
+   475→
+   476→* Inspect the generated files.
+   477→* Integrate semantic tokens.
+   478→* Adapt RTL behavior.
+   479→* Adapt focus states.
+   480→* Add approved design-system variants.
+   481→* Verify accessibility.
+   482→* Add demonstrations to /design-system.
+   483→* Run lint and build.
+   484→* Commit or checkpoint the foundation.
+   485→
+   486→8.4 Prepare Shared Brand Components
+   487→
+   488→You, the Parent Orchestrator Agent, must create or refine shared components required by multiple pages before delegation.
+   489→
+   490→Possible shared components include:
+   491→
+   492→* PageHero
+   493→* PageIntro
+   494→* Breadcrumbs
+   495→* TrustStrip
+   496→* FeatureGrid
+   497→* ProcessTimeline
+   498→* ComparisonTable
+   499→* MetricCard
+   500→* LevelCard
+   501→* ProfileCard
+   502→* BranchCard
+   503→* ContactMethodCard
+   504→* FormSection
+   505→* PrototypeFormNotice
+   506→* SuccessState
+   507→* FAQGroup
+   508→* LegalSection
+   509→* TableOfContents
+   510→* PlatformFeatureCard
+   511→* PartnershipStep
+   512→* AudienceCard
+   513→* CTASection
+   514→* EmptyPlatformPreview
+   515→* Shared illustration frames.
+   516→
+   517→Only create a shared abstraction when at least two pages genuinely need it or when it is a foundational design-system pattern.
+   518→
+   519→Do not over-abstract every section.
+   520→
+   521→8.5 Readiness Gate Completion
+   522→
+   523→Do not launch the wave until:
+   524→
+   525→* Required shadcn primitives are present.
+   526→* Shared variants are integrated.
+   527→* /design-system demonstrates new primitives.
+   528→* Shared components compile.
+   529→* Page agents have clear allowed-file boundaries.
+   530→* No page agent needs to install a package.
+   531→* No page agent needs to edit global tokens.
+   532→
+   533→If a page agent later discovers a missing shared component, it must stop and submit a Component Request to you.
+   534→
+   535→You then:
+   536→
+   537→1. Evaluate the request.
+   538→2. Install or create the component centrally.
+   539→3. Update /design-system.
+   540→4. Verify it.
+   541→5. Tell the page agent to resume.
+   542→
+   543→⸻
+   544→
+   545→9. Parallel Work Isolation
+   546→
+   547→Page-builder subagents will work simultaneously.
+   548→
+   549→Prevent merge conflicts and uncontrolled edits.
+   550→
+   551→Use isolated worktrees, branches, agent workspaces, or the platform’s supported isolation system.
+   552→
+   553→Each page agent must have:
+   554→
+   555→* A dedicated branch or isolated workspace.
+   556→* A unique page route.
+   557→* A unique content file.
+   558→* A unique page-component directory.
+   559→* A narrow file-ownership list.
+   560→
+   561→Page agents must not edit:
+   562→
+   563→* package.json
+   564→* Lockfiles.
+   565→* Root layout.tsx.
+   566→* Global CSS.
+   567→* Token files.
+   568→* DESIGN.md
+   569→* AGENTS.md
+   570→* Navigation configuration.
+   571→* Footer.
+   572→* Header.
+   573→* Shared shadcn primitives.
+   574→* Shared motion tokens.
+   575→* Shared GSAP files.
+   576→* Repository-wide documentation.
+   577→* Another page agent’s files.
+   578→
+   579→Page agents may submit requested shared changes in their completion report.
+   580→
+   581→You own all shared changes and merge resolution.
+   582→
+   583→⸻
+   584→
+   585→10. Page-Agent Prompt Requirements
+   586→
+   587→Before launching each page-builder subagent, you must write a dedicated professional prompt.
+   588→
+   589→Do not send the same generic prompt to every agent.
+   590→
+   591→Each prompt must contain:
+   592→
+   593→1. A concise project summary.
+   594→2. Prototype-only scope.
+   595→3. Page name and route.
+   596→4. Page audience.
+   597→5. Page goal.
+   598→6. Primary conversion.
+   599→7. Exact required sections.
+   600→8. Source-of-truth files to read.
+   601→9. Documentation files to read.
+   602→10. Exact assigned skills.
+   603→11. Exact existing components to use.
+   604→12. Exact allowed files.
+   605→13. Exact forbidden files.
+   606→14. Interaction requirements.
+   607→15. RTL requirements.
+   608→16. Accessibility requirements.
+   609→17. Responsive requirements.
+   610→18. Motion requirements.
+   611→19. Content assumptions.
+   612→20. Prohibited backend behavior.
+   613→21. Testing requirements.
+   614→22. Required completion report.
+   615→
+   616→Use the following structure when generating each page-agent prompt:
+   617→
+   618→You are the implementation owner for one page only:
+   619→PAGE:
+   620→ROUTE:
+   621→WAVE:
+   622→PRIMARY AUDIENCE:
+   623→PRIMARY GOAL:
+   624→PRIMARY CTA:
+   625→Before coding, read:
+   626→- AGENTS.md
+   627→- DESIGN.md
+   628→- Relevant nested AGENTS.md
+   629→- docs/SOURCE_OF_TRUTH.md
+   630→- docs/PROJECT_CONTEXT.md
+   631→- docs/PAGE_SPECS.md
+   632→- docs/INFORMATION_ARCHITECTURE.md
+   633→- docs/MOTION_GUIDELINES.md
+   634→- docs/ASSET_GUIDELINES.md
+   635→- Your exact page brief
+   636→- Existing homepage and design-system implementations
+   637→- Full SKILL.md files for your assigned verified skills
+   638→Use these verified skills:
+   639→- [exact skill]
+   640→- [exact skill]
+   641→- [exact skill]
+   642→Required page sections:
+   643→- [detailed section]
+   644→- [detailed section]
+   645→- [detailed section]
+   646→You may edit only:
+   647→- [route files]
+   648→- [page-specific components]
+   649→- [page-specific content]
+   650→- [page-specific tests where applicable]
+   651→You must not edit:
+   652→- Global tokens
+   653→- Root layout
+   654→- Package files
+   655→- Lockfiles
+   656→- Shared UI primitives
+   657→- Header
+   658→- Footer
+   659→- Navigation
+   660→- Other pages
+   661→- Repository-wide documentation
+   662→Use only the existing approved design system and parent-prepared components.
+   663→Do not install dependencies.
+   664→Do not create backend functionality.
+   665→Do not send form data.
+   666→Do not create API routes.
+   667→Do not invent verified statistics, qualifications, partnerships, or testimonials.
+   668→Implement:
+   669→- Full Arabic-first RTL page
+   670→- Existing bilingual behavior only when required by the locked architecture
+   671→- Responsive mobile/tablet/desktop composition
+   672→- Accessible semantic markup
+   673→- Correct keyboard interaction
+   674→- Reduced-motion support
+   675→- Centralized demo content
+   676→- Page metadata using static known information
+   677→- Prototype-safe interactions
+   678→Before completion:
+   679→- Run lint on affected files
+   680→- Run type checks
+   681→- Render the page
+   682→- Inspect mobile and desktop
+   683→- Inspect the browser console
+   684→- Verify no overflow
+   685→- Verify no broken content
+   686→- Verify no direct raw brand colors
+   687→- Verify no local duplicate primitives
+   688→Return:
+   689→- Files created
+   690→- Files changed
+   691→- Components reused
+   692→- Skills used
+   693→- Interactions implemented
+   694→- Assumptions
+   695→- Screenshots
+   696→- Validation results
+   697→- Shared component requests
+   698→- Remaining concerns
+   699→
+   700→You must expand this template with the page’s actual detailed requirements.
+   701→
+   702→⸻
+   703→
+   704→11. Implementation Wave 1 — Core Educational Story
+   705→
+   706→Launch four page-builder subagents simultaneously.
+   707→
+   708→Wave 1A — About Page
+   709→
+   710→Route: use the route defined by current navigation and page specifications.
+   711→
+   712→Primary purpose:
+   713→
+   714→* Build institutional trust.
+   715→* Explain the program’s purpose.
+   716→* Show methodology and values.
+   717→* Present leadership or team direction.
+   718→* Demonstrate child-protection commitment.
+   719→
+   720→Required areas, subject to exact source specifications:
+   721→
+   722→* Page hero.
+   723→* Program story.
+   724→* Vision.
+   725→* Mission.
+   726→* Values.
+   727→* Educational methodology.
+   728→* Why mental arithmetic matters.
+   729→* Lead trainer or team presentation using demo content where real data is unavailable.
+   730→* Quality and trust principles.
+   731→* Child-protection commitment.
+   732→* Institutional partnership readiness.
+   733→* Final CTA.
+   734→
+   735→Do not invent:
+   736→
+   737→* Accreditations.
+   738→* Legal certifications.
+   739→* Team names.
+   740→* Awards.
+   741→* Partner organizations.
+   742→
+   743→Use explicit placeholders or clearly representative prototype content where required.
+   744→
+   745→Wave 1B — Program Page
+   746→
+   747→Primary purpose:
+   748→
+   749→* Explain Soroban and the educational program in detail.
+   750→* Help parents understand suitability and progression.
+   751→* Convert interest into a trial lesson.
+   752→
+   753→Required areas:
+   754→
+   755→* Page hero.
+   756→* What mental arithmetic is.
+   757→* What Soroban is.
+   758→* How learning progresses.
+   759→* Ten program levels.
+   760→* Target ages.
+   761→* Program duration or structure only when supported.
+   762→* Core skills.
+   763→* Expected educational outcomes.
+   764→* Learning journey.
+   765→* Assessment or progression explanation.
+   766→* Program-related FAQ.
+   767→* Final trial CTA.
+   768→
+   769→Create a strong reusable treatment for the ten levels.
+   770→
+   771→Do not present unsupported guaranteed outcomes.
+   772→
+   773→Wave 1C — Learning Channels Page
+   774→
+   775→Primary purpose:
+   776→
+   777→* Explain the three learning routes.
+   778→* Help families or institutions identify the suitable path.
+   779→
+   780→Required channels:
+   781→
+   782→* Learning at program centers.
+   783→* Learning through partner schools.
+   784→* Future online or virtual-platform learning.
+   785→
+   786→Required areas:
+   787→
+   788→* Page hero.
+   789→* Three-channel overview.
+   790→* Detailed explanation of each channel.
+   791→* Who each channel suits.
+   792→* Experience and delivery model.
+   793→* Benefits.
+   794→* Simple comparison.
+   795→* Selection guidance.
+   796→* Relevant CTA for each channel.
+   797→* Future-platform status clearly marked.
+   798→
+   799→Do not present the virtual channel as currently operational unless the sources confirm it.
+   800→
+   801→Wave 1D — Virtual Platform Page
+   802→
+   803→Primary purpose:
+   804→
+   805→* Present a credible vision for the future platform.
+   806→* Build interest in Phase 2.
+   807→* Avoid pretending that the platform exists.
+   808→
+   809→Required areas:
+   810→
+   811→* Page hero with a clear “coming soon” status.
+   812→* Platform vision.
+   813→* Student experience concept.
+   814→* Parent portal concept.
+   815→* Exercises and practice concept.
+   816→* Progress-tracking concept.
+   817→* Virtual-class concept.
+   818→* Lesson-library concept.
+   819→* Safety and privacy principles.
+   820→* Conceptual interface previews.
+   821→* Frontend-only interest interaction.
+   822→* Final CTA.
+   823→
+   824→Every dashboard or platform screen must be clearly a conceptual visual preview.
+   825→
+   826→Do not implement a dashboard route or LMS behavior.
+   827→
+   828→⸻
+   829→
+   830→12. Wave 1 Integration and Review Loop
+   831→
+   832→After all four implementation agents finish:
+   833→
+   834→12.1 Your Integration Responsibilities
+   835→
+   836→You must:
+   837→
+   838→* Review each completion report.
+   839→* Inspect every changed file.
+   840→* Reject unrelated edits.
+   841→* Merge pages carefully.
+   842→* Resolve conflicts.
+   843→* Integrate approved shared-component requests.
+   844→* Update navigation only after routes exist.
+   845→* Run lint.
+   846→* Run type checks.
+   847→* Run production build.
+   848→* Start the rendered site.
+   849→* Inspect all four pages.
+   850→
+   851→12.2 Launch Five Review Subagents in Parallel
+   852→
+   853→Create five fresh review subagents:
+   854→
+   855→Review Agent A — Source and Content Audit
+   856→
+   857→Review:
+   858→
+   859→* Required sections.
+   860→* Terminology.
+   861→* Claims.
+   862→* Audience alignment.
+   863→* CTA alignment.
+   864→* Missing source requirements.
+   865→* Unsupported invented facts.
+   866→
+   867→Review Agent B — Visual and Design-System Audit
+   868→
+   869→Review:
+   870→
+   871→* Visual quality.
+   872→* Brand consistency.
+   873→* Typography.
+   874→* Spacing.
+   875→* Component variants.
+   876→* Page distinctiveness.
+   877→* Excessive repetition.
+   878→* Generic AI design.
+   879→* Design-system compliance.
+   880→
+   881→Review Agent C — Architecture and Reuse Audit
+   882→
+   883→Review:
+   884→
+   885→* Shared-component use.
+   886→* Duplication.
+   887→* Client/server boundaries.
+   888→* Data centralization.
+   889→* Local hardcoded values.
+   890→* Dependency violations.
+   891→* Unnecessary abstraction.
+   892→* Cross-page consistency.
+   893→
+   894→Review Agent D — RTL and Accessibility Audit
+   895→
+   896→Review:
+   897→
+   898→* RTL layout.
+   899→* Arabic typography.
+   900→* Semantics.
+   901→* Keyboard behavior.
+   902→* Focus states.
+   903→* Contrast.
+   904→* Touch targets.
+   905→* Logical direction.
+   906→* Reduced motion.
+   907→
+   908→Review Agent E — Responsive Visual and Motion QA
+   909→
+   910→Review rendered pages at required viewports.
+   911→
+   912→Check:
+   913→
+   914→* Overflow.
+   915→* Clipping.
+   916→* Visual hierarchy.
+   917→* Section rhythm.
+   918→* Illustrations.
+   919→* Motion.
+   920→* Console.
+   921→* Hydration.
+   922→* Mobile navigation.
+   923→* Page transitions.
+   924→
+   925→12.3 Findings Format
+   926→
+   927→Every reviewer must classify findings as:
+   928→
+   929→* BLOCKER
+   930→* CRITICAL
+   931→* MAJOR
+   932→* MINOR
+   933→* SUGGESTION
+   934→
+   935→Each finding must include:
+   936→
+   937→* Page.
+   938→* Viewport when applicable.
+   939→* File or component.
+   940→* Evidence.
+   941→* Violated source or rule.
+   942→* Recommended correction.
+   943→* Whether it blocks the wave.
+   944→
+   945→12.4 Correction Loop
+   946→
+   947→You must:
+   948→
+   949→1. Consolidate duplicate findings.
+   950→2. Resolve conflicts between reviewers.
+   951→3. Accept or reject each finding.
+   952→4. Record reasons for rejection.
+   953→5. Apply shared fixes personally.
+   954→6. Send focused correction prompts to original page agents when page-local fixes are substantial.
+   955→7. Re-run reviewers after correction.
+   956→8. Repeat until no blocker, critical, or major issue remains.
+   957→
+   958→Do not begin Wave 2 before Wave 1 is approved.
+   959→
+   960→⸻
+   961→
+   962→13. Implementation Wave 2 — Conversion and Institutional Pages
+   963→
+   964→After Wave 1 approval, run a new Component Readiness Gate.
+   965→
+   966→Then launch four page-builder subagents simultaneously.
+   967→
+   968→Wave 2A — Registration and Trial Lesson Page
+   969→
+   970→Primary purpose:
+   971→
+   972→* Present a clear, low-friction frontend-only registration experience.
+   973→* Demonstrate how trial booking and student interest would work.
+   974→
+   975→Required areas:
+   976→
+   977→* Page hero.
+   978→* Clear choice between trial lesson and general registration when supported.
+   979→* Parent or guardian details.
+   980→* Student details.
+   981→* Age range.
+   982→* Preferred channel.
+   983→* Branch selection.
+   984→* Preferred schedule using static choices.
+   985→* Contact preference.
+   986→* Consent acknowledgement.
+   987→* Prototype notice.
+   988→* Local validation.
+   989→* Loading simulation.
+   990→* Prototype success state.
+   991→* Alternative WhatsApp CTA when appropriate.
+   992→
+   993→Do not:
+   994→
+   995→* Submit data.
+   996→* Store personal information.
+   997→* Connect to a payment service.
+   998→* Collect real card information.
+   999→* Claim that a booking was confirmed.
+  1000→* Use a database.
+  1001→* Create an API route.
+  1002→
+  1003→Pricing and payment concepts may be shown only if source documentation supports them and must be clearly non-functional.
+  1004→
+  1005→Wave 2B — Contact Page
+  1006→
+  1007→Primary purpose:
+  1008→
+  1009→* Make direct communication easy.
+  1010→* Present branches and contact options clearly.
+  1011→
+  1012→Required areas:
+  1013→
+  1014→* Page hero.
+  1015→* Phone.
+  1016→* WhatsApp.
+  1017→* Email.
+  1018→* Branch cards.
+  1019→* Addresses.
+  1020→* Opening hours.
+  1021→* Static or illustrative map treatment.
+  1022→* General contact form.
+  1023→* Prototype success state.
+  1024→* Social links when available.
+  1025→* Common contact questions.
+  1026→* Emergency or child-protection contact guidance only when supported.
+  1027→
+  1028→Do not add a map provider unless explicitly justified and approved by you.
+  1029→
+  1030→Do not send form data.
+  1031→
+  1032→Wave 2C — Schools and Institutions Page
+  1033→
+  1034→Primary purpose:
+  1035→
+  1036→* Create a strong B2B partnership proposition.
+  1037→* Explain how schools benefit.
+  1038→* Collect frontend-only partnership interest.
+  1039→
+  1040→Required areas:
+  1041→
+  1042→* Page hero.
+  1043→* Why schools partner with the program.
+  1044→* Delivery models.
+  1045→* During-school, after-school, or activity models only when supported.
+  1046→* Benefits to schools.
+  1047→* Benefits to students.
+  1048→* Implementation process.
+  1049→* Partnership steps.
+  1050→* Expected outcome categories without guaranteed claims.
+  1051→* Institutional trust.
+  1052→* Partnership FAQ.
+  1053→* Frontend-only school interest form.
+  1054→* Final partnership CTA.
+  1055→
+  1056→The page should feel institutional and credible without losing the main brand identity.
+  1057→
+  1058→Do not invent partner-school logos or partnership numbers.
+  1059→
+  1060→Wave 2D — Trainer Training Page
+  1061→
+  1062→Primary purpose:
+  1063→
+  1064→* Explain the trainer-development path.
+  1065→* Attract qualified interest.
+  1066→* Avoid presenting a real online training system.
+  1067→
+  1068→Required areas:
+  1069→
+  1070→* Page hero.
+  1071→* Who the path is for.
+  1072→* What prospective trainers would learn.
+  1073→* Skills developed.
+  1074→* Training stages.
+  1075→* Entry expectations.
+  1076→* Benefits.
+  1077→* Possible career or contribution paths without guarantees.
+  1078→* Application or interest process.
+  1079→* Frontend-only interest form.
+  1080→* FAQ.
+  1081→* Final CTA.
+  1082→
+  1083→Do not:
+  1084→
+  1085→* Build a course.
+  1086→* Build authentication.
+  1087→* Build certification.
+  1088→* Claim accreditation.
+  1089→* Guarantee employment.
+  1090→* Invent official qualification requirements.
+  1091→
+  1092→⸻
+  1093→
+  1094→14. Wave 2 Integration and Review Loop
+  1095→
+  1096→Repeat the complete Wave 1 process:
+  1097→
+  1098→1. Your integration.
+  1099→2. Five parallel specialist review agents.
+  1100→3. Source audit.
+  1101→4. Design-system audit.
+  1102→5. Architecture audit.
+  1103→6. RTL/accessibility audit.
+  1104→7. Responsive visual and motion QA.
+  1105→8. Consolidated findings.
+  1106→9. Your fixes.
+  1107→10. Focused page-agent corrections where needed.
+  1108→11. Reverification.
+  1109→12. Documentation updates.
+  1110→13. No progression with unresolved blocker, critical, or major issues.
+  1111→
+  1112→Pay special attention to:
+  1113→
+  1114→* Form consistency.
+  1115→* Prototype notices.
+  1116→* Local validation.
+  1117→* Consent wording.
+  1118→* No network requests.
+  1119→* No backend code.
+  1120→* No real personal-data storage.
+  1121→* No false success claims.
+  1122→* Institutional visual quality.
+  1123→* Mobile form usability.
+  1124→
+  1125→Do not begin Wave 3 before Wave 2 is approved.
+  1126→
+  1127→⸻
+  1128→
+  1129→15. Implementation Wave 3 — Support and Legal Completion
+  1130→
+  1131→After Wave 2 approval, run a final Component Readiness Gate.
+  1132→
+  1133→Launch two page-builder subagents simultaneously.
+  1134→
+  1135→You may simultaneously launch additional read-only content or legal-structure reviewers, but only two agents should own page implementation.
+  1136→
+  1137→Wave 3A — Frequently Asked Questions Page
+  1138→
+  1139→Primary purpose:
+  1140→
+  1141→* Reduce repeated questions.
+  1142→* Help parents, schools, and trainers find quick answers.
+  1143→* Route visitors to the correct next action.
+  1144→
+  1145→Required areas:
+  1146→
+  1147→* Page hero.
+  1148→* Local search or filtering.
+  1149→* FAQ categories.
+  1150→* Program questions.
+  1151→* Age and suitability questions.
+  1152→* Trial and registration questions.
+  1153→* Channel questions.
+  1154→* School-partnership questions.
+  1155→* Trainer-path questions.
+  1156→* Virtual-platform questions.
+  1157→* Contact escalation.
+  1158→* Final CTA.
+  1159→
+  1160→Use frontend-only local filtering.
+  1161→
+  1162→Use an accessible Accordion.
+  1163→
+  1164→Search must not call an API.
+  1165→
+  1166→FAQ content must remain centralized and reusable by other pages where appropriate.
+  1167→
+  1168→Wave 3B — Privacy, Child Protection, and Terms Page
+  1169→
+  1170→Primary purpose:
+  1171→
+  1172→* Present the prototype’s legal and safeguarding structure.
+  1173→* Build trust.
+  1174→* Avoid pretending that draft legal text is final legal advice.
+  1175→
+  1176→Required areas:
+  1177→
+  1178→* Page hero.
+  1179→* Table of contents.
+  1180→* Privacy overview.
+  1181→* Data categories concept.
+  1182→* Children’s-data protection.
+  1183→* Parent or guardian role.
+  1184→* Safeguarding principles.
+  1185→* Forms and communication.
+  1186→* Cookies or analytics only if relevant to the current prototype.
+  1187→* Data retention concept.
+  1188→* User rights concept.
+  1189→* Terms of use.
+  1190→* Contact for questions.
+  1191→* Last-updated treatment.
+  1192→* Clear draft or prototype status where necessary.
+  1193→
+  1194→Do not fabricate compliance certifications.
+  1195→
+  1196→Do not claim legal review occurred unless documented.
+  1197→
+  1198→Do not insert generic legal text without adapting it to the project context.
+  1199→
+  1200→Clearly document that production legal copy requires client and legal review.
+  1201→
+  1202→⸻
+  1203→
+  1204→16. Wave 3 Review Loop
+  1205→
+  1206→After implementation:
+  1207→
+  1208→* You integrate the two pages.
+  1209→* Launch the five specialist review agents again.
+  1210→* Add a dedicated legal/content-clarity reviewer when available.
+  1211→* Fix all blocker, critical, and major findings.
+  1212→* Verify FAQ data reuse.
+  1213→* Verify legal content status.
+  1214→* Verify search accessibility.
+  1215→* Verify table-of-contents navigation.
+  1216→* Verify mobile reading comfort.
+  1217→* Verify no unsupported legal claims.
+  1218→* Update all documentation.
+  1219→
+  1220→Do not proceed to final site integration until Wave 3 passes.
+  1221→
+  1222→⸻
+  1223→
+  1224→17. Page Design Quality Rules
+  1225→
+  1226→Every page must be recognizable as part of the same site, but not identical.
+  1227→
+  1228→Avoid repeating this exact formula on all pages:
+  1229→
+  1230→Page Hero
+  1231→→ Three Cards
+  1232→→ Four Cards
+  1233→→ CTA
+  1234→
+  1235→Instead, choose compositions based on each page’s purpose.
+  1236→
+  1237→Possible layout patterns include:
+  1238→
+  1239→* Editorial storytelling.
+  1240→* Timeline.
+  1241→* Process journey.
+  1242→* Comparison matrix.
+  1243→* Alternating media sections.
+  1244→* Feature showcase.
+  1245→* Level progression.
+  1246→* Tabbed content.
+  1247→* Illustrated concept panels.
+  1248→* Trust wall.
+  1249→* Form split layout.
+  1250→* Branch grid.
+  1251→* FAQ category navigation.
+  1252→* Legal reading layout.
+  1253→
+  1254→All patterns must still use:
+  1255→
+  1256→* Approved tokens.
+  1257→* Approved typography.
+  1258→* Approved radii.
+  1259→* Approved shadows.
+  1260→* Approved motion.
+  1261→* Approved containers.
+  1262→* Approved button hierarchy.
+  1263→* Approved illustration rules.
+  1264→
+  1265→No page may independently create a new visual identity.
+  1266→
+  1267→⸻
+  1268→
+  1269→18. Shared Visual Language
+  1270→
+  1271→Continue the locked homepage visual language through all pages using controlled motifs:
+  1272→
+  1273→* Abacus rails.
+  1274→* Bead forms.
+  1275→* Numerical markers.
+  1276→* Fine line grids.
+  1277→* Teal and navy geometry.
+  1278→* Orange reserved for conversion.
+  1279→* Educational diagrams.
+  1280→* Lightweight custom SVG illustrations.
+  1281→* Layered but restrained surfaces.
+  1282→* Strong Arabic hierarchy.
+  1283→* Generous whitespace.
+  1284→* Clear trust elements.
+  1285→
+  1286→Do not:
+  1287→
+  1288→* Place a full abacus in every hero.
+  1289→* Use the same illustration repeatedly.
+  1290→* Add random blobs.
+  1291→* Use generic neon.
+  1292→* Add unrelated glassmorphism.
+  1293→* Use excessive gradients.
+  1294→* Use stock imagery that conflicts with the brand.
+  1295→* Overanimate decorative details.
+  1296→
+  1297→Each page should adapt the shared language to its subject.
+  1298→
+  1299→⸻
+  1300→
+  1301→19. Content Architecture
+  1302→
+  1303→Keep page content outside large JSX files.
+  1304→
+  1305→Prefer:
+  1306→
+  1307→src/content/
+  1308→├── about.ts
+  1309→├── program.ts
+  1310→├── channels.ts
+  1311→├── platform.ts
+  1312→├── registration.ts
+  1313→├── contact.ts
+  1314→├── schools.ts
+  1315→├── trainers.ts
+  1316→├── faq.ts
+  1317→└── legal.ts
+  1318→
+  1319→Adapt to the existing repository architecture rather than forcing this exact structure.
+  1320→
+  1321→Requirements:
+  1322→
+  1323→* Centralized demo content.
+  1324→* Strong TypeScript typing.
+  1325→* Reusable FAQ records.
+  1326→* Reusable CTA records.
+  1327→* Reusable branch records.
+  1328→* Clear prototype labels.
+  1329→* No production secrets.
+  1330→* No personal information.
+  1331→* No hardcoded factual claims scattered in components.
+  1332→* No giant page component containing all copy.
+  1333→
+  1334→⸻
+  1335→
+  1336→20. Next.js and React Architecture
+  1337→
+  1338→Use Server Components by default.
+  1339→
+  1340→Use Client Components only when needed for:
+  1341→
+  1342→* Forms.
+  1343→* Dialogs.
+  1344→* Accordions requiring client behavior.
+  1345→* Tabs.
+  1346→* Carousels.
+  1347→* Local search.
+  1348→* Framer Motion.
+  1349→* Other real interactions.
+  1350→
+  1351→Do not convert entire pages to Client Components solely because one section is interactive.
+  1352→
+  1353→Isolate interactive islands.
+  1354→
+  1355→Requirements:
+  1356→
+  1357→* Correct metadata.
+  1358→* Semantic landmarks.
+  1359→* Accessible headings.
+  1360→* One clear h1 per page.
+  1361→* Logical heading hierarchy.
+  1362→* Correct Arabic lang and RTL inheritance.
+  1363→* No hydration mismatch.
+  1364→* Stable list keys.
+  1365→* No unnecessary global state.
+  1366→* No unnecessary Zustand use.
+  1367→* No TanStack Query.
+  1368→* No server-state fetching.
+  1369→* No API calls.
+  1370→* No route handlers for prototype forms.
+  1371→
+  1372→⸻
+  1373→
+  1374→21. Form Standards
+  1375→
+  1376→All forms across registration, contact, schools, and trainers must use one centralized form language.
+  1377→
+  1378→Use:
+  1379→
+  1380→* Existing shadcn form primitives.
+  1381→* React Hook Form when already retained.
+  1382→* Zod when already retained.
+  1383→* Shared field spacing.
+  1384→* Shared error style.
+  1385→* Shared required indicators.
+  1386→* Shared prototype notice.
+  1387→* Shared local loading state.
+  1388→* Shared success state.
+  1389→* Shared consent treatment.
+  1390→
+  1391→Forms must include:
+  1392→
+  1393→* Clear labels.
+  1394→* Useful help text.
+  1395→* Arabic error messages.
+  1396→* Keyboard accessibility.
+  1397→* Focus management.
+  1398→* Proper autocomplete values when appropriate.
+  1399→* 44px or larger touch targets.
+  1400→* Disabled and loading states.
+  1401→* Reduced-motion support.
+  1402→
+  1403→Do not:
+  1404→
+  1405→* Use placeholder text as the only label.
+  1406→* Ask for unnecessary child information.
+  1407→* Create fake network delays longer than needed.
+  1408→* Claim that data was sent.
+  1409→* Retain submitted data after the demo success state unless needed temporarily in memory.
+  1410→
+  1411→⸻
+  1412→
+  1413→22. Motion Standards
+  1414→
+  1415→Use CSS for simple state transitions.
+  1416→
+  1417→Use Framer Motion for:
+  1418→
+  1419→* Shared entrance presets.
+  1420→* Section reveals.
+  1421→* Staggered content.
+  1422→* Tabs.
+  1423→* Dialogs.
+  1424→* Local layout transitions.
+  1425→* Carousels.
+  1426→* Interactive visual feedback.
+  1427→
+  1428→Use GSAP only through the existing centralized GSAP layer.
+  1429→
+  1430→Do not add page-local GSAP imports.
+  1431→
+  1432→Most internal pages should not need a complex GSAP timeline.
+  1433→
+  1434→Use a page-level signature animation only when:
+  1435→
+  1436→* It clearly serves the content.
+  1437→* It remains lightweight.
+  1438→* It is reusable or documented.
+  1439→* It works with reduced motion.
+  1440→* It does not delay content.
+  1441→
+  1442→Do not animate Arabic characters individually.
+  1443→
+  1444→Do not make every page more animated than the homepage.
+  1445→
+  1446→⸻
+  1447→
+  1448→23. Navigation and Cross-Linking
+  1449→
+  1450→After all pages are implemented and approved, you must update centralized navigation.
+  1451→
+  1452→Requirements:
+  1453→
+  1454→* Header links point to real implemented routes.
+  1455→* Footer links point to real implemented routes.
+  1456→* No dead links.
+  1457→* No placeholder routes when a real page now exists.
+  1458→* Active-page state is clear.
+  1459→* Mobile navigation contains all required primary pages.
+  1460→* Secondary pages may be grouped appropriately.
+  1461→* Legal page is accessible from the Footer.
+  1462→* Contextual CTAs link to appropriate pages.
+  1463→* Breadcrumbs are used where approved.
+  1464→* Back navigation is not required when main navigation is sufficient.
+  1465→
+  1466→Do not let individual page agents edit central navigation.
+  1467→
+  1468→You integrate navigation once route readiness is confirmed.
+  1469→
+  1470→⸻
+  1471→
+  1472→24. Site-Wide Review After All Waves
+  1473→
+  1474→After all ten pages pass their wave reviews, perform a site-wide integration review.
+  1475→
+  1476→24.1 Create Five Final Review Subagents in Parallel
+  1477→
+  1478→Final Reviewer 1 — Full Source Traceability
+  1479→
+  1480→Check every page against:
+  1481→
+  1482→* Original Phase 1 proposal.
+  1483→* Client DOCX.
+  1484→* PAGE_SPECS.md.
+  1485→* Page briefs.
+  1486→* Source-of-truth documentation.
+  1487→
+  1488→Create a requirement-to-page traceability report.
+  1489→
+  1490→Final Reviewer 2 — Cross-Site Design Consistency
+  1491→
+  1492→Check:
+  1493→
+  1494→* Headers.
+  1495→* Page heroes.
+  1496→* Typography.
+  1497→* Cards.
+  1498→* CTAs.
+  1499→* Forms.
+  1500→* Illustrations.
+  1501→* Section rhythm.
+  1502→* Footer.
+  1503→* Mobile behavior.
+  1504→* Page distinctiveness.
+  1505→* Design-system use.
+  1506→
+  1507→Final Reviewer 3 — Architecture and Code Quality
+  1508→
+  1509→Check:
+  1510→
+  1511→* Duplication.
+  1512→* Component boundaries.
+  1513→* Data structure.
+  1514→* Client components.
+  1515→* Imports.
+  1516→* Dependencies.
+  1517→* Raw design values.
+  1518→* Shared-component misuse.
+  1519→* Route structure.
+  1520→* Build performance.
+  1521→
+  1522→Final Reviewer 4 — Accessibility and RTL
+  1523→
+  1524→Check all routes for:
+  1525→
+  1526→* Heading order.
+  1527→* Landmarks.
+  1528→* RTL.
+  1529→* Keyboard access.
+  1530→* Focus.
+  1531→* Contrast.
+  1532→* Labels.
+  1533→* Errors.
+  1534→* Dialog focus.
+  1535→* Accordion behavior.
+  1536→* Carousel behavior.
+  1537→* Touch targets.
+  1538→* Reduced motion.
+  1539→
+  1540→Final Reviewer 5 — Production Visual QA
+  1541→
+  1542→Use the production build.
+  1543→
+  1544→Inspect every route at:
+  1545→
+  1546→* 360 × 800
+  1547→* 390 × 844
+  1548→* 430 × 932
+  1549→* 768 × 1024
+  1550→* 1024 × 768
+  1551→* 1280 × 800
+  1552→* 1440 × 1200
+  1553→* 1920 × 1080
+  1554→
+  1555→Check:
+  1556→
+  1557→* Overflow.
+  1558→* Clipping.
+  1559→* Empty space.
+  1560→* Text wrapping.
+  1561→* Images.
+  1562→* SVGs.
+  1563→* Navigation.
+  1564→* Forms.
+  1565→* Footer.
+  1566→* Console.
+  1567→* Hydration.
+  1568→* Broken links.
+  1569→* Motion.
+  1570→* Loading behavior.
+  1571→
+  1572→24.2 Final Correction Loop
+  1573→
+  1574→You must:
+  1575→
+  1576→1. Consolidate all findings.
+  1577→2. Prioritize blockers, criticals, and majors.
+  1578→3. Fix shared issues centrally.
+  1579→4. Assign page-local correction prompts when useful.
+  1580→5. Re-run affected reviewers.
+  1581→6. Repeat until no blocker, critical, or major issue remains.
+  1582→7. Document accepted minor issues.
+  1583→8. Run final production verification.
+  1584→
+  1585→⸻
+  1586→
+  1587→25. Automated Scope and Quality Checks
+  1588→
+  1589→Run checks to confirm:
+  1590→
+  1591→* No Prisma import.
+  1592→* No database utility.
+  1593→* No NextAuth import.
+  1594→* No Payload import.
+  1595→* No backend SDK import.
+  1596→* No form network submission.
+  1597→* No unexpected API routes.
+  1598→* No external payment code.
+  1599→* No child data persistence.
+  1600→* No direct GSAP imports outside the approved layer.
+  1601→* No raw brand colors outside token files.
+  1602→* No duplicate button primitive.
+  1603→* No duplicate form-control primitive.
+  1604→* No page-local motion constants where central tokens apply.
+  1605→* No conflicting lockfile.
+  1606→* No scaffold branding.
+  1607→* No broken navigation route.
+  1608→* No unfinished placeholder page.
+  1609→* No accidental implementation of a real platform dashboard.
+  1610→* No runtime console errors.
+  1611→* No hydration warnings.
+  1612→* No horizontal overflow.
+  1613→
+  1614→Run:
+  1615→
+  1616→bun run lint
+  1617→bun run build
+  1618→bun run start
+  1619→
+  1620→Use the repository’s actual scripts if names differ.
+  1621→
+  1622→Do not report commands as successful unless they actually completed successfully.
+  1623→
+  1624→⸻
+  1625→
+  1626→26. Documentation Updates
+  1627→
+  1628→Update:
+  1629→
+  1630→* README.md
+  1631→* AGENTS.md only when operational rules genuinely changed.
+  1632→* DESIGN.md
+  1633→* docs/PAGE_IMPLEMENTATION_MATRIX.md
+  1634→* All docs/page-briefs/*.md
+  1635→* docs/PAGE_SPECS.md
+  1636→* docs/INFORMATION_ARCHITECTURE.md
+  1637→* docs/IMPLEMENTATION_PLAN.md
+  1638→* docs/PROGRESS.md
+  1639→* docs/REVIEW_LOG.md
+  1640→* docs/DECISION_LOG.md
+  1641→* docs/QA_CHECKLIST.md
+  1642→* docs/MOTION_GUIDELINES.md
+  1643→* docs/ASSET_GUIDELINES.md
+  1644→* docs/SKILLS.md when skill usage changes.
+  1645→
+  1646→Record:
+  1647→
+  1648→* Page agents.
+  1649→* Skills used.
+  1650→* Shared components created.
+  1651→* shadcn components installed.
+  1652→* Wave results.
+  1653→* Review findings.
+  1654→* Fixes.
+  1655→* Deferred minor issues.
+  1656→* Prototype assumptions.
+  1657→* Final route status.
+  1658→
+  1659→Do not let documentation become stale after implementation.
+  1660→
+  1661→⸻
+  1662→
+  1663→27. Completion Criteria Per Page
+  1664→
+  1665→A page is complete only when:
+  1666→
+  1667→* All required source-defined sections exist.
+  1668→* The content serves the correct audience.
+  1669→* The primary CTA is clear.
+  1670→* Demo content is appropriate.
+  1671→* No unsupported claim appears.
+  1672→* The page uses approved components.
+  1673→* No duplicate primitives were created.
+  1674→* It is visually distinctive but brand-consistent.
+  1675→* RTL is correct.
+  1676→* Mobile is polished.
+  1677→* Tablet is polished.
+  1678→* Desktop is polished.
+  1679→* Accessibility review passes.
+  1680→* Reduced motion works.
+  1681→* No backend behavior exists.
+  1682→* No network submission occurs.
+  1683→* No console error exists.
+  1684→* Your integration is complete.
+  1685→* Specialist review is complete.
+  1686→* No blocker, critical, or major issue remains.
+  1687→
+  1688→⸻
+  1689→
+  1690→28. Completion Criteria for the Entire Phase
+  1691→
+  1692→Phase 2 is complete only when:
+  1693→
+  1694→* All ten remaining pages are implemented.
+  1695→* All three waves passed review.
+  1696→* All central navigation is connected.
+  1697→* All footer links are connected.
+  1698→* No broken route remains.
+  1699→* All frontend-only forms work locally.
+  1700→* No backend code exists.
+  1701→* No database code exists.
+  1702→* No authentication code exists.
+  1703→* No payment code exists.
+  1704→* No real platform functionality exists.
+  1705→* All pages use the approved design system.
+  1706→* All pages respect RTL.
+  1707→* Responsive QA covers every route.
+  1708→* Accessibility QA covers every route.
+  1709→* Production build succeeds.
+  1710→* Final screenshots are captured.
+  1711→* Documentation is accurate.
+  1712→* No blocker remains.
+  1713→* No critical issue remains.
+  1714→* No major issue remains.
+  1715→
+  1716→⸻
+  1717→
+  1718→29. Final Deliverables
+  1719→
+  1720→Provide a final report containing:
+  1721→
+  1722→Page Inventory
+  1723→
+  1724→For every page:
+  1725→
+  1726→* Route.
+  1727→* Status.
+  1728→* Main sections.
+  1729→* Shared components.
+  1730→* Page-specific components.
+  1731→* Interactions.
+  1732→* Demo-content assumptions.
+  1733→* Review status.
+  1734→
+  1735→Parallel Implementation
+  1736→
+  1737→* Waves completed.
+  1738→* Page agents created.
+  1739→* Prompt used for each agent.
+  1740→* Skills assigned.
+  1741→* Work isolation method.
+  1742→* Merge results.
+  1743→* Conflicts resolved.
+  1744→
+  1745→Component System
+  1746→
+  1747→* shadcn components installed by you.
+  1748→* Shared branded components added.
+  1749→* Design-system variants added.
+  1750→* /design-system updates.
+  1751→* Rejected component requests.
+  1752→
+  1753→Review Loops
+  1754→
+  1755→* Review subagents created.
+  1756→* Skills assigned.
+  1757→* Findings by severity.
+  1758→* Blockers fixed.
+  1759→* Critical issues fixed.
+  1760→* Major issues fixed.
+  1761→* Deferred minor suggestions.
+  1762→
+  1763→Frontend-Only Verification
+  1764→
+  1765→Confirm with evidence:
+  1766→
+  1767→* No backend.
+  1768→* No database.
+  1769→* No auth.
+  1770→* No CMS.
+  1771→* No payment.
+  1772→* No real form submission.
+  1773→* No API submission.
+  1774→* No personal-data persistence.
+  1775→
+  1776→Production Verification
+  1777→
+  1778→* Lint result.
+  1779→* Type-check result.
+  1780→* Build result.
+  1781→* Production-server result.
+  1782→* Routes tested.
+  1783→* Viewports tested.
+  1784→* Console status.
+  1785→* Accessibility status.
+  1786→* RTL status.
+  1787→* Broken-link status.
+  1788→* Screenshots.
+  1789→
+  1790→Final Assessment
+  1791→
+  1792→State whether the complete frontend prototype is ready for client presentation.
+  1793→
+  1794→Do not claim readiness while unresolved blocker, critical, or major issues remain.
+  1795→
+  1796→⸻
+  1797→
+  1798→30. Hard Stop
+  1799→
+  1800→After all ten remaining pages are complete, reviewed, integrated, documented, and production-verified:
+  1801→
+  1802→STOP.
+  1803→
+  1804→Do not begin:
+  1805→
+  1806→* Backend implementation.
+  1807→* CMS implementation.
+  1808→* Database design.
+  1809→* Authentication.
+  1810→* Real platform development.
+  1811→* Student dashboard.
+  1812→* Parent dashboard.
+  1813→* Trainer dashboard.
+  1814→* Payment integration.
+  1815→* Email integration.
+  1816→* WhatsApp API integration.
+  1817→* Deployment of a production data system.
+  1818→* Phase 2 educational-platform functionality.
+  1819→
+  1820→This task ends with a complete, high-quality, frontend-only public-site ready to present to the client.

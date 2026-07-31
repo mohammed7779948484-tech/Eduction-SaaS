@@ -1,35 +1,93 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { z } from "zod";
+import { PageHero } from "@/components/brand/page-hero";
+import { SectionShell } from "@/components/layout/section-shell";
 import { PageContainer } from "@/components/layout/page-container";
-import { useLanguage } from "@/components/layout/language-provider";
+import { PrototypeForm } from "@/components/brand/prototype-form";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { MessageCircle, GraduationCap, UserPlus } from "lucide-react";
+import { registrationContent } from "@/content/registration";
+import { site } from "@/content/site";
 
-export default function RegisterComingSoon() {
-  const { lang } = useLanguage();
+const schema = z.object({
+  parentName: z.string().min(1),
+  parentPhone: z.string().min(1),
+  parentEmail: z.string().email(),
+  studentName: z.string().min(1),
+  studentAge: z.string().min(1),
+  channel: z.string().min(1),
+  branch: z.string().min(1),
+  schedule: z.string().min(1),
+  consent: z.boolean().refine((v) => v === true),
+});
+
+export default function RegisterPage() {
+  const c = registrationContent;
+  const fields = [
+    { name: "parentName", label: c.form.parentName, type: "text" as const, required: true, autoComplete: "name", placeholder: { ar: "الاسم الكامل", en: "Full name" } },
+    { name: "parentPhone", label: c.form.parentPhone, type: "tel" as const, required: true, autoComplete: "tel", placeholder: { ar: "+967…", en: "+967…" } },
+    { name: "parentEmail", label: c.form.parentEmail, type: "email" as const, required: true, autoComplete: "email", placeholder: { ar: "example@mail.com", en: "example@mail.com" } },
+    { name: "studentName", label: c.form.studentName, type: "text" as const, required: true, placeholder: { ar: "اسم الطفل", en: "Child name" } },
+    { name: "studentAge", label: c.form.studentAge, type: "select" as const, required: true, options: [
+      { value: "7", label: { ar: "7 سنوات", en: "7 years" } },
+      { value: "8", label: { ar: "8 سنوات", en: "8 years" } },
+      { value: "9", label: { ar: "9 سنوات", en: "9 years" } },
+      { value: "10", label: { ar: "10 سنوات", en: "10 years" } },
+      { value: "11", label: { ar: "11 سنة", en: "11 years" } },
+      { value: "12", label: { ar: "12 سنة", en: "12 years" } },
+    ] },
+    { name: "channel", label: c.form.channel, type: "select" as const, required: true, options: c.channels },
+    { name: "branch", label: c.form.branch, type: "select" as const, required: true, options: c.branches },
+    { name: "schedule", label: c.form.schedule, type: "select" as const, required: true, options: c.schedules },
+    { name: "consent", label: c.form.consent, type: "checkbox" as const, required: true },
+  ];
+
+  const sections = [
+    { title: c.form.parentSection, fields: ["parentName", "parentPhone", "parentEmail"] },
+    { title: c.form.studentSection, fields: ["studentName", "studentAge"] },
+    { title: c.form.preferencesSection, fields: ["channel", "branch", "schedule", "consent"] },
+  ];
+
   return (
-    <section className="py-12 sm:py-16">
-      <PageContainer className="text-center space-y-6 max-w-xl">
-        <span className="inline-flex items-center gap-2 rounded-full bg-secondary px-4 py-1.5 text-sm font-bold text-primary">
-          {lang === "ar" ? "قريباً" : "Coming soon"}
-        </span>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-primary text-balance">
-          {lang === "ar" ? "التسجيل وحجز الحصة التجريبية" : "Registration & trial-lesson booking"}
-        </h1>
-        <p className="text-muted-foreground text-pretty">
-          {lang === "ar"
-            ? "هذه الصفحة من المرحلة الأولى للموقع التجريبي وستُفعّل لاحقاً. تواصل معنا عبر الواتساب لحجز حصّتك التجريبية المجانية."
-            : "This page is part of the prototype's first phase and will be activated later. Contact us via WhatsApp to book your free trial lesson."}
-        </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-          <Button asChild variant="cta" size="xl">
-            <a href="/" className="inline-flex items-center gap-2">
-              {lang === "ar" ? "العودة للرئيسية" : "Back to home"}
-              <ArrowRight className="size-4 rtl:rotate-180" />
-            </a>
-          </Button>
-        </div>
-      </PageContainer>
-    </section>
+    <>
+      <PageHero eyebrow={c.hero.eyebrow} title={c.hero.title} subtitle={c.hero.subtitle} tone="navy" />
+
+      {/* Options */}
+      <SectionShell tone="white">
+        <PageContainer>
+          <div className="grid gap-6 sm:grid-cols-2">
+            <Card className="p-6 border-border bg-card shadow-sm">
+              <GraduationCap className="size-10 text-brand-teal-strong mb-3" />
+              <h2 className="text-lg font-bold text-primary mb-1">{c.options.trialTitle.ar}</h2>
+              <p className="text-sm text-muted-foreground">{c.options.trialDesc.ar}</p>
+            </Card>
+            <Card className="p-6 border-border bg-card shadow-sm">
+              <UserPlus className="size-10 text-brand-teal-strong mb-3" />
+              <h2 className="text-lg font-bold text-primary mb-1">{c.options.registerTitle.ar}</h2>
+              <p className="text-sm text-muted-foreground">{c.options.registerDesc.ar}</p>
+            </Card>
+          </div>
+        </PageContainer>
+      </SectionShell>
+
+      {/* Form */}
+      <SectionShell tone="default">
+        <PageContainer className="max-w-2xl">
+          <PrototypeForm fields={fields} submitLabel={c.form.submit} schema={schema} sections={sections} />
+          {/* WhatsApp alternative */}
+          <div className="mt-6 text-center">
+            <p className="text-sm text-muted-foreground mb-3">{c.form.whatsappAlt.ar}</p>
+            <Button asChild variant="outline" size="lg">
+              <a href={`https://wa.me/${site.whatsapp.replace(/[^0-9]/g, "")}`} className="inline-flex items-center gap-2">
+                <MessageCircle className="size-4" />
+                {site.whatsapp}
+              </a>
+            </Button>
+          </div>
+        </PageContainer>
+      </SectionShell>
+    </>
   );
 }

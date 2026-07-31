@@ -4,7 +4,7 @@ import { MapPin, MessageCircle, Mail, ShieldCheck } from "lucide-react";
 import { Logo } from "@/components/brand/logo";
 import { LanguageToggle } from "./language-toggle";
 import { useLanguage } from "./language-provider";
-import { navItems } from "@/lib/routes";
+import { navItems, secondaryNavItems } from "@/lib/routes";
 import { site } from "@/content/site";
 import { heroContent } from "@/content/home";
 
@@ -91,8 +91,21 @@ export function SiteFooter() {
           </div>
         </div>
 
+        {/* Secondary links row */}
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-white/10 pt-6">
+          {secondaryNavItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.enabled ? item.href : undefined}
+              className="text-xs text-primary-foreground/60 hover:text-brand-teal transition-colors"
+            >
+              {item.label[lang]}
+            </a>
+          ))}
+        </div>
+
         {/* Bottom bar */}
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 pt-6">
+        <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 pt-6">
           <p className="text-xs text-primary-foreground/60 text-center sm:text-start">
             © {new Date().getFullYear()} {site.name[dir]}
           </p>
