@@ -1,13 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu } from "lucide-react";
+import { Menu, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu";
 import { Logo } from "@/components/brand/logo";
 import { LanguageToggle } from "./language-toggle";
 import { useLanguage } from "./language-provider";
-import { navItems } from "@/lib/routes";
+import { navItems, secondaryNavItems } from "@/lib/routes";
 import { cn } from "@/lib/utils";
 import { heroContent } from "@/content/home";
 
@@ -24,6 +32,8 @@ export function SiteHeader() {
   }, []);
 
   const soonLabel = lang === "ar" ? "قريباً" : "Soon";
+  const moreLabel = lang === "ar" ? "المزيد" : "More";
+  const allItems = [...navItems, ...secondaryNavItems.filter((i) => i.href !== "/privacy")];
 
   return (
     <header
@@ -40,7 +50,7 @@ export function SiteHeader() {
           <Logo size={40} />
         </a>
 
-        {/* Desktop nav (center) */}
+        {/* Desktop nav (center) — primary items + "More" dropdown for secondary */}
         <nav className="hidden lg:flex items-center gap-1" aria-label={lang === "ar" ? "الرئيسية" : "Primary"}>
           {navItems.map((item) => (
             <a
@@ -56,9 +66,29 @@ export function SiteHeader() {
               )}
             >
               {item.label[lang]}
-              {!item.enabled && <span className="ms-1 text-[10px] align-super">•</span>}
             </a>
           ))}
+
+          {/* "More" dropdown for secondary pages */}
+          <DropdownMenu>
+            <DropdownMenuTrigger className="inline-flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-foreground hover:bg-secondary hover:text-primary transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ring">
+              {moreLabel}
+              <ChevronDown className="size-4" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="center" className="w-56">
+              <DropdownMenuLabel className="text-xs text-muted-foreground">
+                {lang === "ar" ? "صفحات إضافية" : "More pages"}
+              </DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              {secondaryNavItems.map((item) => (
+                <DropdownMenuItem key={item.href} asChild>
+                  <a href={item.href} className="cursor-pointer">
+                    {item.label[lang]}
+                  </a>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </nav>
 
         {/* Actions (inline-end) */}
@@ -81,7 +111,7 @@ export function SiteHeader() {
                 <Menu className="size-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side={lang === "ar" ? "right" : "left"} className="w-[300px] p-0">
+            <SheetContent side={lang === "ar" ? "right" : "left"} className="w-[300px] p-0 overflow-y-auto">
               <SheetHeader className="px-5 pt-5 pb-3 border-b border-border">
                 <SheetTitle asChild>
                   <div>
@@ -93,6 +123,7 @@ export function SiteHeader() {
                 </SheetDescription>
               </SheetHeader>
               <nav className="flex flex-col gap-1 p-4" aria-label={lang === "ar" ? "التنقّل" : "Mobile"}>
+                {/* Primary nav */}
                 {navItems.map((item) => (
                   <a
                     key={item.href}
@@ -107,7 +138,19 @@ export function SiteHeader() {
                     )}
                   >
                     {item.label[lang]}
-                    {!item.enabled && <span className="ms-2 text-xs text-muted-foreground/60">{soonLabel}</span>}
+                  </a>
+                ))}
+                {/* Divider */}
+                <div className="my-2 border-t border-border" />
+                {/* Secondary nav */}
+                {secondaryNavItems.map((item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="rounded-lg px-3 py-3 text-sm font-medium text-muted-foreground hover:bg-secondary hover:text-primary transition-colors min-h-11"
+                  >
+                    {item.label[lang]}
                   </a>
                 ))}
                 <Button asChild variant="cta" size="lg" className="mt-3">
