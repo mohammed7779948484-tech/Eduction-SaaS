@@ -10,8 +10,8 @@ export const contactContent = {
     },
   },
   methods: [
-    { icon: "whatsapp", title: { ar: "واتساب", en: "WhatsApp" }, value: "+967 700 000 000", href: "https://wa.me/‪+967771047440‬" },
-    { icon: "phone", title: { ar: "هاتف", en: "Phone" }, value: "+967 1 000 000", href: "tel:‪+967 771047440‬" },
+    { icon: "whatsapp", title: { ar: "واتساب", en: "WhatsApp" }, value: "‪+967 771 047 440‬", href: "https://wa.me/‪+967771047440‬" },
+    { icon: "phone", title: { ar: "هاتف", en: "Phone" }, value: "‪+967 771 047 440‬", href: "tel:‪+967 771047440‬" },
     { icon: "mail", title: { ar: "بريد إلكتروني", en: "Email" }, value: "info@example.ye", href: "mailto:info@example.ye" },
   ],
   branches: [
